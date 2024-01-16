@@ -386,8 +386,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b33dc3e4a906d248bcc356f775e2ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 100
-  speed: 7
+  jumpForce: 20
+  jumpForceMax: 20
+  speed: 5
 --- !u!1 &1300644569
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,8 +401,8 @@ GameObject:
   - component: {fileID: 1300644571}
   - component: {fileID: 1300644570}
   m_Layer: 0
-  m_Name: Square (1)
-  m_TagString: Untagged
+  m_Name: Plataforma
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -531,7 +532,7 @@ GameObject:
   - component: {fileID: 1497933286}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
