@@ -4,27 +4,61 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    public float jumpForce;
-    public float jumpForceMax;
-    public float speed;
+    //player components
+    [SerializeField] Rigidbody2D _rb;
 
-    private void FixedUpdate()
+    //jump variables
+    [SerializeField] private float _jumpForce;
+    [SerializeField] private bool _isGrounded;
+    [SerializeField] private float _jumpFriction;
+    private bool _jumpInput;
+
+    //movement variables
+    [SerializeField] private float _speed;
+    private float _horizontalInput;
+
+    private void Start()
     {
-        //float vertical = Input.GetAxis("Jump");
-        float horizontal = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(horizontal, 0, 0) * speed * Time.deltaTime;
+        _rb = GetComponent<Rigidbody2D>();
+    }
 
-        if (Input.GetButton("Jump"))
+
+    private void Update()
+    {
+        HandleInputs();
+
+        MoveHorizontal();
+
+        if (_jumpInput && _isGrounded)
         {
-            transform.position += new Vector3(0, jumpForce, 0) * speed * Time.deltaTime;
-           
-            Debug.Log("Salta");
-            jumpForce--;
+            Jump();
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            _isGrounded = true;
+        }
     }
-    
+
+    private void HandleInputs()
+    {
+        _jumpInput = Input.GetButtonDown("Jump");
+
+        _horizontalInput = Input.GetAxis("Horizontal");
+    }
+
+    private void MoveHorizontal()
+    {
+        transform.position += new Vector3(_horizontalInput, 0, 0) * _speed * Time.deltaTime;
+    }
+
+    private void Jump()
+    {
+        _isGrounded = false;
+        
+        _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+    }
 }
