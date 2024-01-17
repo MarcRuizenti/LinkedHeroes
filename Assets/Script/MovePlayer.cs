@@ -15,6 +15,7 @@ public class MovePlayer : MonoBehaviour
 
     //movement variables
     [SerializeField] private float _speed;
+    [SerializeField] private float _speedFly;
     private float _horizontalInput;
 
     private void Start()
@@ -33,6 +34,7 @@ public class MovePlayer : MonoBehaviour
         {
             Jump();
         }
+      
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,6 +43,7 @@ public class MovePlayer : MonoBehaviour
         {
             _isGrounded = true;
         }
+        
     }
 
     private void HandleInputs()
@@ -52,7 +55,15 @@ public class MovePlayer : MonoBehaviour
 
     private void MoveHorizontal()
     {
-        transform.position += new Vector3(_horizontalInput, 0, 0) * _speed * Time.deltaTime;
+        if (!_isGrounded)
+        {
+            transform.position += new Vector3(_horizontalInput, 0, 0) * _speedFly  * Time.deltaTime;
+        }
+        else
+        {
+            transform.position += new Vector3(_horizontalInput, 0, 0) * _speed * Time.deltaTime;
+        }
+        
     }
 
     private void Jump()
