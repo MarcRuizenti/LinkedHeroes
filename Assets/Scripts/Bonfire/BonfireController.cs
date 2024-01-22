@@ -24,17 +24,17 @@ public class BonfireController : MonoBehaviour
         //Esto lo estabamos haciendo para enseñar un texto encima de la fogata pero no ha salido bien
         //le preguntamos al Victor el proximo dia
 
-        //if (_playerInsideRadius)
-        //{
-        //    _onBonfireEnter.Invoke();
-        //}
-        //else
-        //{
-        //    _onBonfireExit.Invoke();
-        //}
+        if (_playerInsideRadius)
+        {
+            _onBonfireEnter.Invoke();
+        }
+        else
+        {
+            _onBonfireExit.Invoke();
+        }
 
         //si el jugador esta en el radio y pulsa la x
-        if(_playerInsideRadius && Input.GetKeyDown(KeyCode.X))
+        if (_playerInsideRadius && Input.GetKeyDown(KeyCode.X))
         {
             _onCharacterChange.Invoke();
         }   
