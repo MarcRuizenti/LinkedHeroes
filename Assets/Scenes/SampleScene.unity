@@ -668,6 +668,7 @@ GameObject:
   - component: {fileID: 1224526060}
   - component: {fileID: 1224526061}
   - component: {fileID: 1224526062}
+  - component: {fileID: 1224526063}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -887,6 +888,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1682dc29c371624cb16329ec51908f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1224526063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224526055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b06029bc506a24bb82539e3275d792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 3
+  _health: 0
+  _onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1224526055}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1300644569
 GameObject:
   m_ObjectHideFlags: 0
