@@ -26,6 +26,6 @@ public class GameEventListener : MonoBehaviour
     //Cuando el evento suscrito ha sido lanzado invocamos la respuesta
     public void OnEventRaised()
     {
-        response.Invoke();
+        response?.Invoke();
     }
 }
