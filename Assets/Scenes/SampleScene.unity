@@ -241,6 +241,126 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bonfireText: {fileID: 1526416664}
   _offset: 3
+--- !u!1 &373116413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 373116415}
+  - component: {fileID: 373116414}
+  m_Layer: 0
+  m_Name: PlayerDamageTakenListener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &373116414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373116413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd19cba86e627554488f1ed0bd7e23c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: 0a401acb6f3487b40a9ba9315434a260, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1224526063}
+        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &373116415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373116413}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.822357, y: -1.1953579, z: 0.08117694}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &374085761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 374085763}
+  - component: {fileID: 374085762}
+  m_Layer: 0
+  m_Name: PlayerDeathListener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &374085762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374085761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd19cba86e627554488f1ed0bd7e23c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: 51d9ce86253a91e4786eeb977f1b8741, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1224526060}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &374085763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374085761}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1527738, y: -1.0130981, z: 0.051657896}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +397,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.018066913, g: 0.018378412, b: 0.01886791, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -344,7 +464,7 @@ GameObject:
   - component: {fileID: 777858836}
   - component: {fileID: 777858835}
   - component: {fileID: 777858834}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plataforma (3)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -534,7 +654,7 @@ GameObject:
   - component: {fileID: 824483441}
   - component: {fileID: 824483440}
   - component: {fileID: 824483439}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plataforma (5)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -827,10 +947,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b33dc3e4a906d248bcc356f775e2ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 1224526056}
   _jumpForce: 7
-  _isGrounded: 0
   _speed: 5
   _speedFly: 3
+  _origins: []
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _onDamageTaken:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 0a401acb6f3487b40a9ba9315434a260, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &1224526061
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -905,10 +1044,10 @@ MonoBehaviour:
   _onDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1224526055}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 11400000, guid: 51d9ce86253a91e4786eeb977f1b8741, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -917,6 +1056,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _damagebleCollider: {fileID: 1224526061}
+  _knocback: {x: 5.86, y: 0.74}
 --- !u!1 &1300644569
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,7 +1069,7 @@ GameObject:
   - component: {fileID: 1300644572}
   - component: {fileID: 1300644571}
   - component: {fileID: 1300644570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plataforma
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1058,7 +1199,7 @@ GameObject:
   - component: {fileID: 1340234561}
   - component: {fileID: 1340234560}
   - component: {fileID: 1340234559}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plataforma (2)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1188,7 +1329,7 @@ GameObject:
   - component: {fileID: 1497933288}
   - component: {fileID: 1497933287}
   - component: {fileID: 1497933286}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1453,7 +1594,7 @@ GameObject:
   - component: {fileID: 1541075255}
   - component: {fileID: 1541075254}
   - component: {fileID: 1541075253}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plataforma (4)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1829,7 +1970,7 @@ GameObject:
   - component: {fileID: 2111267839}
   - component: {fileID: 2111267838}
   - component: {fileID: 2111267837}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plataforma (1)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1948,3 +2089,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &622937008508507001
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3628415250317017134, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
+      propertyPath: m_Name
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190144163028702894, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190144163028702894, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.337
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190144163028702894, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.348
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190144163028702894, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190144163028702894, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190144163028702894, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190144163028702894, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190144163028702894, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190144163028702894, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190144163028702894, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190144163028702894, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3661514467a8e2439ef48d7b47da0ee, type: 3}
