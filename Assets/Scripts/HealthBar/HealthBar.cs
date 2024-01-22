@@ -40,6 +40,14 @@ public class HealthBar : MonoBehaviour
     private IEnumerator InvincibleMode()
     {
         _damagebleCollider.enabled = false;
+
+        if(gameObject.GetComponent<PlayerController>() != null )
+        {
+            gameObject.GetComponent<PlayerController>().enabled = false;
+            yield return new WaitForSeconds(0.2f);
+            gameObject.GetComponent<PlayerController>().enabled = true;
+        }
+
         Color originalColor = gameObject.GetComponent<SpriteRenderer>().color;
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1,.5f);
         yield return new WaitForSeconds(0.5f);
