@@ -28,7 +28,7 @@ public class HealthBar : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         _health -= damageAmount;
-        gameObject.GetComponent<Rigidbody2D>().velocity = _knocback * new Vector2(transform.localScale.x, 1);
+        gameObject.GetComponent<Rigidbody2D>().velocity = _knocback * new Vector2(-gameObject.GetComponent<Rigidbody2D>().velocity.x, -gameObject.GetComponent<Rigidbody2D>().velocity.y);
         StartCoroutine(InvincibleMode());
     }
 

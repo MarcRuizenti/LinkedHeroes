@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     //player components
     private Rigidbody2D _rb;
     [SerializeField] private Collider2D _collider;
+    [SerializeField] private GameObject _espada;
+    private bool _inputAttack; 
 
     //jump variables
     [SerializeField] private float _jumpForce;
@@ -23,15 +25,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _speedFly;
     private float _horizontalInput;
+    [SerializeField] private float _maxVelocity;
+    [SerializeField] private float _maxVelocityFly;
 
     //detect ground
     private Vector3 _originRight;
     private Vector3 _originLeft;
     public List<Vector3> _origins;
     [SerializeField] private LayerMask _groundLayer;
-
-    //events
-    [SerializeField] private UnityEvent _onDamageTaken;
 
     private void Start()
     {
@@ -61,17 +62,7 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
 
-    }
-
-    //Detects ground by using trigger collider and tags
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        string tag = collision.tag;
-
-        if (tag == "Damage")
-        {
-            _onDamageTaken?.Invoke();
-        }
+        Attack();
 
     }
 
@@ -81,18 +72,22 @@ public class PlayerController : MonoBehaviour
         _jumpInput = Input.GetButtonDown("Jump");
 
         _horizontalInput = Input.GetAxis("Horizontal");
+
+        _inputAttack = Input.GetButtonDown("Attack");
     }
 
     //Player movement on the horizontal axis
     private void MoveHorizontal()
     {
-        if (IsGrounded())
+        if (!IsGrounded())
         {
-            transform.position += new Vector3(_horizontalInput, 0, 0) * _speedFly * Time.deltaTime;
+            if (_rb.velocity.x < _maxVelocityFly && _rb.velocity.x > -_maxVelocityFly)
+                _rb.velocity += new Vector2(_horizontalInput, 0) * _speedFly * Time.deltaTime;
         }
         else
         {
-            transform.position += new Vector3(_horizontalInput, 0, 0) * _speed * Time.deltaTime;
+            if (_rb.velocity.x < _maxVelocity && _rb.velocity.x > -_maxVelocity)
+                _rb.velocity += new Vector2(_horizontalInput, 0) * _speed * Time.deltaTime;
         }
 
     }
@@ -125,5 +120,20 @@ public class PlayerController : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void Attack()
+    {
+        if (_inputAttack)
+        {
+            StartCoroutine(AttackDuration());
+        }
+    }
+
+    private IEnumerator AttackDuration()
+    {
+        _espada.SetActive(true);
+        yield return new WaitForSeconds(1);
+        _espada.SetActive(false);
     }
 }
