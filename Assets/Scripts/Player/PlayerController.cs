@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _speedFly;
     private float _horizontalInput;
+    private float _verticalInput;
     [SerializeField] private float _maxVelocity;
     [SerializeField] private float _maxVelocityFly;
 
@@ -74,6 +75,8 @@ public class PlayerController : MonoBehaviour
         _jumpInput = Input.GetButtonDown("Jump");
 
         _horizontalInput = Input.GetAxis("Horizontal");
+
+        _verticalInput = Input.GetAxis("Vertical");
 
         _inputAttack = Input.GetButtonDown("Attack");
     }
@@ -151,6 +154,11 @@ public class PlayerController : MonoBehaviour
         if (_horizontalInput > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        if (_verticalInput < 0)
+        {
+           
         }
     }
 }
