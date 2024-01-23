@@ -4,26 +4,23 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
-    //Para cambiar el personaje mas adelante
-    private enum Character
-    {
-        AIKE,
-        KROKUR
-    }
-    private Character _currentCharacter;
+    
 
-    //de momento
+    
     private SpriteRenderer _spriteRenderer;
+    PlayerController _playerController; //si no pones nada se pone private directamente
     private Color _defaultColor;
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _playerController = GetComponent<PlayerController>();
         _defaultColor = _spriteRenderer.color;
     }
 
     public void ChangeCharacter()
     {
+        _playerController.ChangeCharacter();
         if(_spriteRenderer.color == _defaultColor)
         {
             _spriteRenderer.color = Color.cyan;

@@ -35,11 +35,16 @@ public class PlayerController : MonoBehaviour
     private Vector3 _originLeft;
     public List<Vector3> _origins;
     [SerializeField] private LayerMask _groundLayer;
-
+    public enum Character
+    {
+        AIKE,
+        KROKUR
+    }
+    private Character _currentCharacter;
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-
+        _currentCharacter = Character.AIKE;
     }
 
 
@@ -81,6 +86,20 @@ public class PlayerController : MonoBehaviour
         _inputAttack = Input.GetButtonDown("Attack");
     }
 
+    public void ChangeCharacter()
+    {
+        switch (_currentCharacter)
+        {
+            case Character.AIKE:
+                _currentCharacter = Character.KROKUR;
+                break;
+            case Character.KROKUR:
+                _currentCharacter = Character.AIKE;
+                break;
+            default:
+                break;
+        }
+    }
     //Player movement on the horizontal axis
     private void MoveHorizontal()
     {
@@ -133,9 +152,28 @@ public class PlayerController : MonoBehaviour
     {
         if (_inputAttack)
         {
-            StartCoroutine(AttackDuration());
-            gameObject.GetComponentInChildren<Animator>().Play("Slash", 0);
+            switch (_currentCharacter)
+            {
+                case Character.AIKE:
+                    Aike();
+                    break;
+                case Character.KROKUR:
+                    Krokur();
+                    break;
+                default:
+                    break;
+            }
+        
         }
+    }
+    private void Aike()
+    {
+        StartCoroutine(AttackDuration());
+        gameObject.GetComponentInChildren<Animator>().Play("Slash", 0);
+    }
+    private void Krokur()
+    {
+        
     }
 
     private IEnumerator AttackDuration()
