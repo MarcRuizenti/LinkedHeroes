@@ -40,11 +40,17 @@ public class PlayerController : MonoBehaviour
         AIKE,
         KROKUR
     }
+    LineRenderer _lineRenderer;
+    DistanceJoint2D _distanceJoint;
+
     private Character _currentCharacter;
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _currentCharacter = Character.AIKE;
+        _distanceJoint = GetComponent<DistanceJoint2D>();
+        _lineRenderer = GetComponent<LineRenderer>();
+        _distanceJoint.enabled = false;
     }
 
 
@@ -72,6 +78,11 @@ public class PlayerController : MonoBehaviour
         Attack();
 
         Flip();
+
+        if (_distanceJoint.enabled)
+        {
+            _lineRenderer.SetPosition(1, transform.position);
+        }
     }
 
     //Handles player inputs and stores them
@@ -173,7 +184,23 @@ public class PlayerController : MonoBehaviour
     }
     private void Krokur()
     {
-        
+        if (_distanceJoint.enabled)
+        {
+            _lineRenderer.enabled = false;
+            _distanceJoint.enabled = false;
+        }
+        else
+        {
+            Transform anchor = this.GetComponentInChildren<AnchorManager>().GetTargetAnchor((int)this.transform.localScale.x);
+            if (anchor == null)
+                return;
+            Vector2 targetPos = anchor.position;
+            _lineRenderer.SetPosition(0, targetPos);
+            _lineRenderer.SetPosition(1, transform.position);
+            _distanceJoint.connectedAnchor = targetPos;
+            _distanceJoint.enabled = true;
+            _lineRenderer.enabled = true;
+        }
     }
 
     private IEnumerator AttackDuration()
