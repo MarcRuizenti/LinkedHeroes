@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     [SerializeField] private Collider2D _collider;
     [SerializeField] private GameObject _espada;
-    private bool _inputAttack; 
+    private bool _inputAttack;
+    private float _direction;
 
     //jump variables
     [SerializeField] private float _jumpForce;
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
         Attack();
 
+        Flip();
     }
 
     //Handles player inputs and stores them
@@ -89,6 +91,8 @@ public class PlayerController : MonoBehaviour
             if (_rb.velocity.x < _maxVelocity && _rb.velocity.x > -_maxVelocity)
                 _rb.velocity += new Vector2(_horizontalInput, 0) * _speed * Time.deltaTime;
         }
+
+        
 
     }
 
@@ -127,6 +131,7 @@ public class PlayerController : MonoBehaviour
         if (_inputAttack)
         {
             StartCoroutine(AttackDuration());
+            gameObject.GetComponentInChildren<Animator>().Play("Slash", 0);
         }
     }
 
@@ -135,5 +140,17 @@ public class PlayerController : MonoBehaviour
         _espada.SetActive(true);
         yield return new WaitForSeconds(1);
         _espada.SetActive(false);
+    }
+
+    private void Flip()
+    {
+        if (_horizontalInput < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        if (_horizontalInput > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 }
