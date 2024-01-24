@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] int _health;
     [SerializeField] private UnityEvent _onDeath;
     [SerializeField] private Collider2D _damagebleCollider;
-    [SerializeField] private Vector2 _knocback;
+    [SerializeField] private Vector2 _knockback;
 
     private void Start()
     {
@@ -28,7 +28,7 @@ public class HealthBar : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         _health -= damageAmount;
-        gameObject.GetComponent<Rigidbody2D>().velocity = _knocback * new Vector2(-gameObject.GetComponent<Rigidbody2D>().velocity.x, -gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        gameObject.GetComponent<Rigidbody2D>().velocity = _knockback * new Vector2(-gameObject.GetComponent<Rigidbody2D>().velocity.x, -gameObject.GetComponent<Rigidbody2D>().velocity.y);
         StartCoroutine(InvincibleMode());
     }
 

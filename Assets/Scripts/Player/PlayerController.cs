@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour
     private bool _inputAttack;
     private float _direction;
 
+    //sword components
+    [SerializeField] private GameObject _rightSword;
+    [SerializeField] private GameObject _leftSword;
+    [SerializeField] private GameObject _upSword;
+    [SerializeField] private GameObject _downSword;
+
     //jump variables
     [SerializeField] private float _jumpForce;
     //[SerializeField] private float _jumpFriction;
@@ -179,9 +185,39 @@ public class PlayerController : MonoBehaviour
     }
     private void Aike()
     {
-        StartCoroutine(AttackDuration());
-        gameObject.GetComponentInChildren<Animator>().Play("Slash", 0);
+        if(_verticalInput > 0)
+        {
+            StartCoroutine(AttackDuration(gameObject.transform.GetChild(2).gameObject));
+            return;
+        }
+
+        if(_verticalInput < 0)
+        {
+            StartCoroutine(AttackDuration(gameObject.transform.GetChild(3).gameObject));
+            return;
+        }
+
+        if(transform.localScale.x > 0)
+        {
+            StartCoroutine(AttackDuration(gameObject.transform.GetChild(0).gameObject));
+            return;
+        }
+
+        if(transform.localScale.x < 0)
+        {
+            StartCoroutine(AttackDuration(gameObject.transform.GetChild(1).gameObject));
+            return;
+        }
     }
+
+    private IEnumerator AttackDuration(GameObject _sword)
+    {
+        _sword.SetActive(true);
+        _sword.GetComponent<Animator>().Play("Slash", 0);
+        yield return new WaitForSeconds(0.4f);
+        _sword.SetActive(false);
+    }
+
     private void Krokur()
     {
         if (_distanceJoint.enabled)
@@ -203,12 +239,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator AttackDuration()
-    {
-        _espada.SetActive(true);
-        yield return new WaitForSeconds(1);
-        _espada.SetActive(false);
-    }
+    
 
     private void Flip()
     {
@@ -219,11 +250,6 @@ public class PlayerController : MonoBehaviour
         if (_horizontalInput > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
-        }
-
-        if (_verticalInput < 0)
-        {
-           
         }
     }
 }
