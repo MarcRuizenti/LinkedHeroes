@@ -187,27 +187,18 @@ public class PlayerController : MonoBehaviour
     {
         if(_verticalInput > 0)
         {
-            StartCoroutine(AttackDuration(gameObject.transform.GetChild(2).gameObject));
+            StartCoroutine(AttackDuration(gameObject.transform.GetChild(1).gameObject));
             return;
         }
 
         if(_verticalInput < 0)
         {
-            StartCoroutine(AttackDuration(gameObject.transform.GetChild(3).gameObject));
+            StartCoroutine(AttackDuration(gameObject.transform.GetChild(2).gameObject));
             return;
         }
 
-        if(transform.localScale.x > 0)
-        {
-            StartCoroutine(AttackDuration(gameObject.transform.GetChild(0).gameObject));
-            return;
-        }
-
-        if(transform.localScale.x < 0)
-        {
-            StartCoroutine(AttackDuration(gameObject.transform.GetChild(1).gameObject));
-            return;
-        }
+        
+        StartCoroutine(AttackDuration(gameObject.transform.GetChild(0).gameObject));
     }
 
     private IEnumerator AttackDuration(GameObject _sword)
