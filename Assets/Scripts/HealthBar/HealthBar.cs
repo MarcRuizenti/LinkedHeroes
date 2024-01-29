@@ -28,7 +28,6 @@ public class HealthBar : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         _health -= damageAmount;
-        gameObject.GetComponent<Rigidbody2D>().velocity = _knockback * new Vector2(-gameObject.GetComponent<Rigidbody2D>().velocity.x, -gameObject.GetComponent<Rigidbody2D>().velocity.y);
         StartCoroutine(InvincibleMode());
     }
 
@@ -43,6 +42,7 @@ public class HealthBar : MonoBehaviour
 
         if(gameObject.GetComponent<PlayerController>() != null )
         {
+            gameObject.GetComponent<Rigidbody2D>().velocity = _knockback * new Vector2(-gameObject.GetComponent<Rigidbody2D>().velocity.x, -gameObject.GetComponent<Rigidbody2D>().velocity.y);
             gameObject.GetComponent<PlayerController>().enabled = false;
             yield return new WaitForSeconds(0.2f);
             gameObject.GetComponent<PlayerController>().enabled = true;
@@ -57,5 +57,10 @@ public class HealthBar : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         gameObject.GetComponent<SpriteRenderer>().color = originalColor;
         _damagebleCollider.enabled = true;
+    }
+
+    public void DieEnemy()
+    {
+        Destroy(gameObject);
     }
 }
