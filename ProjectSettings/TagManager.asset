@@ -8,6 +8,10 @@ TagManager:
   - Parry
   - Damage
   - Weapon
+  - Arriba
+  - Abajo
+  - Derecha
+  - Izquierda
   layers:
   - Default
   - TransparentFX
