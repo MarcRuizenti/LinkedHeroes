@@ -6,16 +6,6 @@ using System.Linq;
 public class AnchorManager : MonoBehaviour
 {
    Dictionary <int,Transform> myAnchors = new Dictionary<int, Transform> ();
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         myAnchors.Add(collision.gameObject.GetInstanceID(), collision.transform);

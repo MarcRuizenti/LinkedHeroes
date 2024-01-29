@@ -14,8 +14,9 @@ public class Sword : MonoBehaviour
                 Debug.Log("Parry");
                 gameObject.GetComponentInParent<Rigidbody2D>().velocity = _knockback;
                 break;
-            case "Damage":
+            case "Enemy":
                 Debug.Log("Damage");
+                collision.gameObject.GetComponentInParent<HealthBar>().TakeDamage(1);
                 break;
         }
     }
