@@ -9,18 +9,22 @@ TagManager:
   - Damage
   - Weapon
   - Enemy
+  - Arriba
+  - Abajo
+  - Izquierda
+  - Derecha
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Camara
   - Water
   - UI
-  - GroundLayer
+  - Player
   - anchor
   - 
-  - 
-  - 
+  - Arma
+  - GroundLayer
   - 
   - 
   - 
