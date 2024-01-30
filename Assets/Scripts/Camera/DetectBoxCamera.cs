@@ -15,7 +15,7 @@ public class DetectBoxCamera : MonoBehaviour
         Vector3 origin = _boxCamera.transform.position;
         Vector3 newPosition = _boxCamera.transform.position + new Vector3(_horizontal, _vertical, 0);
         
-        _boxCamera.transform.position = Vector3.Lerp(origin, newPosition, Time.deltaTime);
+        _boxCamera.transform.position = Vector3.Lerp(origin, newPosition, _cameraSpeed);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
