@@ -15,26 +15,26 @@ public class DetectBoxCamera : MonoBehaviour
         Vector3 origin = _boxCamera.transform.position;
         Vector3 newPosition = _boxCamera.transform.position + new Vector3(_horizontal, _vertical, 0);
         
-        _boxCamera.transform.position = Vector3.Lerp(origin, newPosition, _cameraSpeed);
+        _boxCamera.transform.position = Vector3.Lerp(origin, newPosition, Time.deltaTime * _cameraSpeed);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Derecha"))
         {
-            _horizontal = 1;
+            _horizontal = 0.5f;
         }
         if (collision.CompareTag("Izquierda"))
         {
-            _horizontal = -1;
+            _horizontal = -0.5f;
         }
         if (collision.CompareTag("Arriba"))
         {
-            _vertical = 1;
+            _vertical = 0.5f;
         }
         if (collision.CompareTag("Abajo"))
         {
-            _vertical = -1;
+            _vertical = -0.5f;
         }
     }
 
