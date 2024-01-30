@@ -13,6 +13,7 @@ TagManager:
   - Abajo
   - Izquierda
   - Derecha
+  - Hookpoint
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - UI
   - Player
   - anchor
-  - 
+  - NoInteractionCollider
   - Arma
   - GroundLayer
   - 

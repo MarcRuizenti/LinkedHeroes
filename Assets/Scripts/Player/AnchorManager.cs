@@ -8,7 +8,10 @@ public class AnchorManager : MonoBehaviour
    Dictionary <int,Transform> myAnchors = new Dictionary<int, Transform> ();
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        myAnchors.Add(collision.gameObject.GetInstanceID(), collision.transform);
+        if (collision.tag == "Hookpoint")
+        {
+            myAnchors.Add(collision.gameObject.GetInstanceID(), collision.transform);
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
