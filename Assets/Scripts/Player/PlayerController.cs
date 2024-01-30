@@ -15,12 +15,6 @@ public class PlayerController : MonoBehaviour
     private bool _inputAttack;
     private float _direction;
 
-    //sword components
-    [SerializeField] private GameObject _rightSword;
-    [SerializeField] private GameObject _leftSword;
-    [SerializeField] private GameObject _upSword;
-    [SerializeField] private GameObject _downSword;
-
     //jump variables
     [SerializeField] private float _jumpForce;
     //[SerializeField] private float _jumpFriction;
@@ -48,6 +42,11 @@ public class PlayerController : MonoBehaviour
     }
     LineRenderer _lineRenderer;
     DistanceJoint2D _distanceJoint;
+
+    //hook variables
+    Transform _anchor;
+    float _distance;
+    bool _enemyHooked;
 
     private Character _currentCharacter;
     private void Start()
@@ -88,6 +87,16 @@ public class PlayerController : MonoBehaviour
         if (_distanceJoint.enabled)
         {
             _lineRenderer.SetPosition(1, transform.position);
+        }
+
+        if (_enemyHooked)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, _anchor.position, 3 * Time.deltaTime);
+
+            if(transform.position == _anchor.position)
+            {
+                _enemyHooked = false;
+            }
         }
     }
 
@@ -218,17 +227,29 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Transform anchor = this.GetComponentInChildren<AnchorManager>().GetTargetAnchor((int)this.transform.localScale.x);
-            if (anchor == null)
+            _anchor = this.GetComponentInChildren<AnchorManager>().GetTargetAnchor((int)this.transform.localScale.x);
+            if (_anchor == null)
                 return;
-            Vector2 targetPos = anchor.position;
+            
+            Vector2 targetPos = _anchor.position;
             _lineRenderer.SetPosition(0, targetPos);
             _lineRenderer.SetPosition(1, transform.position);
             _distanceJoint.connectedAnchor = targetPos;
             _distanceJoint.enabled = true;
             _lineRenderer.enabled = true;
+
+            if (_anchor.parent != null && _anchor.parent.tag == "Enemy")
+            {
+                Debug.Log("hit");
+                _anchor.parent.GetComponent<Patroller>().enabled = false;
+                _distance = Vector3.Distance(transform.position, _anchor.position);
+                _enemyHooked = true;
+            }
         }
     }
+
+    
+        
 
     
 

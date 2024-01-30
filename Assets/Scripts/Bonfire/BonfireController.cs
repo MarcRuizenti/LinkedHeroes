@@ -21,9 +21,6 @@ public class BonfireController : MonoBehaviour
 
     private void Update()
     {
-        //Esto lo estabamos haciendo para enseñar un texto encima de la fogata pero no ha salido bien
-        //le preguntamos al Victor el proximo dia
-
         if (_playerInsideRadius)
         {
             _onBonfireEnter.Invoke();

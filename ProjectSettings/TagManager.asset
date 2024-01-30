@@ -23,7 +23,7 @@ TagManager:
   - UI
   - Player
   - anchor
-  - 
+  - NoInteractionCollider
   - Arma
   - GroundLayer
   - 
