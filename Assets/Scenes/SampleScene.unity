@@ -2604,7 +2604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boxCamera: {fileID: 1149443632}
-  _cameraSpeed: 0.05
+  _cameraSpeed: 6
 --- !u!1 &1340234558
 GameObject:
   m_ObjectHideFlags: 0
