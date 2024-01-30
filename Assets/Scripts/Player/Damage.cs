@@ -10,7 +10,7 @@ public class Damage : MonoBehaviour
     {
         string tag = collision.tag;
 
-        if (tag == "Damage" || tag == "Enemy")
+        if (tag == "Damage")
         {
             _onDamageTaken?.Invoke();
         }

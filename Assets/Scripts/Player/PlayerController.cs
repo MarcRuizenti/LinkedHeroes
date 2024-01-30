@@ -11,9 +11,15 @@ public class PlayerController : MonoBehaviour
     //player components
     private Rigidbody2D _rb;
     [SerializeField] private Collider2D _collider;
+    [SerializeField] private GameObject _espada;
     private bool _inputAttack;
     private float _direction;
 
+    //sword components
+    [SerializeField] private GameObject _rightSword;
+    [SerializeField] private GameObject _leftSword;
+    [SerializeField] private GameObject _upSword;
+    [SerializeField] private GameObject _downSword;
 
     //jump variables
     [SerializeField] private float _jumpForce;
@@ -35,18 +41,15 @@ public class PlayerController : MonoBehaviour
     private Vector3 _originLeft;
     public List<Vector3> _origins;
     [SerializeField] private LayerMask _groundLayer;
-
-    LineRenderer _lineRenderer;
-    DistanceJoint2D _distanceJoint;
-
-    private Character _currentCharacter;
-
     public enum Character
     {
         AIKE,
         KROKUR
     }
-    
+    LineRenderer _lineRenderer;
+    DistanceJoint2D _distanceJoint;
+
+    private Character _currentCharacter;
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -240,6 +243,4 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
     }
-
-    
 }
