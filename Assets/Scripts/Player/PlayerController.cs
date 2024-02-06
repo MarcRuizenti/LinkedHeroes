@@ -93,10 +93,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, _anchor.position, 3 * Time.deltaTime);
 
-            if(transform.position == _anchor.position)
-            {
-                _enemyHooked = false;
-            }
+            //if(transform.position == _anchor.position)
+            //{
+            //    _enemyHooked = false;
+            //}
         }
     }
 
