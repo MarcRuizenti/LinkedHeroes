@@ -14,7 +14,12 @@ public class DetectBoxCamera : MonoBehaviour
     {
         Vector3 origin = _boxCamera.transform.position;
         Vector3 newPosition = _boxCamera.transform.position + new Vector3(_horizontal, _vertical, 0);
-        
+
+        if (Vector3.Distance(_boxCamera.transform.position, transform.position) < -9 || Vector3.Distance(_boxCamera.transform.position, transform.position) > 9)
+        {
+            newPosition = transform.position;
+        }
+
         _boxCamera.transform.position = Vector3.Lerp(origin, newPosition, Time.deltaTime * _cameraSpeed);
     }
 
