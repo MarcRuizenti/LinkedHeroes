@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     //player components
     private Rigidbody2D _rb;
     [SerializeField] private Collider2D _collider;
-    [SerializeField] private GameObject _espada;
     private bool _inputAttack;
     private float _direction;
 
