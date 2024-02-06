@@ -14,5 +14,9 @@ public class Damage : MonoBehaviour
         {
             _onDamageTaken?.Invoke();
         }
+        else if(tag == "Border")
+        {
+            Destroy(gameObject);
+        }
     }
 }
