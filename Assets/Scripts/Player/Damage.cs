@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Damage : MonoBehaviour
 {
     [SerializeField] private UnityEvent _onDamageTaken;
+    [SerializeField] private UnityEvent _onDeath;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         string tag = collision.tag;
@@ -16,7 +17,7 @@ public class Damage : MonoBehaviour
         }
         else if(tag == "Border")
         {
-            Destroy(gameObject);
+            _onDeath?.Invoke();
         }
     }
 }

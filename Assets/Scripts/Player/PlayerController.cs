@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     //player components
     private Rigidbody2D _rb;
     [SerializeField] private Collider2D _collider;
-    [SerializeField] private GameObject _espada;
     private bool _inputAttack;
     private float _direction;
 
@@ -35,11 +34,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _originLeft;
     public List<Vector3> _origins;
     [SerializeField] private LayerMask _groundLayer;
-    public enum Character
-    {
-        AIKE,
-        KROKUR
-    }
+    
     LineRenderer _lineRenderer;
     DistanceJoint2D _distanceJoint;
 
@@ -48,11 +43,10 @@ public class PlayerController : MonoBehaviour
     float _distance;
     bool _enemyHooked;
 
-    private Character _currentCharacter;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _currentCharacter = Character.AIKE;
         _distanceJoint = GetComponent<DistanceJoint2D>();
         _lineRenderer = GetComponent<LineRenderer>();
         _distanceJoint.enabled = false;
@@ -89,14 +83,21 @@ public class PlayerController : MonoBehaviour
             _lineRenderer.SetPosition(1, transform.position);
         }
 
-        if (_enemyHooked)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, _anchor.position, 3 * Time.deltaTime);
+        //if (_enemyHooked)
+        //{
+        //    transform.position = Vector3.MoveTowards(transform.position, _anchor.position, 3 * Time.deltaTime);
 
-            //if(transform.position == _anchor.position)
-            //{
-            //    _enemyHooked = false;
-            //}
+        //    //if(transform.position == _anchor.position)
+        //    //{
+        //    //    _enemyHooked = false;
+        //    //}
+        //}
+
+        if (_distanceJoint.enabled && IsGrounded())
+        {
+            _lineRenderer.enabled = false;
+            _distanceJoint.enabled = false;
+
         }
     }
 
@@ -112,20 +113,7 @@ public class PlayerController : MonoBehaviour
         _inputAttack = Input.GetButtonDown("Attack");
     }
 
-    public void ChangeCharacter()
-    {
-        switch (_currentCharacter)
-        {
-            case Character.AIKE:
-                _currentCharacter = Character.KROKUR;
-                break;
-            case Character.KROKUR:
-                _currentCharacter = Character.AIKE;
-                break;
-            default:
-                break;
-        }
-    }
+    
     //Player movement on the horizontal axis
     private void MoveHorizontal()
     {
@@ -139,9 +127,6 @@ public class PlayerController : MonoBehaviour
             if (_rb.velocity.x < _maxVelocity && _rb.velocity.x > -_maxVelocity)
                 _rb.velocity += new Vector2(_horizontalInput, 0) * _speed * Time.deltaTime;
         }
-
-        
-
     }
 
     //Jump logic
@@ -178,12 +163,12 @@ public class PlayerController : MonoBehaviour
     {
         if (_inputAttack)
         {
-            switch (_currentCharacter)
+            switch (GameManager.Instance._currentCharacter)
             {
-                case Character.AIKE:
+                case GameManager.Character.AIKE:
                     Aike();
                     break;
-                case Character.KROKUR:
+                case GameManager.Character.KROKUR:
                     Krokur();
                     break;
                 default:
@@ -238,20 +223,17 @@ public class PlayerController : MonoBehaviour
             _distanceJoint.enabled = true;
             _lineRenderer.enabled = true;
 
-            if (_anchor.parent != null && _anchor.parent.tag == "Enemy")
-            {
-                Debug.Log("hit");
-                _anchor.parent.GetComponent<Patroller>().enabled = false;
-                _distance = Vector3.Distance(transform.position, _anchor.position);
-                _enemyHooked = true;
-            }
+            
+
+            //if (_anchor.parent != null && _anchor.parent.tag == "Enemy")
+            //{
+            //    Debug.Log("hit");
+            //    _anchor.parent.GetComponent<Patroller>().enabled = false;
+            //    _distance = Vector3.Distance(transform.position, _anchor.position);
+            //    _enemyHooked = true;
+            //}
         }
     }
-
-    
-        
-
-    
 
     private void Flip()
     {
