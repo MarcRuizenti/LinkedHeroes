@@ -15,6 +15,7 @@ TagManager:
   - Derecha
   - Hookpoint
   - Border
+  - TextWin
   layers:
   - Default
   - TransparentFX

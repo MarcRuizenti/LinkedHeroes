@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 481416790}
   m_Layer: 5
   m_Name: GameWin
-  m_TagString: Untagged
+  m_TagString: TextWin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2491,6 +2491,10 @@ PrefabInstance:
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1346315114}
+    - target: {fileID: 6053003324546138829, guid: d2be5dcc8e63ce640bbadb9e97814f18, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6717760295897835701, guid: d2be5dcc8e63ce640bbadb9e97814f18, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -2613,6 +2617,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 646265163304374315, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: _maxHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3189175844169004070, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_RootOrder
       value: 0

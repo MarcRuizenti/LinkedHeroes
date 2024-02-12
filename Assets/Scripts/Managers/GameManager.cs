@@ -41,25 +41,37 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _currentCharacter = Character.AIKE;
+        //SceneManager.sceneLoaded += GetReferences;
     }
 
+    //void GetReferences(Scene scene, LoadSceneMode mode)
+    //{
+    //    if (_player == null)
+    //    {
+    //        _player = GameObject.FindGameObjectWithTag("Player");
+    //    }
+
+    //    if(TextWin == null)
+    //    {
+    //        Canvas canvas = (Canvas)FindObjectOfType(typeof(Canvas));
+
+    //        TextWin = canvas.transform.Find("GameWin").gameObject;
+    //    }
+    //}
+    
     // Update is called once per frame
     void Update()
     {
-
-        if(_player != null)
-        {
-            
-        }
-
         if(PlayerDeath)
         {
             Time.timeScale = 0f;
         }
         //UpdateCharacter(_currentCharacter);
-        if(Input.GetKeyUp(KeyCode.Escape)) {
-            Respawn();
-        }
+        
+        //if(Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    Respawn();
+        //}
     }
 
     public void UpdatePlayerState()
@@ -79,19 +91,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         PlayerDeath = false;
         SceneManager.LoadScene("SampleScene");
-    }
-
-    private void UpdateCharacter(Character _character)
-    {
-        switch(_character)
-        {
-            case Character.AIKE:
-                _player.GetComponent<SpriteRenderer>().color = Color.green;
-                break; 
-            case Character.KROKUR:
-                _player.GetComponent<SpriteRenderer>().color = Color.cyan;
-                break;
-        }
     }
 
     public void ChangeCharacter()
