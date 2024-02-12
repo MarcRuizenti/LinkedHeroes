@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public int Health;
     public bool PlayerDeath;
+
+    public TextMeshProUGUI TextWin;
 
 
     public enum Character
@@ -94,5 +97,10 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void Win()
+    {
+        TextWin.enabled = true;
     }
 }
