@@ -20,9 +20,9 @@ public class DetectBoxCamera : MonoBehaviour
         Vector3 origin = _boxCamera.transform.position;
         Vector3 newPosition = _boxCamera.transform.position + new Vector3(_horizontal, _vertical, 0);
 
-        if (Vector3.Distance(_boxCamera.transform.position, transform.position) < -9 || Vector3.Distance(_boxCamera.transform.position, transform.position) > 9 || _boxCamera.transform.position.y - transform.position.y > 4)
+        if (Vector3.Distance(_boxCamera.transform.position, transform.position) < -9 || Vector3.Distance(_boxCamera.transform.position, transform.position) > 9 || _boxCamera.transform.position.y - transform.position.y > 4 || _boxCamera.transform.position.y - transform.position.y < -4)
         {
-            newPosition = transform.position;
+            newPosition = new Vector3(transform.position.x, transform.position.y + 2, 0);
          
             _boxCamera.transform.position = Vector3.Lerp(origin, newPosition, Time.deltaTime * (_cameraSpeed + Vector3.Distance(_boxCamera.transform.position, transform.position)));
         }
@@ -36,19 +36,19 @@ public class DetectBoxCamera : MonoBehaviour
     {
         if (collision.CompareTag("Derecha"))
         {
-            _horizontal = 1f;
+            _horizontal = 0.1f;
         }
         if (collision.CompareTag("Izquierda"))
         {
-            _horizontal = -1f;
+            _horizontal = -0.1f;
         }
         if (collision.CompareTag("Arriba"))
         {
-            _vertical = 1f;
+            _vertical = 0.1f;
         }
         if (collision.CompareTag("Abajo"))
         {
-            _vertical = -1f;
+            _vertical = -0.1f;
         }
     }
 

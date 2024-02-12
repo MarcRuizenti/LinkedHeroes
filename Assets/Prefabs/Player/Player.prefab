@@ -1270,5 +1270,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf7d57d4e28c054ead8126f8c42c350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boxCamera: {fileID: 0}
-  _cameraSpeed: 6
+  _boxCamera: {fileID: 8397772538019570022, guid: a173df7f3e3d1014d9de8abfbc6cc884, type: 3}
+  _cameraSpeed: 30
