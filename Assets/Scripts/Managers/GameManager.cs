@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public int Health;
     public bool PlayerDeath;
 
-    public TextMeshProUGUI TextWin;
+    public GameObject TextWin;
 
 
     public enum Character
@@ -46,8 +46,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(_player != null)
+        {
+            
+        }
+
+        if(PlayerDeath)
+        {
+            Time.timeScale = 0f;
+        }
         //UpdateCharacter(_currentCharacter);
-        if(PlayerDeath && Input.GetKeyUp(KeyCode.Escape)) {
+        if(Input.GetKeyUp(KeyCode.Escape)) {
             Respawn();
         }
     }
@@ -66,6 +76,8 @@ public class GameManager : MonoBehaviour
 
     private void Respawn()
     {
+        Time.timeScale = 1.0f;
+        PlayerDeath = false;
         SceneManager.LoadScene("SampleScene");
     }
 
@@ -101,6 +113,7 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        TextWin.enabled = true;
+        TextWin.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
