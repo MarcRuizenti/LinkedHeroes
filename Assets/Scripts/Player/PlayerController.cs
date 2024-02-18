@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] private float _jumpFriction;
     private float _coyoteTime = 0.15f;
     private float _coyoteTimeCounter;
+    [SerializeField] private float _timeJump;
+    [SerializeField] private bool _activeTimeJump = false;
+    [SerializeField] private float _timeJumpCurent;
     private bool _jumpInput;
 
     //movement variables
@@ -62,16 +65,38 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded())
         {
             _coyoteTimeCounter = _coyoteTime;
+            _activeTimeJump = false;
         }
         else
         {
             _coyoteTimeCounter -= Time.deltaTime;
         }
 
-
         if (_coyoteTimeCounter >= 0 && Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _activeTimeJump = true;
+        }
+
+        if (!_activeTimeJump)
+        {
+            _timeJumpCurent = _timeJump; 
+        }
+        else
+        {
+            _timeJumpCurent -= Time.deltaTime;
+        }
+
+        if (_timeJumpCurent <= 0)
+        {
+            _rb.gravityScale = 2;
+        }
+        else
+        {
+            _rb.gravityScale = 1;
         }
 
         Attack();

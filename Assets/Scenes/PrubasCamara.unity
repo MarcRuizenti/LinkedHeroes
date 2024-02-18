@@ -492,6 +492,10 @@ PrefabInstance:
       propertyPath: _cameraSpeed
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 8515529056222639482, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: _timeJump
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8618382435465154093, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_Distance
       value: 41.45407
