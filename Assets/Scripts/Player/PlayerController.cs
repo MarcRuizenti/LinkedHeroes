@@ -19,10 +19,12 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] private float _jumpFriction;
     private float _coyoteTime = 0.15f;
     private float _coyoteTimeCounter;
+    [SerializeField] private float _sacaleGravity;
     [SerializeField] private float _timeJump;
     [SerializeField] private bool _activeTimeJump = false;
     [SerializeField] private float _timeJumpCurent;
     private bool _jumpInput;
+    [SerializeField] private float _timeSlay;
 
     //movement variables
     [SerializeField] private float _speed;
@@ -70,16 +72,16 @@ public class PlayerController : MonoBehaviour
         else
         {
             _coyoteTimeCounter -= Time.deltaTime;
+            _activeTimeJump = true;
         }
 
         if (_coyoteTimeCounter >= 0 && Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _activeTimeJump = true;
-        }
+
+           
+
 
         if (!_activeTimeJump)
         {
@@ -92,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
         if (_timeJumpCurent <= 0)
         {
-            _rb.gravityScale = 2;
+            _rb.gravityScale = 2f;
         }
         else
         {
@@ -151,6 +153,14 @@ public class PlayerController : MonoBehaviour
         {
             if (_rb.velocity.x < _maxVelocity && _rb.velocity.x > -_maxVelocity)
                 _rb.velocity += new Vector2(_horizontalInput, 0) * _speed * Time.deltaTime;
+        }
+
+        if (_horizontalInput == 0)
+        {
+            if (_rb.velocity.x > 0)
+                _rb.velocity = new Vector2(_rb.velocity.x - (Time.deltaTime * _timeSlay), _rb.velocity.y);
+            if (_rb.velocity.x < 0)
+                _rb.velocity = new Vector2(_rb.velocity.x + (Time.deltaTime * _timeSlay), _rb.velocity.y);
         }
     }
 
