@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _activeTimeJump = false;
     [SerializeField] private float _timeJumpCurent;
     private bool _jumpInput;
+    [SerializeField] private float _timeSlay;
 
     //movement variables
     [SerializeField] private float _speed;
@@ -152,6 +153,14 @@ public class PlayerController : MonoBehaviour
         {
             if (_rb.velocity.x < _maxVelocity && _rb.velocity.x > -_maxVelocity)
                 _rb.velocity += new Vector2(_horizontalInput, 0) * _speed * Time.deltaTime;
+        }
+
+        if (_horizontalInput == 0)
+        {
+            if (_rb.velocity.x > 0)
+                _rb.velocity = new Vector2(_rb.velocity.x - (Time.deltaTime * _timeSlay), _rb.velocity.y);
+            if (_rb.velocity.x < 0)
+                _rb.velocity = new Vector2(_rb.velocity.x + (Time.deltaTime * _timeSlay), _rb.velocity.y);
         }
     }
 
