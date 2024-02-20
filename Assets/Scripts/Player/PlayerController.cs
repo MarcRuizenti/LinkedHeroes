@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] private float _jumpFriction;
     private float _coyoteTime = 0.15f;
     private float _coyoteTimeCounter;
+    [SerializeField] private float _sacaleGravity;
     [SerializeField] private float _timeJump;
     [SerializeField] private bool _activeTimeJump = false;
     [SerializeField] private float _timeJumpCurent;
@@ -70,16 +71,16 @@ public class PlayerController : MonoBehaviour
         else
         {
             _coyoteTimeCounter -= Time.deltaTime;
+            _activeTimeJump = true;
         }
 
         if (_coyoteTimeCounter >= 0 && Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _activeTimeJump = true;
-        }
+
+           
+
 
         if (!_activeTimeJump)
         {
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
         if (_timeJumpCurent <= 0)
         {
-            _rb.gravityScale = 2;
+            _rb.gravityScale = 2f;
         }
         else
         {
