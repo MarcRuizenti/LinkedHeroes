@@ -988,7 +988,7 @@ Transform:
   - {fileID: 5536880127096613527}
   - {fileID: 9027572323857927378}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5992523012663905180
 SpriteRenderer:
@@ -1083,6 +1083,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 6986830083712074183}
   _jumpForce: 7
+  _sacaleGravity: 0
+  _timeJump: 0.5
+  _activeTimeJump: 0
+  _timeJumpCurent: 0
+  _timeSlay: 0
   _speed: 15
   _speedFly: 13
   _maxVelocity: 4
@@ -1090,7 +1095,7 @@ MonoBehaviour:
   _origins: []
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024
 --- !u!114 &3401372884408207512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1256,7 +1261,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 26.71274
+  m_Distance: 41.45407
   m_MaxDistanceOnly: 0
 --- !u!114 &7461919448966817945
 MonoBehaviour:
@@ -1270,5 +1275,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf7d57d4e28c054ead8126f8c42c350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boxCamera: {fileID: 8397772538019570022, guid: a173df7f3e3d1014d9de8abfbc6cc884, type: 3}
+  _boxCamera: {fileID: 0}
   _cameraSpeed: 30

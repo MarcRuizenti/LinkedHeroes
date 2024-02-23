@@ -13,6 +13,7 @@ public class Damage : MonoBehaviour
 
         if (tag == "Enemy" || tag == "Damage")
         {
+            Debug.Log(collision.name);
             _onDamageTaken?.Invoke();
         }
         else if(tag == "Border")
