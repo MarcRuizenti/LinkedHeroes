@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6255078223581586510}
   - component: {fileID: 2781562358883870858}
   - component: {fileID: 1449014672297044794}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: HookPoint
   m_TagString: Hookpoint
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 5249883894829288079}
   - component: {fileID: 4604866428510337861}
   - component: {fileID: 6531575452164466332}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: PlataformaGancho
   m_TagString: Floor
   m_Icon: {fileID: 0}

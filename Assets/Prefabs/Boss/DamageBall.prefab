@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -6324839084864568499}
   - component: {fileID: -6649674786072257590}
   - component: {fileID: 7864551260675528686}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DamageBall
-  m_TagString: Untagged
+  m_TagString: Parry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,5 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007002d6307c4cb4284780bd27f3cded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _knockback: {x: 0, y: 0}
   speed: 5
-  lifeTime: 10
+  lifeTime: 6

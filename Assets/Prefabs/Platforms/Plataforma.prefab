@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3706623010718690563}
   - component: {fileID: 8284603772614759779}
   - component: {fileID: 8635464827360385399}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Plataforma
   m_TagString: Floor
   m_Icon: {fileID: 0}

@@ -11,11 +11,9 @@ public class Sword : MonoBehaviour
         switch (collision.tag)
         {
             case "Parry":
-                Debug.Log("Parry");
-                gameObject.GetComponentInParent<Rigidbody2D>().velocity = _knockback;
+                collision.gameObject.GetComponent<Parriable>().Parry();
                 break;
             case "Enemy":
-                Debug.Log("Damage");
                 collision.gameObject.GetComponentInParent<HealthBar>().TakeDamage(1);
                 break;
         }
