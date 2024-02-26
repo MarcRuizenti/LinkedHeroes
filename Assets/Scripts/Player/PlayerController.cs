@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _timeJump;
     [SerializeField] private bool _activeTimeJump = false;
     [SerializeField] private float _timeJumpCurent;
-    private bool _jumpInput;
     [SerializeField] private float _timeSlay;
 
     //movement variables
@@ -75,7 +74,7 @@ public class PlayerController : MonoBehaviour
             _activeTimeJump = true;
         }
 
-        if (_coyoteTimeCounter >= 0 && Input.GetKeyDown(KeyCode.Space))
+        if (_coyoteTimeCounter >= 0 && Input.GetButtonDown("Jump"))
         {
             Jump();
         }
@@ -131,8 +130,6 @@ public class PlayerController : MonoBehaviour
     //Handles player inputs and stores them
     private void HandleInputs()
     {
-        _jumpInput = Input.GetButtonDown("Jump");
-
         _horizontalInput = Input.GetAxis("Horizontal");
 
         _verticalInput = Input.GetAxis("Vertical");
