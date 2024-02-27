@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,6 +9,16 @@ using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
+    //Hanging boost
+    private bool _hangedSpeedBoost;
+    [SerializeField] private float _hangedSpeed;
+    [SerializeField] private float _maxHangedSpeed;
+
+    //animator
+
+    [SerializeField] Animator _animator;
+
+
     //player components
     private Rigidbody2D _rb;
     [SerializeField] private Collider2D _collider;
@@ -59,6 +70,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
+        _animator.SetBool("walking", IsGrounded() && _rb.velocity.x != 0);
+        _animator.SetBool("air", !IsGrounded());
+        _animator.SetFloat("velY", _rb.velocity.y);
+        _animator.SetBool("hanging", _distanceJoint.enabled);
+
         HandleInputs();
 
         MoveHorizontal();
@@ -130,14 +147,44 @@ public class PlayerController : MonoBehaviour
     //Handles player inputs and stores them
     private void HandleInputs()
     {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            _hangedSpeedBoost = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            _hangedSpeedBoost = false;
+        }
+        if (_hangedSpeedBoost)
+        {
+            _hangedSpeed += 0.2f;
+            if (_hangedSpeed > _maxHangedSpeed)
+            {
+                _hangedSpeed = _maxHangedSpeed;
+            }
+        }
+        else if (_hangedSpeed > 0)
+        {
+            _hangedSpeed -= 0.2f;
+            if (_hangedSpeed < 0)
+            {
+                _hangedSpeed = 0;
+            }
+        }
+        if (_distanceJoint.enabled)
+        {
+            _rb.velocity += new Vector2(_horizontalInput, 0) * _hangedSpeed * Time.deltaTime;
+
+        }
         _horizontalInput = Input.GetAxis("Horizontal");
 
         _verticalInput = Input.GetAxis("Vertical");
 
         _inputAttack = Input.GetButtonDown("Attack");
+
     }
 
-    
+
     //Player movement on the horizontal axis
     private void MoveHorizontal()
     {
@@ -278,4 +325,7 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
     }
+
+
+
 }
