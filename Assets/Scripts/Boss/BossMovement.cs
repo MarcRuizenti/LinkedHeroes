@@ -38,7 +38,7 @@ public class BossMovement : Patroll
         }
     }
 
-    void Start()
+    private void OnEnable()
     {
         Index = Random.Range(0, WayPoints.Count);
     }
@@ -47,5 +47,10 @@ public class BossMovement : Patroll
     void Update()
     {
         PatrollMethod();
+    }
+
+    public void MoveToPosition(Transform newPosition)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, newPosition.position, Speed * Time.deltaTime);
     }
 }

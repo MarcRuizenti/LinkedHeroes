@@ -15,6 +15,7 @@ public class BallMovement : Parriable
     {
         _isBeingParried = true;
         _parryDirection = GetPlayerScale();
+        gameObject.tag = "DamageBoss";
     }
 
 

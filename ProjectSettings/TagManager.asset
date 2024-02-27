@@ -16,6 +16,8 @@ TagManager:
   - Hookpoint
   - Border
   - TextWin
+  - DamageBoss
+  - Boss
   layers:
   - Default
   - TransparentFX
