@@ -18,6 +18,7 @@ TagManager:
   - TextWin
   - DamageBoss
   - Boss
+  - BackgroundTrigger
   layers:
   - Default
   - TransparentFX
