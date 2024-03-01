@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
-    [SerializeField] private bool _isAdditive;
     public void ExitGame()
     {
         Debug.Log("Adios");

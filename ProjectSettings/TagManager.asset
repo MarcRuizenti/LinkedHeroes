@@ -19,6 +19,7 @@ TagManager:
   - DamageBoss
   - Boss
   - BackgroundTrigger
+  - Bullet
   layers:
   - Default
   - TransparentFX

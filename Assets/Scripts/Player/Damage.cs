@@ -11,14 +11,21 @@ public class Damage : MonoBehaviour
     {
         string tag = collision.tag;
 
-        if (tag == "Enemy" || tag == "Damage")
+        switch (tag)
         {
-            Debug.Log(collision.name);
-            _onDamageTaken?.Invoke();
-        }
-        else if(tag == "Border")
-        {
-            _onDeath?.Invoke();
+            case "Enemy":
+                _onDamageTaken?.Invoke();
+                break;
+            case "Damage":
+                _onDamageTaken?.Invoke();
+                break;
+            case "Bullet":
+                _onDamageTaken?.Invoke();
+                Destroy(collision.gameObject);
+                break;
+            case "Border":
+                _onDeath?.Invoke();
+                break;
         }
     }
 }
