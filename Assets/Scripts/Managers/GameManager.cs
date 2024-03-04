@@ -98,11 +98,10 @@ public class GameManager : MonoBehaviour
         switch (_currentCharacter)
         {
             case Character.KROKUR:
-                _player.GetComponent<SpriteRenderer>().color = Color.green;
+                
                 _currentCharacter = Character.AIKE;
                 break;
             case Character.AIKE:
-                _player.GetComponent<SpriteRenderer>().color = Color.cyan;
                 _currentCharacter = Character.KROKUR;
                 break;
             default:

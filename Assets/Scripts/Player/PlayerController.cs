@@ -18,7 +18,8 @@ public class PlayerController : MonoBehaviour
     //animator
 
     [SerializeField] Animator _animator;
-
+    [SerializeField] RuntimeAnimatorController _animatorKrokur;
+    [SerializeField] RuntimeAnimatorController _animatorAike;
 
     //player components
     private Rigidbody2D _rb;
@@ -71,11 +72,26 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        switch (GameManager.Instance._currentCharacter)
+        {
+            case GameManager.Character.AIKE:
+                if (_animator.runtimeAnimatorController != _animatorAike)
+                    _animator.runtimeAnimatorController = _animatorAike;
+                break;
+            case GameManager.Character.KROKUR:
+                if (_animator.runtimeAnimatorController != _animatorKrokur)
+                    _animator.runtimeAnimatorController = _animatorKrokur;
 
-        _animator.SetBool("walking", IsGrounded() && _rb.velocity.x != 0);
-        _animator.SetBool("air", !IsGrounded());
-        _animator.SetFloat("velY", _rb.velocity.y);
-        _animator.SetBool("hanging", _distanceJoint.enabled);
+                _animator.SetBool("walking", IsGrounded() && _rb.velocity.x != 0);
+                _animator.SetBool("air", !IsGrounded());
+                _animator.SetFloat("velY", _rb.velocity.y);
+                _animator.SetBool("hanging", _distanceJoint.enabled);
+                break;
+            default:
+                break;
+        }
+
+        
 
         HandleInputs();
 

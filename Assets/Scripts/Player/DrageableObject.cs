@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DrageableObject : MonoBehaviour
 {
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] float movingVelocity;
     private bool moving = false;
     private float elapsedTime = 0;
@@ -14,7 +15,10 @@ public class DrageableObject : MonoBehaviour
     {
         if (moving)
         {
-            if (elapsedTime >= 1) {
+            if (!rb.isKinematic)
+                rb.isKinematic = true;
+            if (elapsedTime >= 1)
+            {
                 moving = false;
                 elapsedTime = 0;
                 pController.UnHook();
@@ -28,6 +32,8 @@ public class DrageableObject : MonoBehaviour
             this.transform.position = Vector3.Lerp(initPos, finalPos, elapsedTime * movingVelocity);
             pController.UpdateLRFirstPos(this.transform.position);
         }
+        else if (rb.isKinematic)
+            rb.isKinematic = false;
     }
     public void DragMe(Vector3 finalPosition, PlayerController playerController)
     {
