@@ -6,7 +6,9 @@ public class TrunkController : MonoBehaviour
 {
     [Header("Trunk Settings")]
     [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private GameObject _parryBullet;
     [SerializeField] private Animator _animator;
+    private int _parryCounter = 0;
 
     public enum States
     {
@@ -43,7 +45,18 @@ public class TrunkController : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject temp = Instantiate(_bulletPrefab, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
-        temp.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        if(_parryCounter >= 2)
+        {
+            GameObject temp = Instantiate(_parryBullet, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
+            temp.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            _parryCounter = 0;
+        }
+        else
+        {
+            GameObject temp = Instantiate(_bulletPrefab, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
+            temp.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            _parryCounter++;
+        }
+       
     }
 }
