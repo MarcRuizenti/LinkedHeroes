@@ -5,12 +5,27 @@ using UnityEngine.Events;
 
 public class BossController : Patroll
 {
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private bool _isFallen;
+    [SerializeField] private float _fallDelayCounter = 1;
+
     [Header("Attack Settings")]
     [SerializeField] private GameObject _damageBall;
+    [SerializeField] private Sprite _parryBall;
     [SerializeField] private List<GameObject> _balls;
     [SerializeField] private Transform _krokurPhaseAttackPosition;
     [SerializeField] private float _krokurAttackDelay;
 
+    [Header("Health Settings")]
+    [SerializeField] private Transform _fallPosition;
+    [SerializeField] private Collider2D _damageCollider;
+
+    public int maxHealth;
+    public int health;
+
+    public int maxHealthShield;
+    public int healthShield;
 
     public enum States
     {
@@ -18,7 +33,8 @@ public class BossController : Patroll
         MOVE,
         STOP,
         ATTACK,
-        RECHARGE
+        RECHARGE,
+        FALL
     }
 
     public States _currentState = States.IDLE;
@@ -28,6 +44,8 @@ public class BossController : Patroll
         switch (_currentState)
         {
             case States.IDLE:
+                gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+                animator.SetBool("isDamaged", false);
                 Index = Random.Range(0, WayPoints.Count);
                 _currentState = States.MOVE;
                 break;
@@ -39,11 +57,21 @@ public class BossController : Patroll
                 break;
             case States.ATTACK:
                 MovementDelayCounter = MovementDelay;
-                Attack();
-                _currentState = States.RECHARGE;
+                animator.SetBool("isAttacking", true);
                 break;
             case States.RECHARGE:
                 Recharge();
+                break;
+            case States.FALL:
+                if (_fallDelayCounter > 0)
+                {
+                    _fallDelayCounter -= Time.deltaTime;
+                }
+                else
+                {
+                    gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+                    transform.GetChild(0).gameObject.SetActive(true);
+                }
                 break;
             default:
                 _currentState = States.IDLE;
@@ -51,9 +79,36 @@ public class BossController : Patroll
         }
     }
 
+    public void FinishAttack()
+    {
+        Attack();
+        _currentState = States.RECHARGE;
+        animator.SetBool("isAttacking", false);
+    }
+
+    public void CheckIfFall()
+    {
+        if (healthShield <= 0)
+        {
+            animator.SetTrigger("Fall");
+            _currentState = States.FALL;
+        }
+        else
+        {
+            animator.SetTrigger("NotFall");
+            _currentState = States.IDLE;
+        }
+    }
+
+    public void ActivateCollider()
+    {
+        _currentState = States.IDLE;
+        _damageCollider.enabled = true;
+    }
+
     private void Recharge()
     {
-        if(MovementDelayCounter > 0)
+        if (MovementDelayCounter > 0)
         {
             MovementDelayCounter -= Time.deltaTime;
         }
@@ -81,6 +136,7 @@ public class BossController : Patroll
         this.enabled = false;
         GameObject tempO = Instantiate(_damageBall, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
         this.enabled = true;
+        animator.SetBool("isAttacking", false);
     }
 
     private void AikePhase()
@@ -96,12 +152,13 @@ public class BossController : Patroll
 
         int rand1 = Random.Range(0, 5);
         int rand2 = Random.Range(5, 8);
-        _balls[rand1].GetComponent<SpriteRenderer>().color = Color.blue;
-        _balls[rand2].GetComponent<SpriteRenderer>().color = Color.blue;
+        _balls[rand1].GetComponent<SpriteRenderer>().sprite = _parryBall;
+        _balls[rand2].GetComponent<SpriteRenderer>().sprite = _parryBall;
         _balls[rand1].tag = "Parry";
         _balls[rand2].tag = "Parry";
 
         _balls.Clear();
+
     }
 
     protected override void PatrollMethod()
@@ -127,6 +184,8 @@ public class BossController : Patroll
     private void OnEnable()
     {
         Index = Random.Range(0, WayPoints.Count);
+        health = maxHealth;
+        healthShield = maxHealthShield;
     }
 
     public void MoveToPosition(Transform newPosition)
@@ -134,6 +193,34 @@ public class BossController : Patroll
         transform.position = Vector3.MoveTowards(transform.position, newPosition.position, Speed * Time.deltaTime);
     }
 
+    public void TakeDamage()
+    {
+        Debug.Log("Au");
+        if (healthShield > 0)
+        {
+            healthShield--;
+
+            animator.SetTrigger("ShieldDamage");
+        }
+        else
+        {
+            health--;
+            healthShield = maxHealthShield;
+            gameObject.GetComponent<BossController>().enabled = true;
+            transform.GetChild(0).gameObject.SetActive(false);
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+            animator.SetTrigger("Attack");
+            _damageCollider.enabled = false;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("DamageBoss"))
+        {
+            TakeDamage();
+            Destroy(collision.gameObject);
+        }
+    }
 
 
 }

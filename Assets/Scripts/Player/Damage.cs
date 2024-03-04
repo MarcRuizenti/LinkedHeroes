@@ -19,6 +19,9 @@ public class Damage : MonoBehaviour
             case "Damage":
                 _onDamageTaken?.Invoke();
                 break;
+            case "Boss":
+                _onDamageTaken?.Invoke();
+                break;
             case "Bullet":
                 _onDamageTaken?.Invoke();
                 Destroy(collision.gameObject);

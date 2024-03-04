@@ -17,8 +17,8 @@ public class Sword : MonoBehaviour
                 collision.gameObject.GetComponentInParent<HealthBar>().TakeDamage(1);
                 break;
             case "Boss":
-                if (collision.gameObject.GetComponent<BossHealth>().healthShield <= 0)
-                    collision.gameObject.GetComponent<BossHealth>().TakeDamage();
+                if (collision.gameObject.GetComponent<BossController>().healthShield <= 0)
+                    collision.gameObject.GetComponent<BossController>().TakeDamage();
                 break;
         }
     }
