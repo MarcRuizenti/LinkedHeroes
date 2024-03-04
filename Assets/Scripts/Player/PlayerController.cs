@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour
 {
     //Hanging boost
     private bool _hangedSpeedBoost;
-    [SerializeField] private float _hangedSpeed;
-    [SerializeField] private float _maxHangedSpeed;
+    private float _hangedSpeed;
+    [SerializeField] private float _maxHangedSpeed; //estaba a 20
+    bool hanged = false, dragging = false;
 
     //animator
 
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour
     DistanceJoint2D _distanceJoint;
 
     //hook variables
-    Transform _anchor;
+    Transform _target;
     float _distance;
     bool _enemyHooked;
 
@@ -126,22 +127,14 @@ public class PlayerController : MonoBehaviour
             _lineRenderer.SetPosition(1, transform.position);
         }
 
-        //if (_enemyHooked)
+        
+
+        //if (_distanceJoint.enabled && IsGrounded())
         //{
-        //    transform.position = Vector3.MoveTowards(transform.position, _anchor.position, 3 * Time.deltaTime);
+        //    _lineRenderer.enabled = false;
+        //    _distanceJoint.enabled = false;
 
-        //    //if(transform.position == _anchor.position)
-        //    //{
-        //    //    _enemyHooked = false;
-        //    //}
         //}
-
-        if (_distanceJoint.enabled && IsGrounded())
-        {
-            _lineRenderer.enabled = false;
-            _distanceJoint.enabled = false;
-
-        }
     }
 
     //Handles player inputs and stores them
@@ -149,9 +142,15 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
+            //_hangedSpeedBoost = true;
+            _lineRenderer.enabled = false;
+            _distanceJoint.enabled = false;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        {
             _hangedSpeedBoost = true;
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
         {
             _hangedSpeedBoost = false;
         }
@@ -247,7 +246,7 @@ public class PlayerController : MonoBehaviour
                 case GameManager.Character.AIKE:
                     Aike();
                     break;
-                case GameManager.Character.KROKUR:
+                case GameManager.Character.KROKUR: //Lengua(gancho)
                     Krokur();
                     break;
                 default:
@@ -284,18 +283,23 @@ public class PlayerController : MonoBehaviour
 
     private void Krokur()
     {
-        if (_distanceJoint.enabled)
+        //if (_distanceJoint.enabled)
+        //{
+        //    _lineRenderer.enabled = false;
+        //    _distanceJoint.enabled = false;
+        //}
+        //
+        if (!_distanceJoint.enabled)
         {
-            _lineRenderer.enabled = false;
-            _distanceJoint.enabled = false;
-        }
-        else
-        {
-            _anchor = this.GetComponentInChildren<AnchorManager>().GetTargetAnchor((int)this.transform.localScale.x);
-            if (_anchor == null)
+            _target = this.GetComponentInChildren<AnchorManager>().GetTarget((int)this.transform.localScale.x, IsGrounded());
+            if (_target == null)
                 return;
+            else if (IsGrounded())
+            {
+                _target.GetComponentInParent<DrageableObject>().DragMe(this.transform.position + new Vector3(1.25f * (int)this.transform.localScale.x, 0.45f, 0), this);
+            }
             
-            Vector2 targetPos = _anchor.position;
+            Vector2 targetPos = _target.position;
             _lineRenderer.SetPosition(0, targetPos);
             _lineRenderer.SetPosition(1, transform.position);
             _distanceJoint.connectedAnchor = targetPos;
@@ -304,13 +308,7 @@ public class PlayerController : MonoBehaviour
 
             
 
-            //if (_anchor.parent != null && _anchor.parent.tag == "Enemy")
-            //{
-            //    Debug.Log("hit");
-            //    _anchor.parent.GetComponent<Patroller>().enabled = false;
-            //    _distance = Vector3.Distance(transform.position, _anchor.position);
-            //    _enemyHooked = true;
-            //}
+            
         }
     }
 
@@ -324,6 +322,17 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+    }
+
+    public void UpdateLRFirstPos(Vector3 pos)
+    {
+        _lineRenderer.SetPosition(0, pos);
+    }
+
+    public void UnHook()
+    {
+        _distanceJoint.enabled = false;
+        _lineRenderer.enabled = false;
     }
 
 
