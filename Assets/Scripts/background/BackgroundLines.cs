@@ -22,7 +22,6 @@ public class BackgroundLines : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger");
         if (!collision.CompareTag("BackgroundTrigger"))
             return;
         this.transform.position = new Vector3(this.transform.position.x, spawnPosY, this.transform.position.z);

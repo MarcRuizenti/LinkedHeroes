@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _currentCharacter = Character.KROKUR;
         //SceneManager.sceneLoaded += GetReferences;
     }
 
@@ -98,16 +97,17 @@ public class GameManager : MonoBehaviour
         switch (_currentCharacter)
         {
             case Character.KROKUR:
-                _player.GetComponent<SpriteRenderer>().color = Color.green;
                 _currentCharacter = Character.AIKE;
                 break;
             case Character.AIKE:
-                _player.GetComponent<SpriteRenderer>().color = Color.cyan;
                 _currentCharacter = Character.KROKUR;
+
                 break;
             default:
                 break;
         }
+
+        _player.GetComponent<PlayerController>().UpdateAnimator();
     }
 
     public void Win()
