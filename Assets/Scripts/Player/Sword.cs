@@ -11,14 +11,14 @@ public class Sword : MonoBehaviour
         switch (collision.tag)
         {
             case "Parry":
-                collision.gameObject.GetComponent<Parriable>().Parry();
+                collision.gameObject.GetComponentInParent<Parriable>().Parry();
                 break;
             case "Enemy":
                 collision.gameObject.GetComponentInParent<HealthBar>().TakeDamage(1);
                 break;
             case "Boss":
-                if (collision.gameObject.GetComponent<BossController>().healthShield <= 0)
-                    collision.gameObject.GetComponent<BossController>().TakeDamage();
+                if (collision.gameObject.GetComponentInParent<BossController>().healthShield <= 0)
+                    collision.gameObject.GetComponentInParent<BossController>().TakeDamage();
                 break;
         }
     }

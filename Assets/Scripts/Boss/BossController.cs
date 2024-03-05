@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,12 +15,14 @@ public class BossController : Patroll
     [SerializeField] private GameObject _damageBall;
     [SerializeField] private Sprite _parryBall;
     [SerializeField] private List<GameObject> _balls;
-    [SerializeField] private Transform _krokurPhaseAttackPosition;
-    [SerializeField] private float _krokurAttackDelay;
+    [SerializeField] private float _krokurAttackCounter;
+    [SerializeField] private float _krokurAttackCounterTime;
+    private bool _canRechargekrokurAttack = true;
+    [SerializeField] private GameObject _frog;
+
 
     [Header("Health Settings")]
     [SerializeField] private Transform _fallPosition;
-    [SerializeField] private Collider2D _damageCollider;
 
     public int maxHealth;
     public int health;
@@ -45,8 +48,9 @@ public class BossController : Patroll
         {
             case States.IDLE:
                 gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-                animator.SetBool("isDamaged", false);
                 Index = Random.Range(0, WayPoints.Count);
+                transform.GetChild(1).GetComponent<CircleCollider2D>().radius = 0.43f;
+                transform.GetChild(2).GetComponent<CircleCollider2D>().radius = 0.53f;
                 _currentState = States.MOVE;
                 break;
             case States.MOVE:
@@ -54,10 +58,14 @@ public class BossController : Patroll
                 break;
             case States.STOP:
                 _currentState = States.ATTACK;
+                if (GameManager.Instance._currentCharacter == GameManager.Character.KROKUR) 
+                {
+                    _krokurAttackCounter = _krokurAttackCounterTime;
+                }
                 break;
             case States.ATTACK:
+                animator.SetBool("isAttacking",true);
                 MovementDelayCounter = MovementDelay;
-                animator.SetBool("isAttacking", true);
                 break;
             case States.RECHARGE:
                 Recharge();
@@ -71,6 +79,8 @@ public class BossController : Patroll
                 {
                     gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
                     transform.GetChild(0).gameObject.SetActive(true);
+                    transform.GetChild(1).GetComponent<CircleCollider2D>().radius = 0.22f;
+                    transform.GetChild(2).GetComponent<CircleCollider2D>().radius = 0.35f;
                 }
                 break;
             default:
@@ -82,8 +92,11 @@ public class BossController : Patroll
     public void FinishAttack()
     {
         Attack();
-        _currentState = States.RECHARGE;
-        animator.SetBool("isAttacking", false);
+        if (_canRechargekrokurAttack || GameManager.Instance._currentCharacter == GameManager.Character.AIKE)
+        {
+            _currentState = States.RECHARGE;
+            animator.SetBool("isAttacking", false);
+        }
     }
 
     public void CheckIfFall()
@@ -103,7 +116,6 @@ public class BossController : Patroll
     public void ActivateCollider()
     {
         _currentState = States.IDLE;
-        _damageCollider.enabled = true;
     }
 
     private void Recharge()
@@ -133,10 +145,27 @@ public class BossController : Patroll
 
     private void KrokurPhase()
     {
-        this.enabled = false;
-        GameObject tempO = Instantiate(_damageBall, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
-        this.enabled = true;
-        animator.SetBool("isAttacking", false);
+        _krokurAttackCounter -= 1;
+        if (_krokurAttackCounter > 0)
+        {
+            GameObject tempO = Instantiate(_damageBall, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
+            if (tempO.transform.position.x > _frog.transform.position.x)
+            {
+                tempO.transform.localEulerAngles = new Vector3(tempO.transform.rotation.x, tempO.transform.rotation.y, Vector2.Angle(tempO.transform.position, _frog.transform.position));
+                Debug.Log(Vector2.Angle(tempO.transform.position, _frog.transform.position));
+            }
+            else
+            {
+                tempO.transform.localEulerAngles = new Vector3(tempO.transform.rotation.x, tempO.transform.rotation.y, -Vector2.Angle(tempO.transform.position, _frog.transform.position));
+                Debug.Log(-Vector2.Angle(tempO.transform.position, _frog.transform.position));
+
+            }
+            _canRechargekrokurAttack = false;
+        }
+        else 
+        {
+            _canRechargekrokurAttack = true;
+        }
     }
 
     private void AikePhase()
@@ -154,8 +183,8 @@ public class BossController : Patroll
         int rand2 = Random.Range(5, 8);
         _balls[rand1].GetComponent<SpriteRenderer>().sprite = _parryBall;
         _balls[rand2].GetComponent<SpriteRenderer>().sprite = _parryBall;
-        _balls[rand1].tag = "Parry";
-        _balls[rand2].tag = "Parry";
+        _balls[rand1].transform.GetChild(1).gameObject.SetActive(true);
+        _balls[rand2].transform.GetChild(1).gameObject.SetActive(true);
 
         _balls.Clear();
 
@@ -163,6 +192,15 @@ public class BossController : Patroll
 
     protected override void PatrollMethod()
     {
+        if (transform.position.x < WayPoints[Index].position.x)
+        {
+            transform.localScale = new Vector3(2.5f, transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-2.5f, transform.localScale.y, transform.localScale.z);
+        }
+
         bool PointReached = WayPoints[Index].position == transform.position;
 
 
@@ -195,7 +233,6 @@ public class BossController : Patroll
 
     public void TakeDamage()
     {
-        Debug.Log("Au");
         if (healthShield > 0)
         {
             healthShield--;
@@ -210,17 +247,15 @@ public class BossController : Patroll
             transform.GetChild(0).gameObject.SetActive(false);
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             animator.SetTrigger("Attack");
-            _damageCollider.enabled = false;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("DamageBoss"))
         {
+            Debug.Log("Au");
             TakeDamage();
             Destroy(collision.gameObject);
         }
     }
-
-
 }
