@@ -1870,7 +1870,7 @@ MonoBehaviour:
   Health: 0
   PlayerDeath: 0
   TextWin: {fileID: 481416788}
-  _currentCharacter: 0
+  _currentCharacter: 1
 --- !u!4 &1346315115
 Transform:
   m_ObjectHideFlags: 0
@@ -3049,9 +3049,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 54f5af6fc93b0264fbce80bc803e9f70, type: 2}
     - target: {fileID: 3169427577771623887, guid: 1428eb16a9ed5d54f9994dbcb038ba99, type: 3}
+      propertyPath: _spriteAike
+      value: 
+      objectReference: {fileID: 327871254, guid: 13968d0736c4e8b4f973c3b091b8f8f0, type: 3}
+    - target: {fileID: 3169427577771623887, guid: 1428eb16a9ed5d54f9994dbcb038ba99, type: 3}
       propertyPath: _animatorAike
       value: 
       objectReference: {fileID: 9100000, guid: 5e33bd0c62adb93409d48bf29f5df421, type: 2}
+    - target: {fileID: 3169427577771623887, guid: 1428eb16a9ed5d54f9994dbcb038ba99, type: 3}
+      propertyPath: _spriteKrokur
+      value: 
+      objectReference: {fileID: -1988460942, guid: b3beb5b7fb179d84c85afd237ef8522c, type: 3}
     - target: {fileID: 3169427577771623887, guid: 1428eb16a9ed5d54f9994dbcb038ba99, type: 3}
       propertyPath: _animatorKrokur
       value: 

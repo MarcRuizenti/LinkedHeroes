@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator _animator;
     [SerializeField] RuntimeAnimatorController _animatorKrokur;
     [SerializeField] RuntimeAnimatorController _animatorAike;
+    [SerializeField] Sprite _spriteKrokur;
+    [SerializeField] Sprite _spriteAike;
 
     //player components
     private Rigidbody2D _rb;
@@ -72,27 +74,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        switch (GameManager.Instance._currentCharacter)
-        {
-            case GameManager.Character.AIKE:
-                if (_animator.runtimeAnimatorController != _animatorAike)
-                    _animator.runtimeAnimatorController = _animatorAike;
-                break;
-            case GameManager.Character.KROKUR:
-                if (_animator.runtimeAnimatorController != _animatorKrokur)
-                    _animator.runtimeAnimatorController = _animatorKrokur;
-
-                _animator.SetBool("walking", IsGrounded() && _rb.velocity.x != 0);
-                _animator.SetBool("air", !IsGrounded());
-                _animator.SetFloat("velY", _rb.velocity.y);
-                _animator.SetBool("hanging", _distanceJoint.enabled);
-                break;
-            default:
-                break;
-        }
-
-        
-
         HandleInputs();
 
         MoveHorizontal();
@@ -153,14 +134,51 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
+    public void UpdateAnimator()
+    {
+        switch (GameManager.Instance._currentCharacter)
+        {
+            case GameManager.Character.AIKE:
+                _animator.runtimeAnimatorController = _animatorAike;
+
+
+                //_animator.SetBool("walking_aike", IsGrounded() && _rb.velocity.x != 0);
+                //_animator.SetBool("air_aike", !IsGrounded());
+                //_animator.SetFloat("velY_aike", _rb.velocity.y);
+                //_animator.SetBool("hanging_aike", _distanceJoint.enabled);
+                break;
+            case GameManager.Character.KROKUR:
+                    _animator.runtimeAnimatorController = _animatorKrokur;
+
+
+                //_animator.SetBool("walking", IsGrounded() && _rb.velocity.x != 0);
+                //_animator.SetBool("air", !IsGrounded());
+                //_animator.SetFloat("velY", _rb.velocity.y);
+                //_animator.SetBool("hanging", _distanceJoint.enabled);
+                break;
+            default:
+                break;
+        }
+
+        _animator.SetTrigger("Swap");
+    }
+
     //Handles player inputs and stores them
+
+
+
     private void HandleInputs()
     {
         if (Input.GetKey(KeyCode.Space))
         {
+            if (_distanceJoint.enabled)
+            {
+                _animator.SetTrigger("ReleaseTongue");
+            }
             //_hangedSpeedBoost = true;
             _lineRenderer.enabled = false;
             _distanceJoint.enabled = false;
+
         }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
@@ -212,6 +230,9 @@ public class PlayerController : MonoBehaviour
         {
             if (_rb.velocity.x < _maxVelocity && _rb.velocity.x > -_maxVelocity)
                 _rb.velocity += new Vector2(_horizontalInput, 0) * _speed * Time.deltaTime;
+
+            _animator.SetBool("walking", IsGrounded() && _rb.velocity.x != 0);
+
         }
 
         if (_horizontalInput == 0)
@@ -227,6 +248,9 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+
+        _animator.SetBool("air", !IsGrounded());
+        _animator.SetFloat("velY", _rb.velocity.y);
     }
 
 
@@ -264,6 +288,7 @@ public class PlayerController : MonoBehaviour
                     break;
                 case GameManager.Character.KROKUR: //Lengua(gancho)
                     Krokur();
+                    
                     break;
                 default:
                     break;
@@ -299,6 +324,7 @@ public class PlayerController : MonoBehaviour
 
     private void Krokur()
     {
+        
         //if (_distanceJoint.enabled)
         //{
         //    _lineRenderer.enabled = false;
@@ -321,10 +347,7 @@ public class PlayerController : MonoBehaviour
             _distanceJoint.connectedAnchor = targetPos;
             _distanceJoint.enabled = true;
             _lineRenderer.enabled = true;
-
-            
-
-            
+            _animator.SetTrigger("Tongue");
         }
     }
 
