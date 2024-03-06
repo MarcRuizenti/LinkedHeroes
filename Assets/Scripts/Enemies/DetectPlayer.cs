@@ -6,7 +6,7 @@ public class DetectPlayer : MonoBehaviour
 {
     [SerializeField] private UnityEvent _onPlayerDetected;
     [SerializeField] private UnityEvent _onPlayerExit;
-    [SerializeField] private bool flip;
+    [SerializeField] private bool hasBeenInvoked = false;
     private Collider2D _playerCollider;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -14,7 +14,11 @@ public class DetectPlayer : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             _playerCollider = collision;
-            _onPlayerDetected?.Invoke();
+            if(!hasBeenInvoked)
+            {
+                _onPlayerDetected?.Invoke();
+                hasBeenInvoked = true;
+            }
         }
     }
 
@@ -24,20 +28,12 @@ public class DetectPlayer : MonoBehaviour
         {
             _playerCollider = null;
             _onPlayerExit?.Invoke();
+            hasBeenInvoked = false;
         }
     }
 
     private void Update()
     {
-        if (transform.parent.localScale.x > 0)
-        {
-            flip = false;
-        }
-        else
-        {
-            flip = true;
-        }
-
         Vector3 scale = transform.parent.localScale;
 
         if (_playerCollider != null)

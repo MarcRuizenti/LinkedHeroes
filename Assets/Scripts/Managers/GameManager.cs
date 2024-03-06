@@ -101,7 +101,6 @@ public class GameManager : MonoBehaviour
                 break;
             case Character.AIKE:
                 _currentCharacter = Character.KROKUR;
-
                 break;
             default:
                 break;

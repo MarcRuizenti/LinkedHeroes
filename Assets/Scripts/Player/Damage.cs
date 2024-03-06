@@ -13,15 +13,12 @@ public class Damage : MonoBehaviour
 
         switch (tag)
         {
-            case "Enemy":
-                _onDamageTaken?.Invoke();
-                break;
             case "Damage":
                 _onDamageTaken?.Invoke();
                 break;
             case "Bullet":
                 _onDamageTaken?.Invoke();
-                Destroy(collision.gameObject);
+                Destroy(collision.gameObject.transform.parent.gameObject);
                 break;
             case "Border":
                 _onDeath?.Invoke();

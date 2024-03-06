@@ -21,6 +21,7 @@ TagManager:
   - BackgroundTrigger
   - Bullet
   - Drageable
+  - DamageEnemy
   layers:
   - Default
   - TransparentFX

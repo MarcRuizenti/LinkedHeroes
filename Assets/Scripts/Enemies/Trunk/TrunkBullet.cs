@@ -13,8 +13,10 @@ public class TrunkBullet : Parriable
 
     public override void Parry()
     {
+        gameObject.tag = "DamageEnemy";
         _isBeingParried = true;
         _parryDirection = GetPlayerScale();
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
 
 
@@ -30,5 +32,14 @@ public class TrunkBullet : Parriable
         }
 
         Destroy(gameObject, lifeTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_isBeingParried && collision.tag == "Enemy") 
+        { 
+            collision.gameObject.GetComponentInParent<HealthBar>().TakeDamage(1);
+            Destroy(gameObject);
+        }
     }
 }

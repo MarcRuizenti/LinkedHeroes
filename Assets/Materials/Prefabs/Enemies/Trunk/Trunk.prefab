@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6481828508659059639}
   - component: {fileID: 7291342546935622003}
   m_Layer: 8
-  m_Name: IgnorePlayerCollider
+  m_Name: SolidCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 4176728849818005197}
   - component: {fileID: 5429165591039262082}
   - component: {fileID: 7581633072520484003}
+  - component: {fileID: 3494650633839789576}
   m_Layer: 0
   m_Name: Trunk
   m_TagString: Untagged
@@ -114,7 +115,7 @@ Transform:
   - {fileID: 6481828508659059639}
   - {fileID: 3810640161103276561}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6461846473246204633
 SpriteRenderer:
@@ -210,6 +211,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 1651744047035185580, guid: 578a3e9409bac4f4f892803c04183d96, type: 3}
   _parryBullet: {fileID: 5933910078649802676, guid: f0dc6609fa6fda44696259b0d6013ebe, type: 3}
   _animator: {fileID: 7581633072520484003}
+  _detectPlayerColldier: {fileID: 1503043435522080851}
   _currentState: 0
 --- !u!95 &7581633072520484003
 Animator:
@@ -232,6 +234,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3494650633839789576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2464723148567369835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b06029bc506a24bb82539e3275d792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 2
+  _health: 0
+  _onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2464723148567369835}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _damagebleCollider: {fileID: 1710737928571950285}
+  _knockback: {x: 0, y: 0}
 --- !u!1 &4883749874982897577
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +277,7 @@ GameObject:
   - component: {fileID: 4639695029948961349}
   m_Layer: 0
   m_Name: DamagePlayerCollider
-  m_TagString: Enemy
+  m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,7 +354,7 @@ GameObject:
   - component: {fileID: 1710737928571950285}
   m_Layer: 0
   m_Name: TakeDamageCollider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
