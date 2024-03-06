@@ -49,8 +49,8 @@ public class BossController : Patroll
             case States.IDLE:
                 gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                 Index = Random.Range(0, WayPoints.Count);
-                transform.GetChild(1).GetComponent<CircleCollider2D>().radius = 0.43f;
-                transform.GetChild(2).GetComponent<CircleCollider2D>().radius = 0.53f;
+                transform.GetChild(1).GetComponent<CircleCollider2D>().radius = 0.94f;
+                transform.GetChild(2).GetComponent<CircleCollider2D>().radius = 1.35f;
                 _currentState = States.MOVE;
                 break;
             case States.MOVE:
@@ -79,8 +79,8 @@ public class BossController : Patroll
                 {
                     gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
                     transform.GetChild(0).gameObject.SetActive(true);
-                    transform.GetChild(1).GetComponent<CircleCollider2D>().radius = 0.22f;
-                    transform.GetChild(2).GetComponent<CircleCollider2D>().radius = 0.35f;
+                    transform.GetChild(1).GetComponent<CircleCollider2D>().radius = 0.61f;
+                    transform.GetChild(2).GetComponent<CircleCollider2D>().radius = 0.92f;
                 }
                 break;
             default:
@@ -245,8 +245,9 @@ public class BossController : Patroll
         if (collision.CompareTag("DamageBoss"))
         {
             Debug.Log("Au");
-            TakeDamage();
             Destroy(collision.gameObject);
+            TakeDamage();
+            
         }
     }
 }
