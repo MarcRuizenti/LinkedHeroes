@@ -197,7 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _knockback: {x: 0, y: 0}
   speed: 5
-  lifeTime: 6
+  lifeTime: 10
+  direccion: {x: 0, y: 0, z: 0}
 --- !u!58 &3790660742600727013
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -149,17 +149,8 @@ public class BossController : Patroll
         if (_krokurAttackCounter > 0)
         {
             GameObject tempO = Instantiate(_damageBall, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
-            if (tempO.transform.position.x > _frog.transform.position.x)
-            {
-                tempO.transform.localEulerAngles = new Vector3(tempO.transform.rotation.x, tempO.transform.rotation.y, Vector2.Angle(tempO.transform.position, _frog.transform.position));
-                Debug.Log(Vector2.Angle(tempO.transform.position, _frog.transform.position));
-            }
-            else
-            {
-                tempO.transform.localEulerAngles = new Vector3(tempO.transform.rotation.x, tempO.transform.rotation.y, -Vector2.Angle(tempO.transform.position, _frog.transform.position));
-                Debug.Log(-Vector2.Angle(tempO.transform.position, _frog.transform.position));
-
-            }
+            Vector3 direccion = tempO.transform.position - _frog.transform.position;
+            tempO.GetComponent<BallMovement>().direccion = -direccion.normalized;
             _canRechargekrokurAttack = false;
         }
         else 
@@ -194,11 +185,11 @@ public class BossController : Patroll
     {
         if (transform.position.x < WayPoints[Index].position.x)
         {
-            transform.localScale = new Vector3(2.5f, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }
         else
         {
-            transform.localScale = new Vector3(-2.5f, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
         }
 
         bool PointReached = WayPoints[Index].position == transform.position;

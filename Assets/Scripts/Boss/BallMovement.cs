@@ -6,6 +6,7 @@ public class BallMovement : Parriable
 {
     [SerializeField] private float speed;
     [SerializeField] private float lifeTime;
+    public Vector3 direccion;
 
 
     private bool _isBeingParried = false;
@@ -23,13 +24,19 @@ public class BallMovement : Parriable
 
     void Update()
     {
+
+        if (GameManager.Character.AIKE == GameManager.Instance._currentCharacter)
+        {
+            direccion = transform.up;
+        }
+
         if (_isBeingParried) 
         { 
-            transform.position += transform.up * speed * Time.deltaTime * -_parryDirection;
+            transform.position += direccion * speed * Time.deltaTime * -_parryDirection;
         }
         else
         {
-            transform.position += transform.up * speed * Time.deltaTime;
+            transform.position += direccion * speed * Time.deltaTime;
         }
         
         Destroy(gameObject, lifeTime);
