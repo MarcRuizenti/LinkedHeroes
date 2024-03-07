@@ -222,11 +222,11 @@ public class BossController : Patroll
         transform.position = Vector3.MoveTowards(transform.position, newPosition.position, Speed * Time.deltaTime);
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int amount)
     {
         if (healthShield > 0)
         {
-            healthShield--;
+            healthShield -= amount;
 
             animator.SetTrigger("ShieldDamage");
         }
@@ -246,7 +246,7 @@ public class BossController : Patroll
         {
             Debug.Log("Au");
             Destroy(collision.gameObject);
-            TakeDamage();
+            TakeDamage(1);
             
         }
     }
