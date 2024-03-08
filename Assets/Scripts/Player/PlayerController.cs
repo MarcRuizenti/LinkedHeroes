@@ -92,9 +92,12 @@ public class PlayerController : MonoBehaviour
         if (_coyoteTimeCounter >= 0 && Input.GetButtonDown("Jump"))
         {
             Jump();
-        }
 
-           
+
+        }
+        _animator.SetBool("air", !IsGrounded());
+        _animator.SetFloat("velY", _rb.velocity.y);
+        _animator.SetBool("walking", IsGrounded() && _rb.velocity.x != 0);
 
 
         if (!_activeTimeJump)
@@ -231,7 +234,7 @@ public class PlayerController : MonoBehaviour
             if (_rb.velocity.x < _maxVelocity && _rb.velocity.x > -_maxVelocity)
                 _rb.velocity += new Vector2(_horizontalInput, 0) * _speed * Time.deltaTime;
 
-            _animator.SetBool("walking", IsGrounded() && _rb.velocity.x != 0);
+            
 
         }
 
@@ -249,8 +252,7 @@ public class PlayerController : MonoBehaviour
     {
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
 
-        _animator.SetBool("air", !IsGrounded());
-        _animator.SetFloat("velY", _rb.velocity.y);
+        
     }
 
 
