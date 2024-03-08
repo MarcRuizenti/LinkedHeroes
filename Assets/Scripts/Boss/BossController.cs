@@ -23,6 +23,7 @@ public class BossController : Patroll
 
     [Header("Health Settings")]
     [SerializeField] private Transform _fallPosition;
+    [SerializeField] private bool canChangePhase = true;
 
     public int maxHealth;
     public int health;
@@ -37,7 +38,8 @@ public class BossController : Patroll
         STOP,
         ATTACK,
         RECHARGE,
-        FALL
+        FALL,
+        CHANGEPHASE
     }
 
     public States _currentState = States.IDLE;
@@ -82,6 +84,9 @@ public class BossController : Patroll
                     transform.GetChild(1).GetComponent<CircleCollider2D>().radius = 0.61f;
                     transform.GetChild(2).GetComponent<CircleCollider2D>().radius = 0.92f;
                 }
+                break;
+            case States.CHANGEPHASE:
+
                 break;
             default:
                 _currentState = States.IDLE;
@@ -238,6 +243,17 @@ public class BossController : Patroll
             transform.GetChild(0).gameObject.SetActive(false);
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             animator.SetTrigger("Attack");
+            if (health <= 0)
+            {
+                if (canChangePhase)
+                {
+                    _currentState = States.CHANGEPHASE;
+                }
+                else
+                {
+                    Debug.Log("holi");
+                } 
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

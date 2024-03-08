@@ -16,6 +16,8 @@ public class SceneSetter : MonoBehaviour
 
     private void SetUpScene(Scene scene, LoadSceneMode mode)
     {
+        Time.timeScale = 1.0f;
+
         if (_player != null) _player.UpdateAnimator();
 
         if(_enemiesList.Any()) EnableEnemies();
