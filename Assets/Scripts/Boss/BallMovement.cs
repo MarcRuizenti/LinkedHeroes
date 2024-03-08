@@ -6,6 +6,7 @@ public class BallMovement : Parriable
 {
     [SerializeField] private float speed;
     [SerializeField] private float lifeTime;
+    public GameManager.Character _bossPhase;
     public Vector3 direccion;
 
 
@@ -25,7 +26,7 @@ public class BallMovement : Parriable
     void Update()
     {
 
-        if (GameManager.Character.AIKE == GameManager.Instance._currentCharacter)
+        if (GameManager.Character.AIKE == _bossPhase)
         {
             direccion = transform.up;
         }

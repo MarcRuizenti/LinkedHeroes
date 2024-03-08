@@ -10,6 +10,7 @@ public class BossController : Patroll
     [SerializeField] private Animator animator;
     [SerializeField] private bool _isFallen;
     [SerializeField] private float _fallDelayCounter = 1;
+    [SerializeField] private bool _isRegening = false;
 
     [Header("Attack Settings")]
     [SerializeField] private GameObject _damageBall;
@@ -19,17 +20,24 @@ public class BossController : Patroll
     [SerializeField] private float _krokurAttackCounterTime;
     private bool _canRechargekrokurAttack = true;
     [SerializeField] private GameObject _frog;
+    [SerializeField] private GameManager.Character _currentCharacter;
+    [SerializeField] private int _krokurCycles;
+    [SerializeField] private float _krokurRechargeTime;
+    [SerializeField] private float _krokurRechargeTimeCounter;
 
 
     [Header("Health Settings")]
-    [SerializeField] private Transform _fallPosition;
-    [SerializeField] private bool canChangePhase = true;
-
+    
     public int maxHealth;
     public int health;
 
     public int maxHealthShield;
     public int healthShield;
+
+    [Header("Phase Change Settings")]
+    [SerializeField] private bool canChangePhase = true;
+    [SerializeField] private Transform _changePhasePosition;
+    [SerializeField] private GameObject _skull;
 
     public enum States
     {
@@ -38,10 +46,12 @@ public class BossController : Patroll
         STOP,
         ATTACK,
         RECHARGE,
+        RECHARGE_KROKUR,
         FALL,
-        CHANGEPHASE
+        CHANGE_PHASE
     }
 
+    [Header("States")]
     public States _currentState = States.IDLE;
 
     private void Update()
@@ -53,6 +63,12 @@ public class BossController : Patroll
                 Index = Random.Range(0, WayPoints.Count);
                 transform.GetChild(1).GetComponent<CircleCollider2D>().radius = 0.94f;
                 transform.GetChild(2).GetComponent<CircleCollider2D>().radius = 1.35f;
+                _krokurRechargeTimeCounter = _krokurRechargeTime;
+                _isRegening = false;
+                if (_currentCharacter == GameManager.Character.KROKUR)
+                {
+                    _krokurAttackCounter = _krokurAttackCounterTime;
+                }
                 _currentState = States.MOVE;
                 break;
             case States.MOVE:
@@ -60,13 +76,9 @@ public class BossController : Patroll
                 break;
             case States.STOP:
                 _currentState = States.ATTACK;
-                if (GameManager.Instance._currentCharacter == GameManager.Character.KROKUR) 
-                {
-                    _krokurAttackCounter = _krokurAttackCounterTime;
-                }
                 break;
             case States.ATTACK:
-                animator.SetBool("isAttacking",true);
+                animator.SetTrigger("StartAttacking");
                 MovementDelayCounter = MovementDelay;
                 break;
             case States.RECHARGE:
@@ -85,8 +97,12 @@ public class BossController : Patroll
                     transform.GetChild(2).GetComponent<CircleCollider2D>().radius = 0.92f;
                 }
                 break;
-            case States.CHANGEPHASE:
-
+            case States.CHANGE_PHASE:
+                canChangePhase = false;
+                MoveToPosition(_changePhasePosition);
+                break;
+            case States.RECHARGE_KROKUR:
+                RechargeKrokur();
                 break;
             default:
                 _currentState = States.IDLE;
@@ -94,13 +110,43 @@ public class BossController : Patroll
         }
     }
 
+    private void RechargeKrokur()
+    {
+        if(transform.position != _changePhasePosition.position) 
+        {
+            MoveToPosition(_changePhasePosition);
+        }
+        else
+        {
+            if (_krokurRechargeTimeCounter > 0)
+            {
+                _krokurRechargeTimeCounter -= Time.deltaTime;
+            }
+            else if (_krokurRechargeTimeCounter <= 0 && !_isRegening)
+            {
+                Debug.Log("hola");
+                _isRegening = true;
+                animator.SetTrigger("Regen");
+            }
+        }
+    }
+
     public void FinishAttack()
     {
+        if (_krokurCycles <= 0)
+        {
+            _currentState = States.RECHARGE_KROKUR;
+            _canRechargekrokurAttack = true;
+            animator.SetTrigger("RechargeKrokur");
+            return;
+        }
+
         Attack();
-        if (_canRechargekrokurAttack || GameManager.Instance._currentCharacter == GameManager.Character.AIKE)
+
+        if (_canRechargekrokurAttack && _krokurCycles > 0 || _currentCharacter == GameManager.Character.AIKE )
         {
             _currentState = States.RECHARGE;
-            animator.SetBool("isAttacking", false);
+            animator.SetTrigger("StopAttacking");
         }
     }
 
@@ -118,9 +164,35 @@ public class BossController : Patroll
         }
     }
 
-    public void ActivateCollider()
+    public void ReturnToIdle()
     {
+        animator.SetTrigger("StopAttacking");
+        _isRegening = false;
+        _krokurCycles = 2;
         _currentState = States.IDLE;
+    }
+
+    public void StartSecondPhase()
+    {
+        if(!canChangePhase && health <= 0) 
+        {
+            _skull.transform.position = transform.position;
+            _skull.SetActive(true);
+            UpdateCharacter();
+            health = 2;
+        }
+    }
+
+    public void UpdateCharacter()
+    {
+        if(_currentCharacter == GameManager.Character.AIKE)
+        {
+            _currentCharacter = GameManager.Character.KROKUR;
+        }
+        else
+        {
+            _currentCharacter = GameManager.Character.AIKE;
+        }
     }
 
     private void Recharge()
@@ -137,7 +209,7 @@ public class BossController : Patroll
 
     private void Attack()
     {
-        switch (GameManager.Instance._currentCharacter)
+        switch (_currentCharacter)
         {
             case GameManager.Character.AIKE:
                 AikePhase();
@@ -150,16 +222,26 @@ public class BossController : Patroll
 
     private void KrokurPhase()
     {
+        if (_krokurCycles <= 0)
+        {
+            _currentState = States.RECHARGE_KROKUR;
+            return;
+        }
+
         _krokurAttackCounter -= 1;
+        
+
         if (_krokurAttackCounter > 0)
         {
             GameObject tempO = Instantiate(_damageBall, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
             Vector3 direccion = tempO.transform.position - _frog.transform.position;
             tempO.GetComponent<BallMovement>().direccion = -direccion.normalized;
+            tempO.GetComponent<BallMovement>()._bossPhase = _currentCharacter;
             _canRechargekrokurAttack = false;
         }
         else 
         {
+            _krokurCycles--;
             _canRechargekrokurAttack = true;
         }
     }
@@ -171,6 +253,8 @@ public class BossController : Patroll
             GameObject tempO = Instantiate(_damageBall, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
 
             tempO.transform.localEulerAngles = new Vector3(tempO.transform.rotation.x, tempO.transform.rotation.y, i);
+
+            tempO.GetComponent<BallMovement>()._bossPhase = _currentCharacter;
 
             _balls.Add(tempO);
         }
@@ -220,11 +304,26 @@ public class BossController : Patroll
         Index = Random.Range(0, WayPoints.Count);
         health = maxHealth;
         healthShield = maxHealthShield;
+        _currentCharacter = GameManager.Instance._currentCharacter;
     }
 
     public void MoveToPosition(Transform newPosition)
     {
+        if (transform.position.x < newPosition.position.x)
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        }
+
         transform.position = Vector3.MoveTowards(transform.position, newPosition.position, Speed * Time.deltaTime);
+
+        if(transform.position == newPosition.position && _currentState == States.CHANGE_PHASE) 
+        {
+            animator.SetTrigger("Regen");
+        }
     }
 
     public void TakeDamage(int amount)
@@ -247,12 +346,18 @@ public class BossController : Patroll
             {
                 if (canChangePhase)
                 {
-                    _currentState = States.CHANGEPHASE;
+                    _currentState = States.CHANGE_PHASE;
+                    animator.SetTrigger("ChangePhase");
+                    Debug.Log("cambio de fase");
                 }
                 else
                 {
                     Debug.Log("holi");
-                } 
+                }
+            }
+            else
+            {
+                animator.SetTrigger("Regen");
             }
         }
     }

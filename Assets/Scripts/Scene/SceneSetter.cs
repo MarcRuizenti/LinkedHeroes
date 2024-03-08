@@ -9,6 +9,7 @@ public class SceneSetter : MonoBehaviour
 {
     [SerializeField] private PlayerController _player;
     [SerializeField] private List<GameObject> _enemiesList;
+    
     private void OnEnable()
     {
         SceneManager.sceneLoaded += SetUpScene;
