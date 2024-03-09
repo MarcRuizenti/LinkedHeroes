@@ -58,25 +58,8 @@ public class Mushroom_Controller : Patroll
     
     protected override void PatrollMethod()
     {
-        Debug.Log("walk");
-        Debug.Log(Index);
-        float distance = Vector3.Distance(transform.position, WayPoints[Index].position);
-        Debug.Log(distance);
-        if (distance < 0.1f)
-        {
-            Index++;
-            if (Index >= WayPoints.Count) Index = 0;
-            Flip();
-            CurrentState = States.IDLE;     
-        }
-        
-        transform.position = Vector3.MoveTowards(transform.position, WayPoints[Index].position, Speed * Time.deltaTime);
-    }
-
-    private void Flip()
-    {
         Vector3 scale = transform.localScale;
-        if(transform.localScale.x == 1)
+        if (transform.position.x < WayPoints[Index].position.x)
         {
             scale.x = -1;
         }
@@ -84,7 +67,19 @@ public class Mushroom_Controller : Patroll
         {
             scale.x = 1;
         }
-
         transform.localScale = scale;
+
+        Debug.Log(Index);
+        float distance = Vector3.Distance(transform.position, WayPoints[Index].position);
+        Debug.Log(distance);
+        if (distance < 0.1f)
+        {
+            Index++;
+            if (Index >= WayPoints.Count) Index = 0;
+            
+            CurrentState = States.IDLE;
+        }
+
+        transform.position = Vector3.MoveTowards(transform.position, WayPoints[Index].position, Speed * Time.deltaTime);
     }
 }

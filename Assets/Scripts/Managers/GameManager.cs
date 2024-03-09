@@ -74,6 +74,10 @@ public class GameManager : MonoBehaviour
         //}
     }
 
+    private void OnEnable()
+    {
+        _currentCharacter = Character.AIKE;
+    }
     public void UpdatePlayerState()
     {
         if(!PlayerDeath)

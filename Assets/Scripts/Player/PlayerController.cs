@@ -168,8 +168,6 @@ public class PlayerController : MonoBehaviour
 
     //Handles player inputs and stores them
 
-
-
     private void HandleInputs()
     {
         if (Input.GetKey(KeyCode.Space))
@@ -375,7 +373,4 @@ public class PlayerController : MonoBehaviour
         _distanceJoint.enabled = false;
         _lineRenderer.enabled = false;
     }
-
-
-
 }
