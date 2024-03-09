@@ -128,12 +128,11 @@ public class PlayerController : MonoBehaviour
 
         
 
-        //if (_distanceJoint.enabled && IsGrounded())
-        //{
-        //    _lineRenderer.enabled = false;
-        //    _distanceJoint.enabled = false;
+        if (_distanceJoint.enabled)
+        {
+           
 
-        //}
+        }
     }
 
     public void UpdateAnimator()
@@ -324,18 +323,22 @@ public class PlayerController : MonoBehaviour
 
     private void Krokur()
     {
-        
-        //if (_distanceJoint.enabled)
-        //{
-        //    _lineRenderer.enabled = false;
-        //    _distanceJoint.enabled = false;
-        //}
-        //
+        if (_distanceJoint.enabled && _lineRenderer.enabled && _target != null)
+        {
+            _animator.SetTrigger("ReleaseTongue");
+            _lineRenderer.enabled = false;
+            _target = null;
+            _distanceJoint.enabled = false;
+            return;
+        }
+
         if (!_distanceJoint.enabled)
         {
             _target = this.GetComponentInChildren<AnchorManager>().GetTarget((int)this.transform.localScale.x, IsGrounded());
-            if (_target == null)
+            if (_target == null) 
+            {
                 return;
+            }
             else if (IsGrounded())
             {
                 _target.GetComponentInParent<DrageableObject>().DragMe(this.transform.position + new Vector3(1.25f * (int)this.transform.localScale.x, 0.45f, 0), this);

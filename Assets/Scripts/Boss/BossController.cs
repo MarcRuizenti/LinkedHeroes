@@ -20,7 +20,7 @@ public class BossController : Patroll
     [SerializeField] private float _krokurAttackCounter;
     [SerializeField] private float _krokurAttackCounterTime;
     private bool _canRechargekrokurAttack = true;
-    [SerializeField] private GameObject _frog;
+    [SerializeField] private GameObject _player;
     [SerializeField] private GameManager.Character _character;
     [SerializeField] private int _krokurCycles;
     [SerializeField] private float _krokurRechargeTime;
@@ -244,7 +244,7 @@ public class BossController : Patroll
         if (_krokurAttackCounter > 0)
         {
             GameObject tempO = Instantiate(_damageBall, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
-            Vector3 direccion = tempO.transform.position - _frog.transform.position;
+            Vector3 direccion = tempO.transform.position - _player.transform.position;
             tempO.GetComponent<BallMovement>().direccion = -direccion.normalized;
             tempO.GetComponent<BallMovement>()._bossPhase = _character;
             _canRechargekrokurAttack = false;
