@@ -32,6 +32,7 @@ public class BossController : Patroll
     public int health;
     public int maxHealthShield;
     public int healthShield;
+    [SerializeField] private UnityEvent _onBossDefeated;
 
     [Header("Phase Change Settings")]
     [SerializeField] private bool canChangePhase = true;
@@ -368,7 +369,7 @@ public class BossController : Patroll
                 }
                 else
                 {
-                    Destroy(gameObject);
+                    _onBossDefeated?.Invoke();
                 }
             }
             else

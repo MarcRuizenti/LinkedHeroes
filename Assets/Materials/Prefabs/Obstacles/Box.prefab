@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 5760253151655278553}
   - component: {fileID: 7632384792876202004}
   - component: {fileID: 6188881935826672198}
-  m_Layer: 10
-  m_Name: Box_0
+  - component: {fileID: 4697322663440836594}
+  m_Layer: 11
+  m_Name: Box
   m_TagString: DamageBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 8510111567538759193}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1163299300112802549
 SpriteRenderer:
@@ -174,6 +175,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5760253151655278553}
   movingVelocity: 1
+--- !u!114 &4697322663440836594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3729543128361753637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe93878fcc49a74081ab1dfb2980f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boxTimer: 6
+  _boxTimerCount: 0
+  _spawnDelay: 0
+  _startingPosition: {x: 0, y: 0, z: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &5691719138876439726
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +205,7 @@ GameObject:
   - component: {fileID: 8510111567538759193}
   - component: {fileID: 277706556676563454}
   - component: {fileID: 3966387094049020017}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: HookPoint
   m_TagString: Drageable
   m_Icon: {fileID: 0}

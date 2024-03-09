@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,11 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _player;
     public static GameManager Instance { get; private set; }
 
-    public int Health;
     public bool PlayerDeath;
-
-    public GameObject TextWin;
-
 
     public enum Character
     {
@@ -62,9 +59,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerDeath)
+        if(Time.timeScale == 0)
         {
-            Time.timeScale = 0f;
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Respawn();
@@ -75,23 +71,27 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _currentCharacter = Character.KROKUR;
+        SceneManager.sceneLoaded += GetPlayer;
     }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= GetPlayer;
+    }
+
+    private void GetPlayer(Scene arg0, LoadSceneMode arg1)
+    {
+
+        _player = FindObjectOfType<PlayerController>().gameObject;
+    }
+
     public void UpdatePlayerState()
     {
-        if(!PlayerDeath)
-        {
-            PlayerDeath = true;
-        }
-        else
-        {
-            PlayerDeath = false;
-        }
+      PlayerDeath = true;
     }
 
     private void Respawn()
     {
-        Time.timeScale = 1.0f;
         PlayerDeath = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -113,9 +113,5 @@ public class GameManager : MonoBehaviour
         _player.GetComponent<PlayerController>().UpdateAnimator();
     }
 
-    public void Win()
-    {
-        TextWin.SetActive(true);
-        Time.timeScale = 0f;
-    }
+    
 }

@@ -765,7 +765,7 @@ MonoBehaviour:
   _origins: []
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 3072
 --- !u!114 &4711364058979263226
 MonoBehaviour:
   m_ObjectHideFlags: 0
