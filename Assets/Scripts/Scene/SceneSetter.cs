@@ -31,4 +31,9 @@ public class SceneSetter : MonoBehaviour
             enemy.SetActive(true);
         }
     }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SetUpScene;
+    }
 }

@@ -82,24 +82,23 @@ public class PlayerController : MonoBehaviour
         {
             _coyoteTimeCounter = _coyoteTime;
             _activeTimeJump = false;
+            _animator.SetBool("air", false);
+            _animator.SetFloat("velY", _rb.velocity.y);
         }
         else
         {
             _coyoteTimeCounter -= Time.deltaTime;
             _activeTimeJump = true;
+            _animator.SetBool("air", true);
+            _animator.SetFloat("velY", _rb.velocity.y);
+            _animator.SetBool("walking", false);
         }
 
         if (_coyoteTimeCounter >= 0 && Input.GetButtonDown("Jump"))
         {
             Jump();
-
-
         }
-        _animator.SetBool("air", !IsGrounded());
-        _animator.SetFloat("velY", _rb.velocity.y);
-        _animator.SetBool("walking", IsGrounded() && _rb.velocity.x != 0);
-
-
+        
         if (!_activeTimeJump)
         {
             _timeJumpCurent = _timeJump; 
@@ -232,7 +231,10 @@ public class PlayerController : MonoBehaviour
             if (_rb.velocity.x < _maxVelocity && _rb.velocity.x > -_maxVelocity)
                 _rb.velocity += new Vector2(_horizontalInput, 0) * _speed * Time.deltaTime;
 
-            
+            if(_horizontalInput != 0)
+                _animator.SetBool("walking", true);
+            else
+                _animator.SetBool("walking", false);
 
         }
 
@@ -249,8 +251,6 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
-
-        
     }
 
 

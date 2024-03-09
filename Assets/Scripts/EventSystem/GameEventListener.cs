@@ -28,4 +28,9 @@ public class GameEventListener : MonoBehaviour
     {
         response?.Invoke();
     }
+
+    public void ChangeCharacter()
+    {
+        GameManager.Instance.ChangeCharacter();
+    }
 }

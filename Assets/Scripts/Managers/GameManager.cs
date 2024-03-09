@@ -65,18 +65,17 @@ public class GameManager : MonoBehaviour
         if(PlayerDeath)
         {
             Time.timeScale = 0f;
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Respawn();
+            }
         }
-        //UpdateCharacter(_currentCharacter);
-        
-        //if(Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    Respawn();
-        //}
+
     }
 
     private void OnEnable()
     {
-        _currentCharacter = Character.AIKE;
+        _currentCharacter = Character.KROKUR;
     }
     public void UpdatePlayerState()
     {
@@ -94,7 +93,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         PlayerDeath = false;
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ChangeCharacter()

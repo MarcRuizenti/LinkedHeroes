@@ -195,7 +195,7 @@ public class BossController : Patroll
             _skull.transform.position = transform.position;
             _skull.SetActive(true);
             UpdateCharacter();
-            health = 2;
+            health = maxHealth;
         }
     }
 
