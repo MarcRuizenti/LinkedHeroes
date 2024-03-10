@@ -6,12 +6,18 @@ public class Parriable : MonoBehaviour
 {
     [Header("Parry Settings")]
     [SerializeField] protected Vector2 _knockback;
+    private GameObject _player;
 
     protected float GetPlayerScale()
     {
-        return GameObject.FindWithTag("Player").transform.localScale.x;
+        return _player.transform.localScale.x;
     }
 
     public virtual void Parry() { }
+
+    private void Start()
+    {
+        _player = FindObjectOfType<PlayerController>().gameObject;
+    }
 
 }

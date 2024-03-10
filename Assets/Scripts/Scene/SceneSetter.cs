@@ -19,6 +19,8 @@ public class SceneSetter : MonoBehaviour
     {
         Time.timeScale = 1.0f;
 
+        if (_player == null) return;
+
         if (_player != null) _player.UpdateAnimator();
 
         if(_enemiesList.Any()) EnableEnemies();

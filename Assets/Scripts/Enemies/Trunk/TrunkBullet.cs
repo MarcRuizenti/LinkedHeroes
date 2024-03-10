@@ -6,6 +6,7 @@ public class TrunkBullet : Parriable
 {
     [SerializeField] private float speed;
     [SerializeField] private float lifeTime;
+    
 
 
     private bool _isBeingParried = false;
@@ -42,4 +43,6 @@ public class TrunkBullet : Parriable
             Destroy(gameObject);
         }
     }
+
+    
 }

@@ -69,9 +69,7 @@ public class Mushroom_Controller : Patroll
         }
         transform.localScale = scale;
 
-        Debug.Log(Index);
         float distance = Vector3.Distance(transform.position, WayPoints[Index].position);
-        Debug.Log(distance);
         if (distance < 0.1f)
         {
             Index++;

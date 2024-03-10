@@ -126,12 +126,14 @@ public class PlayerController : MonoBehaviour
             _lineRenderer.SetPosition(1, transform.position);
         }
 
-        
 
-        if (_distanceJoint.enabled)
+        if (!_lineRenderer.enabled && GameManager.Instance._currentCharacter == GameManager.Character.KROKUR)
         {
-           
-
+            _animator.SetTrigger("ReleaseTongue");
+        }
+        else if (_lineRenderer.enabled && GameManager.Instance._currentCharacter == GameManager.Character.KROKUR)
+        {
+            _animator.ResetTrigger("ReleaseTongue");
         }
     }
 

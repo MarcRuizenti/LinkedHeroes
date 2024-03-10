@@ -52,4 +52,9 @@ public class SceneManagement : MonoBehaviour
         TextWin.SetActive(true);
         Time.timeScale = 0f;
     }
+
+    public void NextLevel(string nextLevel)
+    {
+        SceneManager.LoadScene(nextLevel);
+    }
 }

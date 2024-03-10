@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour
 
     private void GetPlayer(Scene arg0, LoadSceneMode arg1)
     {
-
         _player = FindObjectOfType<PlayerController>().gameObject;
     }
 
