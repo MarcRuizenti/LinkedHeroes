@@ -38,4 +38,9 @@ public class SceneSetter : MonoBehaviour
     {
         SceneManager.sceneLoaded -= SetUpScene;
     }
+
+    public void ChangeCharacter()
+    {
+        GameManager.Instance.ChangeCharacter();
+    }
 }
