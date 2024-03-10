@@ -8526,7 +8526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 4649386143556013768}
   PlayerDeath: 0
-  _currentCharacter: 1
+  _currentCharacter: 0
 --- !u!4 &1346315115
 Transform:
   m_ObjectHideFlags: 0
@@ -11776,7 +11776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 981478144001288709, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28
+      value: -36.61
       objectReference: {fileID: 0}
     - target: {fileID: 981478144001288709, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_LocalPosition.y

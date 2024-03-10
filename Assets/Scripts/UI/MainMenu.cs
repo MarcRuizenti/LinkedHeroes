@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
     }
 
