@@ -61,6 +61,7 @@ public class BossController : Patroll
             case States.IDLE:
                 gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                 Index = Random.Range(0, WayPoints.Count);
+                transform.GetChild(0).gameObject.SetActive(false);
                 transform.GetChild(1).GetComponent<CircleCollider2D>().radius = 0.94f;
                 transform.GetChild(2).GetComponent<CircleCollider2D>().radius = 1.35f;
                 _krokurRechargeTimeCounter = _krokurRechargeTime;
@@ -136,6 +137,7 @@ public class BossController : Patroll
                 {
                     Debug.Log("hola");
                     _isRegening = true;
+                    Debug.Log("Regen2");
                     animator.SetTrigger("Regen");
                 }
             }
@@ -272,12 +274,18 @@ public class BossController : Patroll
             _balls.Add(tempO);
         }
 
-        int rand1 = Random.Range(0, 5);
-        int rand2 = Random.Range(5, 8);
+        int rand1 = Random.Range(0, 2);
+        int rand2 = Random.Range(2, 4);
+        int rand3 = Random.Range(4, 6);
+        int rand4 = Random.Range(6, 8);
         _balls[rand1].GetComponent<SpriteRenderer>().sprite = _parryBall;
         _balls[rand2].GetComponent<SpriteRenderer>().sprite = _parryBall;
+        _balls[rand3].GetComponent<SpriteRenderer>().sprite = _parryBall;
+        _balls[rand4].GetComponent<SpriteRenderer>().sprite = _parryBall;
         _balls[rand1].transform.GetChild(1).gameObject.SetActive(true);
         _balls[rand2].transform.GetChild(1).gameObject.SetActive(true);
+        _balls[rand3].transform.GetChild(1).gameObject.SetActive(true);
+        _balls[rand4].transform.GetChild(1).gameObject.SetActive(true);
 
         _balls.Clear();
 
@@ -340,6 +348,7 @@ public class BossController : Patroll
 
         if (transform.position == newPosition.position && _currentState == States.CHANGE_PHASE)
         {
+            Debug.Log("Regen3");
             animator.SetTrigger("Regen");
         }
     }
@@ -357,7 +366,6 @@ public class BossController : Patroll
             health--;
             healthShield = maxHealthShield;
             gameObject.GetComponent<BossController>().enabled = true;
-            transform.GetChild(0).gameObject.SetActive(false);
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             animator.SetTrigger("Attack");
             if (health <= 0)
@@ -374,6 +382,7 @@ public class BossController : Patroll
             }
             else
             {
+                Debug.Log("Regen1");
                 animator.SetTrigger("Regen");
             }
         }

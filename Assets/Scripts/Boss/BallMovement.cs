@@ -33,7 +33,7 @@ public class BallMovement : Parriable
 
         if (_isBeingParried) 
         { 
-            transform.position += direccion * speed * Time.deltaTime * -_parryDirection;
+            transform.position += direccion * speed * Time.deltaTime * _parryDirection;
         }
         else
         {
