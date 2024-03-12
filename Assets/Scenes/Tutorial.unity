@@ -12486,6 +12486,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5380392132848258583, guid: a173df7f3e3d1014d9de8abfbc6cc884, type: 3}
+      propertyPath: orthographic size
+      value: 9.759688
+      objectReference: {fileID: 0}
     - target: {fileID: 7973081969313131793, guid: a173df7f3e3d1014d9de8abfbc6cc884, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -12533,6 +12537,18 @@ PrefabInstance:
     - target: {fileID: 8397772538019570022, guid: a173df7f3e3d1014d9de8abfbc6cc884, type: 3}
       propertyPath: m_Name
       value: BoxCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979656375623916581, guid: a173df7f3e3d1014d9de8abfbc6cc884, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.970001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979656375623916581, guid: a173df7f3e3d1014d9de8abfbc6cc884, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.64999986
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979656375623916581, guid: a173df7f3e3d1014d9de8abfbc6cc884, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Spikes : Parriable
 {
-    [SerializeField] private GameObject _player;
     private void Start()
     {
         _player = FindObjectOfType<PlayerController>().gameObject;

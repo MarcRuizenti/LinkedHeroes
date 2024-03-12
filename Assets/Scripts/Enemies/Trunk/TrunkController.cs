@@ -11,6 +11,7 @@ public class TrunkController : MonoBehaviour
     [SerializeField] private Collider2D _detectPlayerColldier;
     private int _parryCounter = 0;
 
+
     public enum States
     {
         IDLE,
