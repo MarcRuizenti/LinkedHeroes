@@ -22,11 +22,11 @@ public class Damage : MonoBehaviour
         {
             case "Damage":
                 _onDamageTaken?.Invoke();
-                _shaker.CamShake();
+                _shaker.CamShake(0.3f, -0.07f, -0.03f);
                 break;
             case "Bullet":
                 _onDamageTaken?.Invoke();
-                _shaker.CamShake();
+                _shaker.CamShake(0.3f, -0.07f, -0.03f);
                 Destroy(collision.gameObject.transform.parent.gameObject);
                 break;
             case "Border":

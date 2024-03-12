@@ -36,11 +36,11 @@ public class Shaker : MonoBehaviour
         
     }
 
-    public void CamShake()
+    public void CamShake(float _time, float _minX, float _minY)
     {
         startingPosition = transform.position;
-        timeShake = 0.3f;
-        minShakeX = -0.07f; maxShakeX = 0.07f;
-        minShakeY = -0.03f; maxShakeY = 0.03f;
+        timeShake = _time;
+        minShakeX = _minX; maxShakeX = _minX * -1;
+        minShakeY = _minY; maxShakeY = _minY * -1;
     }
 }

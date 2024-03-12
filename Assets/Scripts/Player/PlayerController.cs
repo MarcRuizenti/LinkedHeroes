@@ -255,7 +255,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         _origins.Clear();
         
