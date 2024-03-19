@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour
 {
     public void ExitGame()
     {
-        Debug.Log("Adios");
         Application.Quit();
     }
 
