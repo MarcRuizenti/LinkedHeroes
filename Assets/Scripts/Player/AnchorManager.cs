@@ -8,7 +8,8 @@ public class AnchorManager : MonoBehaviour
    Dictionary <int,Transform> myAnchors = new Dictionary<int, Transform> ();
     Dictionary<int, Transform> myDrageables = new Dictionary<int, Transform>();
 
-
+    private GameObject lastDraggeable;
+    private GameObject lastHookpoint;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -29,6 +30,7 @@ public class AnchorManager : MonoBehaviour
         {
             if (collision.tag == "Drageable")
             {
+                lastDraggeable = null;
                 collision.transform.parent.Find("Arrow").gameObject.SetActive(false);
             }
 
@@ -36,7 +38,29 @@ public class AnchorManager : MonoBehaviour
             {
                 Transform hookPoint = GetTargetAnchor((int)transform.parent.localScale.x);
 
-                if (hookPoint != null) Debug.Log("plataforma");
+                if (hookPoint != null)
+                {
+                    if (lastHookpoint != null && lastHookpoint == hookPoint.gameObject)
+                    {
+
+                        lastHookpoint.transform.parent.Find("Arrow").gameObject.SetActive(true);
+                    }
+                    else if (lastDraggeable == null)
+                    {
+                        lastHookpoint = hookPoint.gameObject;
+                        lastHookpoint.transform.parent.Find("Arrow").gameObject.SetActive(true);
+                    }
+                    else if (lastHookpoint != null && lastHookpoint != hookPoint.gameObject)
+                    {
+                        lastHookpoint.transform.parent.Find("Arrow").gameObject.SetActive(false);
+                        lastHookpoint = hookPoint.gameObject;
+                    }
+                }
+                else if (hookPoint == null && lastHookpoint != null)
+                {
+                    lastHookpoint.transform.parent.Find("Arrow").gameObject.SetActive(false);
+                    lastHookpoint = null;
+                }
             }
         }
         else if (transform.parent.GetComponent<PlayerController>().IsGrounded())
@@ -45,23 +69,32 @@ public class AnchorManager : MonoBehaviour
             {
                 Transform closestDrageable = GetDrageable((int)transform.parent.localScale.x);
 
-                if(closestDrageable != null){
-                    float distance = Vector2.Distance(transform.parent.position, closestDrageable.position);
+                if (closestDrageable != null)
+                {
+                    if (lastDraggeable != null && lastDraggeable == closestDrageable.gameObject)
+                    {
 
-                    if (closestDrageable.position.x < transform.parent.position.x)
-                    {
-                        distance *= -1;
+                        lastDraggeable.transform.parent.Find("Arrow").gameObject.SetActive(true);
                     }
+                    else if (lastDraggeable == null)
+                    {
+                        lastDraggeable = closestDrageable.gameObject;
+                        lastDraggeable.transform.parent.Find("Arrow").gameObject.SetActive(true);
+                    }
+                    else if (lastDraggeable != null && lastDraggeable != closestDrageable.gameObject)
+                    {
+                        lastDraggeable.transform.parent.Find("Arrow").gameObject.SetActive(false);
+                        lastDraggeable = closestDrageable.gameObject;
+                    }
+                }
+                else if(closestDrageable == null && lastDraggeable != null)
+                {
+                    lastDraggeable.transform.parent.Find("Arrow").gameObject.SetActive(false);
+                    lastDraggeable = null;
+                }
+                
 
-                    if(distance > 0 && transform.parent.localScale.x == 1 || distance < 0 && transform.parent.localScale.x == -1)
-                    {
-                        closestDrageable.parent.Find("Arrow").gameObject.SetActive(true);
-                    }
-                    else if(distance > 0 && transform.parent.localScale.x == -1 || distance < 0 && transform.parent.localScale.x == 1)
-                    {
-                        closestDrageable.parent.Find("Arrow").gameObject.SetActive(false);
-                    }
-                }   
+                
             }
         }
     }
