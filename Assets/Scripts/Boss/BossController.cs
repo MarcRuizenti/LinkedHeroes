@@ -66,6 +66,7 @@ public class BossController : Patroll
                 transform.GetChild(2).GetComponent<CircleCollider2D>().radius = 1.35f;
                 _krokurRechargeTimeCounter = _krokurRechargeTime;
                 _isRegening = false;
+                animator.ResetTrigger("Regen");
                 if (_character == GameManager.Character.KROKUR)
                 {
                     _krokurAttackCounter = _krokurAttackCounterTime;
@@ -144,8 +145,8 @@ public class BossController : Patroll
 
             if (!_isRecharging)
             {
+                Debug.Log("Regen4");
                 animator.SetTrigger("RechargeKrokur");
-                animator.ResetTrigger("Regen");
                 _isRecharging = true;
             }
         }
