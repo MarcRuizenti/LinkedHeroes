@@ -757,11 +757,11 @@ MonoBehaviour:
   _timeJump: 0.5
   _activeTimeJump: 0
   _timeJumpCurent: 0
-  _timeSlay: 10
-  _speed: 50
+  _timeSlay: 20
+  _speed: 100
   _speedFly: 13
   _maxVelocity: 4
-  _maxVelocityFly: 3
+  _maxVelocityFly: 5
   _origins: []
   _groundLayer:
     serializedVersion: 2
