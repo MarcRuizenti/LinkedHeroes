@@ -10,6 +10,7 @@ public class TrunkController : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Collider2D _detectPlayerColldier;
     private int _parryCounter = 0;
+    [SerializeField] private int _parryCadencia;
 
 
     public enum States
@@ -48,7 +49,7 @@ public class TrunkController : MonoBehaviour
 
     public void Shoot()
     {
-        if (_parryCounter >= 2)
+        if (_parryCounter >= _parryCadencia)
         {
             GameObject temp = Instantiate(_parryBullet, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
             temp.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
