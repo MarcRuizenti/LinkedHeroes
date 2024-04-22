@@ -224,18 +224,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.28968024, y: -0.13027051}
+  m_Offset: {x: 0.28968024, y: 0.30295825}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.5, y: 4}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 5.5, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0599043, y: 2.0393348}
+  m_Size: {x: 1.0599043, y: 1.1343677}
   m_EdgeRadius: 0
 --- !u!95 &8417942588347878669
 Animator:
@@ -299,7 +299,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1c8326e586633454fac3d8a48aec9f57, type: 3}
+  m_Sprite: {fileID: 951435452, guid: cd14552faab14424a9c11ffdcd09596d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -514,7 +514,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.5, y: 4}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 5.5, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -585,7 +585,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1c8326e586633454fac3d8a48aec9f57, type: 3}
+  m_Sprite: {fileID: 951435452, guid: cd14552faab14424a9c11ffdcd09596d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -766,6 +766,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 3072
+  _lineRenderer: {fileID: 0}
 --- !u!114 &4711364058979263226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,7 +1028,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.5, y: 4}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 5.5, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1098,7 +1099,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1c8326e586633454fac3d8a48aec9f57, type: 3}
+  m_Sprite: {fileID: 951435452, guid: cd14552faab14424a9c11ffdcd09596d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
