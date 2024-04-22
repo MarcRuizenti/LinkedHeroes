@@ -635,10 +635,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1464656127015868603, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464656127015868603, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1882882036365790274, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 951435452, guid: cd14552faab14424a9c11ffdcd09596d, type: 3}
+    - target: {fileID: 3437544978473172284, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437544978473172284, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4522871560788962800, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -649,7 +665,15 @@ PrefabInstance:
       objectReference: {fileID: 951435452, guid: cd14552faab14424a9c11ffdcd09596d, type: 3}
     - target: {fileID: 5270979363970305615, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486121391227676526, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486121391227676526, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6354812937089402312, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: _boxCamera
@@ -657,7 +681,7 @@ PrefabInstance:
       objectReference: {fileID: 1796257444}
     - target: {fileID: 7343285421216410768, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7492382266772989734, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_Name
@@ -665,7 +689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600257711849614654, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_Distance
-      value: 31.72561
+      value: 31.365204
       objectReference: {fileID: 0}
     - target: {fileID: 9006256413658610328, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_IsActive
