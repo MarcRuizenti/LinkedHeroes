@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockback: {x: 0, y: 0}
-  speed: 3
+  speed: 5
   lifeTime: 5
 --- !u!1 &7370052930577452490
 GameObject:
