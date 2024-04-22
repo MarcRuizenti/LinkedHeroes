@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockback: {x: 0, y: 0}
-  speed: 3
+  speed: 5
   lifeTime: 5
 --- !u!50 &8002582197497062527
 Rigidbody2D:
