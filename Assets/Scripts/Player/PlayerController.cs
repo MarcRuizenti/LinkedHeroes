@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     public List<Vector3> _origins;
     [SerializeField] private LayerMask _groundLayer;
     
-    public LineRenderer _lineRenderer;
+    LineRenderer _lineRenderer;
     DistanceJoint2D _distanceJoint;
 
     //hook variables
