@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     Transform _target;
     float _distance;
     bool _enemyHooked;
+    private bool _canInteractBox = true;
 
 
     private void Start()
@@ -334,7 +335,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (!_distanceJoint.enabled)
+        if (!_distanceJoint.enabled && _canInteractBox)
         {
             _target = this.GetComponentInChildren<AnchorManager>().GetTarget((int)this.transform.localScale.x, IsGrounded());
             if (_target == null) 
@@ -355,6 +356,21 @@ public class PlayerController : MonoBehaviour
             _animator.SetTrigger("Tongue");
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("DamageBoss"))
+        {
+            _canInteractBox = false;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("DamageBoss"))
+        {
+            _canInteractBox = true;
+        }
+    }
+
 
     private void Flip()
     {
