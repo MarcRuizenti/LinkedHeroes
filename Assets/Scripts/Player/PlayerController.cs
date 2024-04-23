@@ -14,7 +14,14 @@ public class PlayerController : MonoBehaviour
     private float _hangedSpeed;
     [SerializeField] private float _maxHangedSpeed; //estaba a 20
     bool hanged = false, dragging = false;
-
+    public Action MoveDone;
+    private void MovePerformed() => MoveDone?.Invoke();
+    public Action JumpDone;
+    private void JumpPerformed() => JumpDone?.Invoke();
+    public Action ActionDone;
+    private void ActionPerformed() => ActionDone?.Invoke();
+    public Action ParryDone;
+    private void ParryPerformed() => ParryDone?.Invoke();
     //animator
 
     [SerializeField] Animator _animator;
@@ -180,11 +187,13 @@ public class PlayerController : MonoBehaviour
             //_hangedSpeedBoost = true;
             _lineRenderer.enabled = false;
             _distanceJoint.enabled = false;
+            JumpPerformed();
 
         }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
             _hangedSpeedBoost = true;
+            MovePerformed();
         }
         if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
         {
@@ -283,6 +292,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_inputAttack)
         {
+            ActionPerformed();
             switch (GameManager.Instance._currentCharacter)
             {
                 case GameManager.Character.AIKE:
