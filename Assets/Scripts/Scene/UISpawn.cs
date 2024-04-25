@@ -2,86 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class UISpawn : MonoBehaviour
 {
-    public float timeToAppear;
-    public float timeAFKtoAppear;
-    private bool keepChecking = true;
-    private bool playerInZone = false;
-    public PlayerController player;
-    public SpriteRenderer sr;
-    private Color spriteColor;
-    private float startDissappearTime;
-    private bool dissappear = false;
-    private float startAppearTime;
-    private bool appear = false;
-    void Start()
+    public Color newColor = Color.red; // Color al que se cambiará el objeto al colisionar con el jugador
+    public float transitionSpeed = 0.5f; // Velocidad de la transición
+    private SpriteRenderer spriteRenderer;
+    private Color initialColor;
+
+    private void Start()
     {
-        spriteColor = sr.color;
+        // Obtener el componente SpriteRenderer del objeto
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        // Almacenar el color inicial del objeto
+        initialColor = spriteRenderer.color;
     }
 
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (dissappear)
+        // Verificar si el objeto que colisionó tiene la etiqueta "Player"
+        if (collision.CompareTag("Player"))
         {
-            float sinceStarted = Time.time - startDissappearTime;
-            float percentageComplete = (sinceStarted / timeToAppear);
-            sr.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, Mathf.Clamp(1 - percentageComplete, 0, 1));
-            if (sr.color.a <= 0 )
-            {
-                dissappear = false;
-            }
-        }
-        else if (appear)
-        {
-            float sinceStarted = Time.time - startDissappearTime;
-            float percentageComplete = (sinceStarted / timeToAppear);
-            sr.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, Mathf.Clamp(percentageComplete, 0, 1));
-            if (sr.color.a >= 0)
-            {
-                appear = false;
-            }
+            // Iniciar la transición del color
+            StartCoroutine(ChangeColorSmooth(newColor));
         }
     }
-    protected void StartAppear()
-    {
-        Debug.Log("StartAppear");
-        appear = true;
-        startAppearTime = Time.time;
-    }
 
-    protected void ActionDetected()
+    private System.Collections.IEnumerator ChangeColorSmooth(Color targetColor)
     {
-        CancelInvoke();
-        keepChecking = false;
-        if (sr.color.a > 0)
+        float elapsedTime = 0f;
+        Color currentColor = spriteRenderer.color;
+
+        // Interpolar el color actual al color objetivo
+        while (elapsedTime < transitionSpeed)
         {
-            dissappear = true;
-            startDissappearTime = Time.time;
+            spriteRenderer.color = Color.Lerp(currentColor, targetColor, (elapsedTime / transitionSpeed));
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
-    }
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Player") || !keepChecking)
-        {
-            return;
-        }
-        
-        playerInZone = true;
-        Debug.Log("OnTriggerEnter");
 
-        Invoke(nameof(StartAppear), timeAFKtoAppear);
-
-    }
-    protected virtual void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Player") || !keepChecking)
-        {
-            return;
-        }
-        Debug.Log("Exit");
-
-        playerInZone = false;
-
+        // Asegurar que el color final sea exactamente el color objetivo
+        spriteRenderer.color = targetColor;
     }
 }
+
+
