@@ -5,25 +5,25 @@ using UnityEngine;
 
 public class UISpawn : MonoBehaviour
 {
-    public Color newColor = Color.red; // Color al que se cambiará el objeto al colisionar con el jugador
-    public float transitionSpeed = 0.5f; // Velocidad de la transición
+    public Color newColor = Color.red; 
+    public float transitionSpeed = 0.5f;
     private SpriteRenderer spriteRenderer;
     private Color initialColor;
 
     private void Start()
     {
-        // Obtener el componente SpriteRenderer del objeto
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
-        // Almacenar el color inicial del objeto
+        
         initialColor = spriteRenderer.color;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Verificar si el objeto que colisionó tiene la etiqueta "Player"
+        
         if (collision.CompareTag("Player"))
         {
-            // Iniciar la transición del color
+            
             StartCoroutine(ChangeColorSmooth(newColor));
         }
     }
@@ -33,7 +33,7 @@ public class UISpawn : MonoBehaviour
         float elapsedTime = 0f;
         Color currentColor = spriteRenderer.color;
 
-        // Interpolar el color actual al color objetivo
+        
         while (elapsedTime < transitionSpeed)
         {
             spriteRenderer.color = Color.Lerp(currentColor, targetColor, (elapsedTime / transitionSpeed));
@@ -41,7 +41,7 @@ public class UISpawn : MonoBehaviour
             yield return null;
         }
 
-        // Asegurar que el color final sea exactamente el color objetivo
+        
         spriteRenderer.color = targetColor;
     }
 }
