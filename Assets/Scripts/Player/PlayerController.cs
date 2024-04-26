@@ -70,6 +70,8 @@ public class PlayerController : MonoBehaviour
     bool _enemyHooked;
     private bool _canInteractBox = true;
 
+    
+
 
     private void Start()
     {
