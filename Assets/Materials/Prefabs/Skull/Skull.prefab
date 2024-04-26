@@ -156,7 +156,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9d7938534e3a7db4c96df400656c37f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 832e971e579e3424fad764dcfac1d7b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -267,7 +267,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4565742758570652550}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -298,8 +298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31288ec21a92eb40b4c625b66b86321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  krokur: {fileID: 21300000, guid: 6b136107d4cbd8342a25748b8d70a259, type: 3}
-  aike: {fileID: 21300000, guid: 3bebac9592b9efb40bb5b56dcfb05cc9, type: 3}
+  krokur: {fileID: 21300000, guid: 1fe33a7ad4548524e9e22d97e9d83cf7, type: 3}
+  aike: {fileID: 21300000, guid: ee192ea011aa9184e922b1e2ebac3404, type: 3}
 --- !u!1 &4794239025530753509
 GameObject:
   m_ObjectHideFlags: 0
