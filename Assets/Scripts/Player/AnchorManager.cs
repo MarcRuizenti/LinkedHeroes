@@ -43,22 +43,22 @@ public class AnchorManager : MonoBehaviour
                     if (lastHookpoint != null && lastHookpoint == hookPoint.gameObject)
                     {
 
-                        lastHookpoint.transform.parent.Find("Arrow").gameObject.SetActive(true);
+                        lastHookpoint.transform.Find("Arrow").gameObject.SetActive(true);
                     }
-                    else if (lastDraggeable == null)
+                    else if (lastHookpoint == null)
                     {
                         lastHookpoint = hookPoint.gameObject;
-                        lastHookpoint.transform.parent.Find("Arrow").gameObject.SetActive(true);
+                        lastHookpoint.transform.Find("Arrow").gameObject.SetActive(true);
                     }
                     else if (lastHookpoint != null && lastHookpoint != hookPoint.gameObject)
                     {
-                        lastHookpoint.transform.parent.Find("Arrow").gameObject.SetActive(false);
+                        lastHookpoint.transform.Find("Arrow").gameObject.SetActive(false);
                         lastHookpoint = hookPoint.gameObject;
                     }
                 }
                 else if (hookPoint == null && lastHookpoint != null)
                 {
-                    lastHookpoint.transform.parent.Find("Arrow").gameObject.SetActive(false);
+                    lastHookpoint.transform.Find("Arrow").gameObject.SetActive(false);
                     lastHookpoint = null;
                 }
             }
