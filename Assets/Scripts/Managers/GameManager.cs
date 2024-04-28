@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public bool PlayerDeath;
 
+    public int health;
+
     public enum Character
     {
         AIKE,
@@ -22,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        health = 3;
+
         if(Instance == null)
         {
             Instance =  this;
@@ -82,6 +86,7 @@ public class GameManager : MonoBehaviour
     private void GetPlayer(Scene arg0, LoadSceneMode arg1)
     {
         _player = FindObjectOfType<PlayerController>().gameObject;
+        health = 3;
     }
 
     public void UpdatePlayerState()

@@ -28,6 +28,7 @@ public class HealthBar : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         _health -= damageAmount;
+        if(gameObject.name == "Player") GameManager.Instance.health -= damageAmount;
         StartCoroutine(InvincibleMode());
     }
 
