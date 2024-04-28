@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
+    [SerializeField] public GameObject _player;
     public static GameManager Instance { get; private set; }
 
     public bool PlayerDeath;

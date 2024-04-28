@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 8600257711849614654}
   - component: {fileID: 6354812937089402312}
   - component: {fileID: 3509327729481338231}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -766,7 +766,6 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 3072
-  _lineRenderer: {fileID: 0}
 --- !u!114 &4711364058979263226
 MonoBehaviour:
   m_ObjectHideFlags: 0
