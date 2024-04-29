@@ -7,7 +7,7 @@ public class Sword : MonoBehaviour
 
     [SerializeField] private Vector2 _knockback;
 
-    private Shaker _shaker;
+    public Shaker _shaker;
 
     private void Start()
     {
