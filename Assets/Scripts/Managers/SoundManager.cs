@@ -23,8 +23,10 @@ public class SoundManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void EjecutarAudio(AudioClip audio)
+    public void EjecutarAudio(AudioClip audio, float pitch, float volume)
     {
         audioSource.PlayOneShot(audio);
+        audioSource.pitch = pitch;
+        audioSource.volume = volume;
     }
 }

@@ -331,7 +331,6 @@ public class PlayerController : MonoBehaviour
     private IEnumerator AttackDuration(GameObject _sword)
     {
         _sword.SetActive(true);
-        _sword.GetComponent<Animator>().Play("Slash", 0);
         yield return new WaitForSeconds(0.4f);
         _sword.SetActive(false);
     }
