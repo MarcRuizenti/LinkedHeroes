@@ -10876,6 +10876,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.068816304
       objectReference: {fileID: 0}
+    - target: {fileID: 3262837685563869002, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: _speed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262837685563869002, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: _timeSlay
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4711364058979263226, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: _maxHealth
       value: 3

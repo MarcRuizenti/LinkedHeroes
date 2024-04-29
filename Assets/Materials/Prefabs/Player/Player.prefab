@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 8417942588347878669}
   - component: {fileID: 1882882036365790274}
   - component: {fileID: 28544610307091562}
+  - component: {fileID: 474596239305785169}
   m_Layer: 9
   m_Name: EspadaLado
   m_TagString: Untagged
@@ -247,7 +248,7 @@ Animator:
   m_GameObject: {fileID: 5270979363970305615}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: daef5858837790645ad4b98138eff208, type: 2}
+  m_Controller: {fileID: 9100000, guid: d33b6f69fb9b2bf488a9cb191b207c52, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -323,6 +324,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockback: {x: -2, y: 0}
+--- !u!114 &474596239305785169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5270979363970305615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f24c7c5cc800249b3d2354e6c74909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 549e507d4b0555841a22f76dc9697e10, type: 3}
 --- !u!1 &5790789045279755633
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +470,7 @@ GameObject:
   - component: {fileID: 564233419358427323}
   - component: {fileID: 4643823006918647509}
   - component: {fileID: 2022407919289104290}
+  - component: {fileID: 2440280513646312746}
   m_Layer: 9
   m_Name: EspadaArriba
   m_TagString: Untagged
@@ -533,7 +548,7 @@ Animator:
   m_GameObject: {fileID: 7343285421216410768}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: daef5858837790645ad4b98138eff208, type: 2}
+  m_Controller: {fileID: 9100000, guid: d33b6f69fb9b2bf488a9cb191b207c52, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -609,6 +624,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockback: {x: 0, y: 0}
+--- !u!114 &2440280513646312746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7343285421216410768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f24c7c5cc800249b3d2354e6c74909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 549e507d4b0555841a22f76dc9697e10, type: 3}
 --- !u!1 &7492382266772989734
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +654,7 @@ GameObject:
   - component: {fileID: 8600257711849614654}
   - component: {fileID: 6354812937089402312}
   - component: {fileID: 3509327729481338231}
+  - component: {fileID: 6177584452091724242}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -933,8 +962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf7d57d4e28c054ead8126f8c42c350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boxCamera: {fileID: 0}
-  _cameraSpeed: 30
+  _speed: 0
 --- !u!95 &3509327729481338231
 Animator:
   serializedVersion: 5
@@ -956,6 +984,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6177584452091724242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492382266772989734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1526c47985ddd31418e20d7e86fb828f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsGrass:
+  - {fileID: 8300000, guid: 76a48b7f9ef375640891628647dd4ef5, type: 3}
+  - {fileID: 8300000, guid: 8f54580ff68c0c5428a9e106fa273feb, type: 3}
+  - {fileID: 8300000, guid: 2cf0551a3c32f764197f2536f06541c2, type: 3}
+  - {fileID: 8300000, guid: 1f8cf340e73c99e4aa2f6527127440aa, type: 3}
 --- !u!1 &9006256413658610328
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +1014,7 @@ GameObject:
   - component: {fileID: 7528291160033753252}
   - component: {fileID: 4522871560788962800}
   - component: {fileID: 2671889475492321041}
+  - component: {fileID: 451602330020362819}
   m_Layer: 9
   m_Name: EspadaAbajo
   m_TagString: Untagged
@@ -1046,7 +1092,7 @@ Animator:
   m_GameObject: {fileID: 9006256413658610328}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: daef5858837790645ad4b98138eff208, type: 2}
+  m_Controller: {fileID: 9100000, guid: d33b6f69fb9b2bf488a9cb191b207c52, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1122,3 +1168,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockback: {x: 0, y: 12}
+--- !u!114 &451602330020362819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9006256413658610328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f24c7c5cc800249b3d2354e6c74909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 549e507d4b0555841a22f76dc9697e10, type: 3}
