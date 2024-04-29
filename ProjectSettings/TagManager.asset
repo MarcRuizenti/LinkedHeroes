@@ -19,6 +19,7 @@ TagManager:
   - Drageable
   - DamageEnemy
   - Camera
+  - Ice
   layers:
   - Default
   - TransparentFX

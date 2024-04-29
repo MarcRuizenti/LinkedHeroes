@@ -8969,7 +8969,7 @@ PrefabInstance:
       objectReference: {fileID: 284294303}
     - target: {fileID: 3455433926492771179, guid: 5be3573517d36284a9333e62a96afcc9, type: 3}
       propertyPath: _onPlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: BossBattle
+      value: IceLevel
       objectReference: {fileID: 0}
     - target: {fileID: 5218893689731891217, guid: 5be3573517d36284a9333e62a96afcc9, type: 3}
       propertyPath: m_RootOrder
