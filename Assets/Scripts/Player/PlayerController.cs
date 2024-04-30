@@ -284,8 +284,21 @@ public class PlayerController : MonoBehaviour
             Debug.DrawRay(_origins[i], Vector2.down * (_collider.bounds.extents.y), Color.red);
             if (raycast.collider != null)
             {
+                if (raycast.collider.transform.CompareTag("Ice"))
+                {
+                    _timeSlay = 0.001f;
+                    _speed = 8;
+                    _maxVelocity = 6;
+                }
+                else
+                {
+                    _timeSlay = 20;
+                    _speed = 100;
+                    _maxVelocity = 4;
+                }
                 return true;
             }
+
         }
         return false;
     }
