@@ -9,6 +9,10 @@ using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
+    //Matirial Steps
+    public enum Matirials { GRASS, ICE, STONE }
+    public Matirials matirial;
+
     //Hanging boost
     private bool _hangedSpeedBoost;
     private float _hangedSpeed;
@@ -284,21 +288,34 @@ public class PlayerController : MonoBehaviour
             Debug.DrawRay(_origins[i], Vector2.down * (_collider.bounds.extents.y), Color.red);
             if (raycast.collider != null)
             {
-                if (raycast.collider.transform.CompareTag("Ice"))
+                switch (raycast.collider.transform.tag)
                 {
-                    _timeSlay = 0.001f;
-                    _speed = 8;
-                    _maxVelocity = 6;
-                }
-                else
-                {
-                    _timeSlay = 20;
-                    _speed = 100;
-                    _maxVelocity = 4;
+                    case "Ice":
+                        _timeSlay = 0.001f;
+                        _speed = 8;
+                        _maxVelocity = 6;
+                        matirial = Matirials.ICE;
+                        break;
+                    case "Stone":
+                        _timeSlay = 20;
+                        _speed = 100;
+                        _maxVelocity = 4;
+                        matirial = Matirials.STONE;
+                        break;
+                    case "Grass":
+                        _timeSlay = 20;
+                        _speed = 100;
+                        _maxVelocity = 4;
+                        matirial = Matirials.GRASS;
+                        break;
+                    default:
+                        _timeSlay = 20;
+                        _speed = 100;
+                        _maxVelocity = 4;
+                        break;
                 }
                 return true;
             }
-
         }
         return false;
     }

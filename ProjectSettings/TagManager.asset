@@ -20,6 +20,7 @@ TagManager:
   - DamageEnemy
   - Camera
   - Ice
+  - Stone
   layers:
   - Default
   - TransparentFX
