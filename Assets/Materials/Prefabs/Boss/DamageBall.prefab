@@ -198,6 +198,7 @@ MonoBehaviour:
   _knockback: {x: 0, y: 0}
   speed: 5
   lifeTime: 10
+  _bossPhase: 0
   direccion: {x: 0, y: 0, z: 0}
 --- !u!58 &3790660742600727013
 CircleCollider2D:
@@ -300,4 +301,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.74
+  m_Radius: 1

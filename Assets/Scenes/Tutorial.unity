@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 565632714}
   m_Layer: 10
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9062,13 +9062,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1464656127015868603, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: m_Size.x
+      value: 1.2819513
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464656127015868603, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1612824
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464656127015868603, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.40070373
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464656127015868603, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.2895009
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262837685563869002, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: _maxSwordCooldown
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 7492382266772989734, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8600257711849614654, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_Distance
-      value: 55.140396
+      value: 55.14391
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

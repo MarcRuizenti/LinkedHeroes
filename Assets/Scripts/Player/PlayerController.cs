@@ -9,9 +9,9 @@ using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
-    //Matirial Steps
-    public enum Matirials { GRASS, ICE, STONE }
-    public Matirials matirial;
+    //Material Steps
+    public enum Materials { GRASS, ICE, STONE }
+    public Materials material;
 
     //Hanging boost
     private bool _hangedSpeedBoost;
@@ -75,8 +75,9 @@ public class PlayerController : MonoBehaviour
     bool _enemyHooked;
     private bool _canInteractBox = true;
 
-    
-
+    //sword cooldown
+    [SerializeField] private float _swordCooldown;
+    [SerializeField] private float _maxSwordCooldown;
 
     private void Start()
     {
@@ -85,6 +86,7 @@ public class PlayerController : MonoBehaviour
         _lineRenderer = GetComponent<LineRenderer>();
         _distanceJoint.enabled = false;
         _anchorManager = GetComponentInChildren<AnchorManager>().gameObject;
+        _swordCooldown = _maxSwordCooldown;
     }
 
 
@@ -132,6 +134,12 @@ public class PlayerController : MonoBehaviour
         {
             _rb.gravityScale = 1;
         }
+
+        if(_swordCooldown > 0) 
+        {
+            _swordCooldown -= Time.deltaTime;
+        }
+
 
         Attack();
 
@@ -305,19 +313,19 @@ public class PlayerController : MonoBehaviour
                         _timeSlay = 0.001f;
                         _speed = 8;
                         _maxVelocity = 6;
-                        matirial = Matirials.ICE;
+                        material = Materials.ICE;
                         break;
                     case "Stone":
                         _timeSlay = 20;
                         _speed = 100;
                         _maxVelocity = 4;
-                        matirial = Matirials.STONE;
+                        material = Materials.STONE;
                         break;
                     case "Grass":
                         _timeSlay = 20;
                         _speed = 100;
                         _maxVelocity = 4;
-                        matirial = Matirials.GRASS;
+                        material = Materials.GRASS;
                         break;
                     default:
                         _timeSlay = 20;
@@ -339,7 +347,10 @@ public class PlayerController : MonoBehaviour
             switch (GameManager.Instance._currentCharacter)
             {
                 case GameManager.Character.AIKE:
-                    Aike();
+                    if (_swordCooldown <= 0)
+                    {
+                        Aike();
+                    }
                     break;
                 case GameManager.Character.KROKUR: //Lengua(gancho)
                     Krokur();
@@ -353,6 +364,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Aike()
     {
+        _swordCooldown = _maxSwordCooldown;
         if(_verticalInput > 0)
         {
             StartCoroutine(AttackDuration(gameObject.transform.GetChild(1).gameObject));

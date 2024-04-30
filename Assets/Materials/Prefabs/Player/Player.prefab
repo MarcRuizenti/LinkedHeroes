@@ -657,7 +657,6 @@ GameObject:
   - component: {fileID: 6354812937089402312}
   - component: {fileID: 3509327729481338231}
   - component: {fileID: 6177584452091724242}
-  - component: {fileID: -3072316674071966542}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -777,7 +776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b33dc3e4a906d248bcc356f775e2ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  matirial: 0
+  material: 0
   _maxHangedSpeed: 4
   _animator: {fileID: 3509327729481338231}
   _animatorKrokur: {fileID: 9100000, guid: 54f5af6fc93b0264fbce80bc803e9f70, type: 2}
@@ -785,6 +784,7 @@ MonoBehaviour:
   _spriteKrokur: {fileID: -1988460942, guid: b3beb5b7fb179d84c85afd237ef8522c, type: 3}
   _spriteAike: {fileID: 327871254, guid: 13968d0736c4e8b4f973c3b091b8f8f0, type: 3}
   _collider: {fileID: 1371896175570157334}
+  _anchorManager: {fileID: 0}
   _jumpForce: 7
   _sacaleGravity: 0
   _timeJump: 0.5
@@ -799,6 +799,8 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 3072
+  _swordCooldown: 0
+  _maxSwordCooldown: 0.7
 --- !u!114 &4711364058979263226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,26 +991,6 @@ Animator:
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &6177584452091724242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7492382266772989734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1526c47985ddd31418e20d7e86fb828f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stepsGrass:
-  - {fileID: 8300000, guid: 76a48b7f9ef375640891628647dd4ef5, type: 3}
-  - {fileID: 8300000, guid: 8f54580ff68c0c5428a9e106fa273feb, type: 3}
-  - {fileID: 8300000, guid: 2cf0551a3c32f764197f2536f06541c2, type: 3}
-  - {fileID: 8300000, guid: 1f8cf340e73c99e4aa2f6527127440aa, type: 3}
-  stepsIce: []
-  stepsStone: []
-  controller: {fileID: 0}
---- !u!114 &-3072316674071966542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

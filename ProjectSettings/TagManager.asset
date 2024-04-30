@@ -21,6 +21,7 @@ TagManager:
   - Camera
   - Ice
   - Stone
+  - Grass
   layers:
   - Default
   - TransparentFX

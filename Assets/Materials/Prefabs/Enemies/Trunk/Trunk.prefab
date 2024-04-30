@@ -212,7 +212,7 @@ MonoBehaviour:
   _parryBullet: {fileID: 5933910078649802676, guid: f0dc6609fa6fda44696259b0d6013ebe, type: 3}
   _animator: {fileID: 7581633072520484003}
   _detectPlayerColldier: {fileID: 1503043435522080851}
-  _parryCadencia: 0
+  _parryCadencia: 1
   _currentState: 0
 --- !u!95 &7581633072520484003
 Animator:

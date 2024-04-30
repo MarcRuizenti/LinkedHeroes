@@ -15,19 +15,19 @@ public class PlaySoundPlayer : MonoBehaviour
     }
     public void PlaySteps()
     {
-        switch (controller.matirial)
+        switch (controller.material)
         {
-            case PlayerController.Matirials.ICE:
+            case PlayerController.Materials.ICE:
                 AudioClip stepIce = stepsIce[Random.Range(0, stepsIce.Length)];
                 SoundManager.Instance.EjecutarAudio(stepIce, 1, 0.2f);
                 break;
-            case PlayerController.Matirials.STONE:
+            case PlayerController.Materials.STONE:
                 AudioClip stepStone = stepsStone[Random.Range(0, stepsStone.Length)];
                 SoundManager.Instance.EjecutarAudio(stepStone, 1, 0.1f);
                 break;
-            case PlayerController.Matirials.GRASS:
+            case PlayerController.Materials.GRASS:
                 AudioClip stepGrass = stepsGrass[Random.Range(0, stepsGrass.Length)];
-                SoundManager.Instance.EjecutarAudio(stepGrass, 1, 0.1f);
+                SoundManager.Instance.EjecutarAudio(stepGrass, 1, 0.025f);
                 break;
             default:
                 AudioClip stepGrass1 = stepsGrass[Random.Range(0, stepsGrass.Length)];
