@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 539152716411094111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6239531660607497194}
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -830589761, guid: b1b2665ed945676499096e1b13286376, type: 3}
+  m_Sprite: {fileID: -1672132089, guid: 463e23f47f12e5d46815d4cda272ae31, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -306,8 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07ebcc673a78264493b30dffec8f15e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aike: {fileID: -830589761, guid: b1b2665ed945676499096e1b13286376, type: 3}
-  _krokur: {fileID: -88095237, guid: c6f25dd76c495ea488cf8511e3bdc62c, type: 3}
+  _aike: {fileID: -1672132089, guid: 463e23f47f12e5d46815d4cda272ae31, type: 3}
+  _krokur: {fileID: -1327286029, guid: d318c6231794ac04b969fec3b9e0ae1e, type: 3}
   _playerHead: {fileID: 7347372096883919203}
   _hearts:
   - {fileID: 2774304722592687590}

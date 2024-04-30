@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     //player components
     private Rigidbody2D _rb;
     [SerializeField] private Collider2D _collider;
+    [SerializeField] private GameObject _anchorManager;
     private bool _inputAttack;
     private float _direction;
 
@@ -83,6 +84,7 @@ public class PlayerController : MonoBehaviour
         _distanceJoint = GetComponent<DistanceJoint2D>();
         _lineRenderer = GetComponent<LineRenderer>();
         _distanceJoint.enabled = false;
+        _anchorManager = GetComponentInChildren<AnchorManager>().gameObject;
     }
 
 
@@ -140,6 +142,15 @@ public class PlayerController : MonoBehaviour
             _lineRenderer.SetPosition(1, transform.position);
         }
 
+        
+        if(GameManager.Instance._currentCharacter != GameManager.Character.KROKUR)
+        {
+            _anchorManager.SetActive(false);
+        }
+        else
+        {
+            _anchorManager.SetActive(true);
+        }
 
         if (!_lineRenderer.enabled && GameManager.Instance._currentCharacter == GameManager.Character.KROKUR)
         {

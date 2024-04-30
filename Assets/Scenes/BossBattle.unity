@@ -2022,7 +2022,7 @@ MonoBehaviour:
   _balls: []
   _krokurAttackCounter: 0
   _krokurAttackCounterTime: 15
-  _player: {fileID: 0}
+  _player: {fileID: 1986371325}
   _character: 0
   _krokurCycles: 2
   _krokurRechargeTime: 15
@@ -3685,7 +3685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 981478144001288709, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.334296
+      value: -2.63
       objectReference: {fileID: 0}
     - target: {fileID: 981478144001288709, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7022,7 +7022,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 80
+  m_SurfaceArc: 90
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -8588,6 +8588,11 @@ Transform:
   m_Father: {fileID: 243831247}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1986371325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7492382266772989734, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+  m_PrefabInstance: {fileID: 1264754531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2002762154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5417297458914477277, guid: 466fd6695aa4d7e4da6a51bb04b4c730, type: 3}
