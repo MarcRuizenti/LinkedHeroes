@@ -541,13 +541,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6177584452091724242, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: stepsIce.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6177584452091724242, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: stepsStone.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6177584452091724242, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: stepsIce.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c49f5d6e5036ebd49b638ff80407877e, type: 3}
+    - target: {fileID: 6177584452091724242, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: stepsIce.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0bd3769636b4ffa4c89c13ec07d5dbdc, type: 3}
+    - target: {fileID: 6177584452091724242, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: stepsIce.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: f097cf18455a8034ca23988e18cb0e3a, type: 3}
+    - target: {fileID: 6177584452091724242, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: stepsIce.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 95b0c3384e768f84d957ded5a7d3821f, type: 3}
+    - target: {fileID: 6177584452091724242, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: stepsIce.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a11d8bdfc4dd5847b1702b1b5ff6cc7, type: 3}
+    - target: {fileID: 6177584452091724242, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: stepsStone.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7b4355de101c20d4080a9af7cbbf7e70, type: 3}
+    - target: {fileID: 6177584452091724242, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: stepsStone.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: e0a15513d511db1458cfe4136c0312a5, type: 3}
+    - target: {fileID: 6177584452091724242, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: stepsStone.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 600f676f85474d44e85fd9e1b02af2ff, type: 3}
+    - target: {fileID: 6177584452091724242, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: stepsStone.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: fbc62ce89764365439386932c3344b44, type: 3}
     - target: {fileID: 7492382266772989734, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8600257711849614654, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_Distance
-      value: 1.6046638
+      value: 66.12034
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

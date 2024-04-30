@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockback: {x: -2, y: 0}
+  _shaker: {fileID: 0}
 --- !u!114 &474596239305785169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockback: {x: 0, y: 0}
+  _shaker: {fileID: 0}
 --- !u!114 &2440280513646312746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,6 +657,7 @@ GameObject:
   - component: {fileID: 6354812937089402312}
   - component: {fileID: 3509327729481338231}
   - component: {fileID: 6177584452091724242}
+  - component: {fileID: -3072316674071966542}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -774,6 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b33dc3e4a906d248bcc356f775e2ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matirial: 0
   _maxHangedSpeed: 4
   _animator: {fileID: 3509327729481338231}
   _animatorKrokur: {fileID: 9100000, guid: 54f5af6fc93b0264fbce80bc803e9f70, type: 2}
@@ -1001,6 +1005,37 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8f54580ff68c0c5428a9e106fa273feb, type: 3}
   - {fileID: 8300000, guid: 2cf0551a3c32f764197f2536f06541c2, type: 3}
   - {fileID: 8300000, guid: 1f8cf340e73c99e4aa2f6527127440aa, type: 3}
+  stepsIce: []
+  stepsStone: []
+  controller: {fileID: 0}
+--- !u!114 &-3072316674071966542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492382266772989734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1526c47985ddd31418e20d7e86fb828f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsGrass:
+  - {fileID: 8300000, guid: 76a48b7f9ef375640891628647dd4ef5, type: 3}
+  - {fileID: 8300000, guid: 8f54580ff68c0c5428a9e106fa273feb, type: 3}
+  - {fileID: 8300000, guid: 2cf0551a3c32f764197f2536f06541c2, type: 3}
+  - {fileID: 8300000, guid: 1f8cf340e73c99e4aa2f6527127440aa, type: 3}
+  stepsIce:
+  - {fileID: 8300000, guid: c49f5d6e5036ebd49b638ff80407877e, type: 3}
+  - {fileID: 8300000, guid: f097cf18455a8034ca23988e18cb0e3a, type: 3}
+  - {fileID: 8300000, guid: 95b0c3384e768f84d957ded5a7d3821f, type: 3}
+  - {fileID: 8300000, guid: 8a11d8bdfc4dd5847b1702b1b5ff6cc7, type: 3}
+  stepsStone:
+  - {fileID: 8300000, guid: 7b4355de101c20d4080a9af7cbbf7e70, type: 3}
+  - {fileID: 8300000, guid: e0a15513d511db1458cfe4136c0312a5, type: 3}
+  - {fileID: 8300000, guid: 600f676f85474d44e85fd9e1b02af2ff, type: 3}
+  - {fileID: 8300000, guid: fbc62ce89764365439386932c3344b44, type: 3}
+  controller: {fileID: 0}
 --- !u!1 &9006256413658610328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,6 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockback: {x: 0, y: 12}
+  _shaker: {fileID: 0}
 --- !u!114 &451602330020362819
 MonoBehaviour:
   m_ObjectHideFlags: 0
