@@ -778,6 +778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hookStart: {fileID: 8300000, guid: fa78cfcebb788f7438b25f252fc78b29, type: 3}
   jump: {fileID: 8300000, guid: 50b1c047cb0989144b215d193e844303, type: 3}
+  fall: {fileID: 0}
   material: 0
   _maxHangedSpeed: 4
   _animator: {fileID: 3509327729481338231}
@@ -793,7 +794,7 @@ MonoBehaviour:
   _activeTimeJump: 0
   _timeJumpCurent: 0
   _timeSlay: 20
-  _speed: 100
+  _speed: 50
   _speedFly: 13
   _maxVelocity: 4
   _maxVelocityFly: 5

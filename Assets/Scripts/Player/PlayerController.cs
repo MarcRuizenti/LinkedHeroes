@@ -317,31 +317,31 @@ public class PlayerController : MonoBehaviour
                         break;
                     case "Stone":
                         _timeSlay = 20;
-                        _speed = 100;
+                        _speed = 50;
                         _maxVelocity = 4;
                         material = Materials.STONE;
                         break;
                     case "Grass":
                         _timeSlay = 20;
-                        _speed = 100;
+                        _speed = 50;
                         _maxVelocity = 4;
                         material = Materials.GRASS;
                         break;
                     case "Wood":
                         _timeSlay = 20;
-                        _speed = 100;
+                        _speed = 50;
                         _maxVelocity = 4;
                         material = Materials.WOOD;
                         break;
                     case "Steel":
                         _timeSlay = 20;
-                        _speed = 100;
+                        _speed = 50;
                         _maxVelocity = 4;
                         material = Materials.STEEL;
                         break;
                     default:
                         _timeSlay = 20;
-                        _speed = 100;
+                        _speed = 50;
                         _maxVelocity = 4;
                         material = Materials.WOOD;
                         break;

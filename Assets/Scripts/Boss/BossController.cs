@@ -276,7 +276,6 @@ public class BossController : Patroll
             if (rand1 == 0)
             {
                 tempO.GetComponent<SpriteRenderer>().sprite = _parryBall;
-                tempO.transform.GetChild(1).gameObject.SetActive(true);
             }
 
             tempO.transform.localEulerAngles = new Vector3(tempO.transform.rotation.x, tempO.transform.rotation.y, i - 90);
@@ -306,6 +305,10 @@ public class BossController : Patroll
         {
             _balls[i].GetComponent<BallMovement>().enabled = true;
             _balls[i].transform.GetChild(0).GetComponent<Collider2D>().enabled = true;
+            if (_balls[i].GetComponent<SpriteRenderer>().sprite == _parryBall)
+            {
+                _balls[i].transform.GetChild(1).gameObject.SetActive(true);
+            }
         }
         _balls.Clear();
     }

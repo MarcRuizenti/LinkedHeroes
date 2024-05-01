@@ -35,4 +35,16 @@ public class Sword : MonoBehaviour
                 break;
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        switch (collision.tag)
+        {
+            case "Parry":
+                _shaker.CamShake(0.02f, -0.01f, -0.01f);
+
+                collision.gameObject.GetComponentInParent<Parriable>().Parry();
+                break;
+        }
+    }
 }
