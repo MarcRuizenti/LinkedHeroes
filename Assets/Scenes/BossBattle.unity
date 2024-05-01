@@ -1967,6 +1967,7 @@ GameObject:
   - component: {fileID: 654062319}
   - component: {fileID: 654062325}
   - component: {fileID: 654062327}
+  - component: {fileID: 654062329}
   - component: {fileID: 654062328}
   m_Layer: 0
   m_Name: Boss
@@ -2185,6 +2186,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &654062329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654062318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7be5ab8ad0615f34aa27b36ddaa26073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnBullet:
+  - {fileID: 8300000, guid: 50320b354dd41e8428ef271f9d470945, type: 3}
+  - {fileID: 8300000, guid: ddb15065c13e23b49af6056cc54d5b43, type: 3}
+  shut: {fileID: 8300000, guid: e9f005e8fd283914eaf906bc65eab2d2, type: 3}
 --- !u!1001 &749563927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6941,6 +6958,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1334325012548461242, guid: 6ed672c443a703844993986f06e5be6d, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334325012548461242, guid: 6ed672c443a703844993986f06e5be6d, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334325012548461242, guid: 6ed672c443a703844993986f06e5be6d, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1808336860457274033, guid: 6ed672c443a703844993986f06e5be6d, type: 3}

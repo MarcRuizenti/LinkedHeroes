@@ -39,6 +39,7 @@ public class BossController : Patroll
     [SerializeField] private Transform _changePhasePosition;
     [SerializeField] private GameObject _skull;
 
+
     public enum States
     {
         IDLE,
@@ -53,6 +54,15 @@ public class BossController : Patroll
 
     [Header("States")]
     public States _currentState = States.IDLE;
+
+    //Sonido
+    private BossSounds _sound;
+
+    private void Start()
+    {
+        _character = GameManager.Instance._currentCharacter;
+        _sound = gameObject.GetComponent<BossSounds>();
+    }
 
     private void Update()
     {
@@ -285,6 +295,8 @@ public class BossController : Patroll
             tempO.transform.GetChild(0).GetComponent<Collider2D>().enabled = false;
 
             _balls.Add(tempO);
+
+            _sound.PlaySpawnBullt(1, 0.05f);
             yield return new WaitForSeconds(0.3f);
         }
         
@@ -311,6 +323,7 @@ public class BossController : Patroll
             }
         }
         _balls.Clear();
+        _sound.PlayShut(1, 0.5f);
     }
 
     private void AikePhase()
@@ -355,10 +368,7 @@ public class BossController : Patroll
 
     }
 
-    private void Start()
-    {
-        _character = GameManager.Instance._currentCharacter;
-    }
+
 
     public void MoveToPosition(Transform newPosition)
     {
