@@ -39,21 +39,6 @@ public class MovingHookPoint : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _wayPoints[_index].position, _speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.transform.parent = gameObject.transform;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.transform.parent = null;
-        }
-    }
     public void StopHooking()
     {
         _speed = 0;
