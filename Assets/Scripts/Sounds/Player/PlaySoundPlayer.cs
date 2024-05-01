@@ -7,6 +7,7 @@ public class PlaySoundPlayer : MonoBehaviour
     public AudioClip[] stepsGrass;
     public AudioClip[] stepsIce;
     public AudioClip[] stepsStone;
+    public AudioClip[] stepsWood;
     public PlayerController controller;
 
     private void Start()
@@ -28,6 +29,10 @@ public class PlaySoundPlayer : MonoBehaviour
             case PlayerController.Materials.GRASS:
                 AudioClip stepGrass = stepsGrass[Random.Range(0, stepsGrass.Length)];
                 SoundManager.Instance.EjecutarAudio(stepGrass, 1, 0.025f);
+                break;
+            case PlayerController.Materials.WOOD:
+                AudioClip stepWood = stepsWood[Random.Range(0, stepsWood.Length)];
+                SoundManager.Instance.EjecutarAudio(stepWood, 1, 0.1f);
                 break;
             default:
                 AudioClip stepGrass1 = stepsGrass[Random.Range(0, stepsGrass.Length)];

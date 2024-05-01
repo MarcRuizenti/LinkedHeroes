@@ -1018,6 +1018,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e0a15513d511db1458cfe4136c0312a5, type: 3}
   - {fileID: 8300000, guid: 600f676f85474d44e85fd9e1b02af2ff, type: 3}
   - {fileID: 8300000, guid: fbc62ce89764365439386932c3344b44, type: 3}
+  stepsWood:
+  - {fileID: 8300000, guid: dee8da4281eebaf44b749bc9dbc30127, type: 3}
+  - {fileID: 8300000, guid: 1b9e75abf33c7ca49ad91995feb374b4, type: 3}
   controller: {fileID: 0}
 --- !u!1 &9006256413658610328
 GameObject:

@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip hookStart;
 
     //Material Steps
-    public enum Materials { GRASS, ICE, STONE }
+    public enum Materials { GRASS, ICE, STONE, WOOD }
     public Materials material;
 
     //Hanging boost
@@ -330,10 +330,17 @@ public class PlayerController : MonoBehaviour
                         _maxVelocity = 4;
                         material = Materials.GRASS;
                         break;
+                    case "Wood":
+                        _timeSlay = 20;
+                        _speed = 100;
+                        _maxVelocity = 4;
+                        material = Materials.WOOD;
+                        break;
                     default:
                         _timeSlay = 20;
                         _speed = 100;
                         _maxVelocity = 4;
+                        material = Materials.GRASS;
                         break;
                 }
                 return true;
