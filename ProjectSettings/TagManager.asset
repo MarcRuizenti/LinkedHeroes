@@ -22,6 +22,7 @@ TagManager:
   - Ice
   - Stone
   - Grass
+  - Wood
   layers:
   - Default
   - TransparentFX
