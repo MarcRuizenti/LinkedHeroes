@@ -211,6 +211,12 @@ public class PlayerController : MonoBehaviour
             if (_distanceJoint.enabled)
             {
                 _animator.SetTrigger("ReleaseTongue");
+                SoundManager.Instance.EjecutarAudio(hookStart, 1, 0.2f);
+                if (_target.GetComponent<MovingHookPoint>())
+                {
+
+                    _target.GetComponent<MovingHookPoint>().ContinueHooking();
+                }
             }
             //_hangedSpeedBoost = true;
             _lineRenderer.enabled = false;
@@ -408,11 +414,18 @@ public class PlayerController : MonoBehaviour
     {
         if (_distanceJoint.enabled && _lineRenderer.enabled && _target != null)
         {
+            if ( _target.GetComponent<MovingHookPoint>())
+            {
+        
+                _target.GetComponent<MovingHookPoint>().ContinueHooking();
+            }
             _animator.SetTrigger("ReleaseTongue");
             _lineRenderer.enabled = false;
             _target = null;
             _distanceJoint.enabled = false;
             SoundManager.Instance.EjecutarAudio(hookStart, 1, 0.2f);
+
+            
             return;
         }
 
@@ -427,6 +440,14 @@ public class PlayerController : MonoBehaviour
             {
                 _target.GetComponentInParent<DrageableObject>().DragMe(this.transform.position + new Vector3(1.25f * (int)this.transform.localScale.x, 0.45f, 0), this);
                 SoundManager.Instance.EjecutarAudio(hookStart, 1, 0.2f);
+            }
+            else
+            {
+                SoundManager.Instance.EjecutarAudio(hookStart, 1, 0.2f);
+            }
+            if (_target.GetComponent<MovingHookPoint>())
+            {
+                _target.GetComponent<MovingHookPoint>().StopHooking();
             }
 
             Vector2 targetPos = _target.position;
