@@ -9,6 +9,9 @@ using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
+    //Sonidos
+    [SerializeField] private AudioClip hookStart;
+
     //Material Steps
     public enum Materials { GRASS, ICE, STONE }
     public Materials material;
@@ -401,6 +404,7 @@ public class PlayerController : MonoBehaviour
 
         if (!_distanceJoint.enabled && _canInteractBox)
         {
+
             _target = this.GetComponentInChildren<AnchorManager>().GetTarget((int)this.transform.localScale.x, IsGrounded());
             if (_target == null) 
             {
@@ -409,8 +413,9 @@ public class PlayerController : MonoBehaviour
             else if (IsGrounded())
             {
                 _target.GetComponentInParent<DrageableObject>().DragMe(this.transform.position + new Vector3(1.25f * (int)this.transform.localScale.x, 0.45f, 0), this);
+                SoundManager.Instance.EjecutarAudio(hookStart, 1, 0.5f);
             }
-            
+
             Vector2 targetPos = _target.position;
             _lineRenderer.SetPosition(0, targetPos);
             _lineRenderer.SetPosition(1, transform.position);

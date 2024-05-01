@@ -776,6 +776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b33dc3e4a906d248bcc356f775e2ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hookStart: {fileID: 8300000, guid: fa78cfcebb788f7438b25f252fc78b29, type: 3}
   material: 0
   _maxHangedSpeed: 4
   _animator: {fileID: 3509327729481338231}
