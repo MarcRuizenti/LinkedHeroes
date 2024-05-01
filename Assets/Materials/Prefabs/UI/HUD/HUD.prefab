@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _aike: {fileID: -1672132089, guid: 463e23f47f12e5d46815d4cda272ae31, type: 3}
-  _krokur: {fileID: -1327286029, guid: d318c6231794ac04b969fec3b9e0ae1e, type: 3}
+  _krokur: {fileID: -413345264, guid: 9581db6272b24304aa2b5ea52860f222, type: 3}
   _playerHead: {fileID: 7347372096883919203}
   _hearts:
   - {fileID: 2774304722592687590}
