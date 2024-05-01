@@ -399,12 +399,12 @@ public class PlayerController : MonoBehaviour
             _lineRenderer.enabled = false;
             _target = null;
             _distanceJoint.enabled = false;
+            SoundManager.Instance.EjecutarAudio(hookStart, 1, 0.2f);
             return;
         }
 
         if (!_distanceJoint.enabled && _canInteractBox)
         {
-
             _target = this.GetComponentInChildren<AnchorManager>().GetTarget((int)this.transform.localScale.x, IsGrounded());
             if (_target == null) 
             {
@@ -413,7 +413,7 @@ public class PlayerController : MonoBehaviour
             else if (IsGrounded())
             {
                 _target.GetComponentInParent<DrageableObject>().DragMe(this.transform.position + new Vector3(1.25f * (int)this.transform.localScale.x, 0.45f, 0), this);
-                SoundManager.Instance.EjecutarAudio(hookStart, 1, 0.5f);
+                SoundManager.Instance.EjecutarAudio(hookStart, 1, 0.2f);
             }
 
             Vector2 targetPos = _target.position;
