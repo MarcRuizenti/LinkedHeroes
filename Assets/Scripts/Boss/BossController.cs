@@ -21,7 +21,7 @@ public class BossController : Patroll
     [SerializeField] private float _krokurAttackCounterTime;
     private bool _canRechargekrokurAttack = true;
     [SerializeField] private GameObject _player;
-    [SerializeField] private GameManager.Character _character;
+    [SerializeField] public GameManager.Character _character;
     [SerializeField] private int _krokurCycles;
     [SerializeField] private float _krokurRechargeTime;
     [SerializeField] private float _krokurRechargeTimeCounter;
@@ -127,6 +127,8 @@ public class BossController : Patroll
                 break;
         }
     }
+
+
 
     private void RechargeKrokur()
     {

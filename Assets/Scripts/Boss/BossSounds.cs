@@ -1,17 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossSounds : MonoBehaviour
 {
     [SerializeField] private AudioClip[] spawnBullet;
     [SerializeField] private AudioClip shut;
-    public void PlaySpawnBullt(float pich, float volumen) 
+    private BossController bossController;
+    private AudioSource audioSource;
+    private void Start()
     {
-        SoundManager.Instance.EjecutarAudio(spawnBullet[Random.Range(0, spawnBullet.Length)], pich, volumen);
+        bossController = GetComponent<BossController>();
+        audioSource = GetComponent<AudioSource>();
     }
-    public void PlayShut(float pich, float volumen) 
+
+    public void PlaySpawnBullt(float pitch, float volume) 
     {
-        SoundManager.Instance.EjecutarAudio(shut, pich, volumen);
+        audioSource.PlayOneShot(spawnBullet[Random.Range(0, spawnBullet.Length)]);
+        audioSource.pitch = pitch;
+        audioSource.volume = volume;
+    }
+    public void PlayShut(float pitch, float volume) 
+    {
+        audioSource.PlayOneShot(shut);
+        audioSource.pitch = pitch;
+        audioSource.volume = volume;
+    }
+
+    public void SoundAttackKrokur(float volume)
+    {
+        if (bossController._character == GameManager.Character.KROKUR)
+        {
+            PlayShut(1, volume);
+        }
     }
 }
