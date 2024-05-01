@@ -777,6 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hookStart: {fileID: 8300000, guid: fa78cfcebb788f7438b25f252fc78b29, type: 3}
+  jump: {fileID: 8300000, guid: 50b1c047cb0989144b215d193e844303, type: 3}
   material: 0
   _maxHangedSpeed: 4
   _animator: {fileID: 3509327729481338231}
@@ -815,6 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 3
+  hurt: {fileID: 8300000, guid: b7e291aeb4b74ec45972e0d5228bdc74, type: 3}
   _health: 0
   _onDeath:
     m_PersistentCalls:

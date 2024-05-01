@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class HealthBar : MonoBehaviour 
 {
     [SerializeField] private int _maxHealth;
+    [SerializeField] private AudioClip hurt;
     [SerializeField] int _health;
     [SerializeField] private UnityEvent _onDeath;
     [SerializeField] private Collider2D _damagebleCollider;
@@ -28,7 +29,11 @@ public class HealthBar : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         _health -= damageAmount;
-        if(gameObject.name == "Player") GameManager.Instance.health -= damageAmount;
+        if (gameObject.name == "Player")
+        {
+            SoundManager.Instance.EjecutarAudio(hurt, 1, 0.2f);
+            GameManager.Instance.health -= damageAmount;
+        }
         StartCoroutine(InvincibleMode());
     }
 

@@ -1,16 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
-using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
     //Sonidos
     [SerializeField] private AudioClip hookStart;
+    [SerializeField] private AudioClip jump;
+    [SerializeField] private AudioClip fall;
 
     //Material Steps
     public enum Materials { GRASS, ICE, STONE, WOOD, STEEL }
@@ -95,6 +93,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        DetectMatirial();
+
         HandleInputs();
 
         MoveHorizontal();
@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
         
+
         if (!_activeTimeJump)
         {
             _timeJumpCurent = _timeJump; 
@@ -295,25 +296,15 @@ public class PlayerController : MonoBehaviour
     //Jump logic
     private void Jump()
     {
+        SoundManager.Instance.EjecutarAudio(jump, 1, 0.2f);
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
     }
 
-
-    public bool IsGrounded()
+    public void DetectMatirial()
     {
-        _origins.Clear();
-        
-        _originLeft = _collider.bounds.center - new Vector3(-0.35f, 0.1f, 0);
-        _originRight = _collider.bounds.center - new Vector3(0.35f, 0.1f, 0);
-        _origins.Add(_originLeft);
-        _origins.Add(_originRight);
-
-        int size = _origins.Count;
-
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < _origins.Count; i++)
         {
             RaycastHit2D raycast = Physics2D.Raycast(_origins[i], Vector2.down, _collider.bounds.extents.y, _groundLayer);
-            Debug.DrawRay(_origins[i], Vector2.down * (_collider.bounds.extents.y), Color.red);
             if (raycast.collider != null)
             {
                 switch (raycast.collider.transform.tag)
@@ -355,6 +346,26 @@ public class PlayerController : MonoBehaviour
                         material = Materials.WOOD;
                         break;
                 }
+            }
+        }
+    }
+    public bool IsGrounded()
+    {
+        _origins.Clear();
+        
+        _originLeft = _collider.bounds.center - new Vector3(-0.35f, 0.1f, 0);
+        _originRight = _collider.bounds.center - new Vector3(0.35f, 0.1f, 0);
+        _origins.Add(_originLeft);
+        _origins.Add(_originRight);
+
+        int size = _origins.Count;
+
+        for (int i = 0; i < size; i++)
+        {
+            RaycastHit2D raycast = Physics2D.Raycast(_origins[i], Vector2.down, _collider.bounds.extents.y, _groundLayer);
+            Debug.DrawRay(_origins[i], Vector2.down * (_collider.bounds.extents.y), Color.red);
+            if (raycast.collider != null)
+            {
                 return true;
             }
         }
