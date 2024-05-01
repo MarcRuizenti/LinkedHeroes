@@ -346,7 +346,7 @@ public class PlayerController : MonoBehaviour
                         _timeSlay = 20;
                         _speed = 100;
                         _maxVelocity = 4;
-                        material = Materials.GRASS;
+                        material = Materials.WOOD;
                         break;
                 }
                 return true;

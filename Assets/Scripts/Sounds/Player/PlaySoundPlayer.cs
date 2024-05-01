@@ -40,8 +40,8 @@ public class PlaySoundPlayer : MonoBehaviour
                 SoundManager.Instance.EjecutarAudio(stepSteel, 1, 0.1f);
                 break;
             default:
-                AudioClip stepGrass1 = stepsGrass[Random.Range(0, stepsGrass.Length)];
-                SoundManager.Instance.EjecutarAudio(stepGrass1, 1, 0.1f);
+                AudioClip stepWood1 = stepsWood[Random.Range(0, stepsWood.Length)];
+                SoundManager.Instance.EjecutarAudio(stepWood1, 1, 0.1f);
                 break;
         }
 
