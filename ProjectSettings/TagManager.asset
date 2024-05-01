@@ -23,6 +23,7 @@ TagManager:
   - Stone
   - Grass
   - Wood
+  - Steel
   layers:
   - Default
   - TransparentFX
