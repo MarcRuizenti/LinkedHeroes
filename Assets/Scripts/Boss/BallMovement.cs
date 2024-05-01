@@ -42,4 +42,12 @@ public class BallMovement : Parriable
         
         Destroy(gameObject, lifeTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.name == "Box")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
