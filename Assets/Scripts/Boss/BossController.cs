@@ -262,34 +262,57 @@ public class BossController : Patroll
 
     }
 
-    private void AikePhase()
+    private IEnumerator InvoceBullets()
     {
         for (int i = 0; i < 360; i += 45)
         {
-            GameObject tempO = Instantiate(_damageBall, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
+            Vector3 outdir = new Vector3(Mathf.Cos(i * (Mathf.PI / 180)), Mathf.Sin(i * (Mathf.PI / 180)));
 
-            tempO.transform.localEulerAngles = new Vector3(tempO.transform.rotation.x, tempO.transform.rotation.y, i);
+            Vector3 position = transform.position + outdir * 1.6f;
+
+            GameObject tempO = Instantiate(_damageBall, new Vector3(position.x, position.y, -1), transform.rotation);
+
+            int rand1 = Random.Range(0, 2);
+            if (rand1 == 0)
+            {
+                tempO.GetComponent<SpriteRenderer>().sprite = _parryBall;
+                tempO.transform.GetChild(1).gameObject.SetActive(true);
+            }
+
+            tempO.transform.localEulerAngles = new Vector3(tempO.transform.rotation.x, tempO.transform.rotation.y, i - 90);
 
             tempO.GetComponent<BallMovement>()._bossPhase = _character;
+            tempO.GetComponent<BallMovement>().enabled = false;
+            tempO.transform.GetChild(0).GetComponent<Collider2D>().enabled = false;
 
             _balls.Add(tempO);
+            yield return new WaitForSeconds(0.3f);
         }
+        
+        //int rand1 = Random.Range(0, 2);
+        //int rand2 = Random.Range(2, 4);
+        //int rand3 = Random.Range(4, 6);
+        //int rand4 = Random.Range(6, 8);
+        //tempO.GetComponent<SpriteRenderer>().sprite = _parryBall;
+        //_balls[rand2].GetComponent<SpriteRenderer>().sprite = _parryBall;
+        //_balls[rand3].GetComponent<SpriteRenderer>().sprite = _parryBall;
+        //_balls[rand4].GetComponent<SpriteRenderer>().sprite = _parryBall;
+        //tempO.transform.GetChild(1).gameObject.SetActive(true);
+        //_balls[rand2].transform.GetChild(1).gameObject.SetActive(true);
+        //_balls[rand3].transform.GetChild(1).gameObject.SetActive(true);
+        //_balls[rand4].transform.GetChild(1).gameObject.SetActive(true);
 
-        int rand1 = Random.Range(0, 2);
-        int rand2 = Random.Range(2, 4);
-        int rand3 = Random.Range(4, 6);
-        int rand4 = Random.Range(6, 8);
-        _balls[rand1].GetComponent<SpriteRenderer>().sprite = _parryBall;
-        _balls[rand2].GetComponent<SpriteRenderer>().sprite = _parryBall;
-        _balls[rand3].GetComponent<SpriteRenderer>().sprite = _parryBall;
-        _balls[rand4].GetComponent<SpriteRenderer>().sprite = _parryBall;
-        _balls[rand1].transform.GetChild(1).gameObject.SetActive(true);
-        _balls[rand2].transform.GetChild(1).gameObject.SetActive(true);
-        _balls[rand3].transform.GetChild(1).gameObject.SetActive(true);
-        _balls[rand4].transform.GetChild(1).gameObject.SetActive(true);
-
+        for (int i = 0; i < _balls.Count; i++)
+        {
+            _balls[i].GetComponent<BallMovement>().enabled = true;
+            _balls[i].transform.GetChild(0).GetComponent<Collider2D>().enabled = true;
+        }
         _balls.Clear();
+    }
 
+    private void AikePhase()
+    {
+        StartCoroutine(InvoceBullets());
     }
 
     protected override void PatrollMethod()

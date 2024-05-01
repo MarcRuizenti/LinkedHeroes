@@ -2100,7 +2100,7 @@ MonoBehaviour:
   - {fileID: 1919700735}
   Speed: 3
   Index: 0
-  MovementDelay: 3
+  MovementDelay: 6
   MovementDelayCounter: 0
   animator: {fileID: 654062328}
   _isFallen: 0
