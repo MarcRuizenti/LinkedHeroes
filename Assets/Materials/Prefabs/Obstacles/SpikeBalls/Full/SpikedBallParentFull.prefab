@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7459366391587427897}
   - component: {fileID: 6696041777096395803}
+  - component: {fileID: 2334183777760295588}
   m_Layer: 0
   m_Name: SpikedBallParentFull
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   - {fileID: 1257058513938404336}
   - {fileID: 8705941643176461289}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6696041777096395803
 Animator:
@@ -58,6 +59,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2334183777760295588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2390545650053134680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af95fd6a31e4b0a41a501d4058acb89e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockback: {x: 0, y: 10}
 --- !u!1 &4046460965623183119
 GameObject:
   m_ObjectHideFlags: 0

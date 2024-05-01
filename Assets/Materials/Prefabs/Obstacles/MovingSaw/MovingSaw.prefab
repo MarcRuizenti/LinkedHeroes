@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 208285417257303459}
   - component: {fileID: 4838716687624534895}
   - component: {fileID: 8843208351525921705}
+  - component: {fileID: 4718279538144205972}
   m_Layer: 0
   m_Name: MovingSaw
   m_TagString: Untagged
@@ -199,6 +200,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4718279538144205972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446028989983503830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af95fd6a31e4b0a41a501d4058acb89e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockback: {x: 0, y: 10}
 --- !u!1 &4451560045082844853
 GameObject:
   m_ObjectHideFlags: 0
