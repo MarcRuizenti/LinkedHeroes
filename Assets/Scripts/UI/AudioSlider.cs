@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class AudioSlider : MonoBehaviour
 {
     [Header("Slider Settings")]
-    [SerializeField] Slider _soundSlider;
-    [SerializeField] AudioMixer _masterMixer;
+    [SerializeField] protected Slider _soundSlider;
+    [SerializeField] protected AudioMixer _masterMixer;
 
     // Start is called before the first frame update
     void Start()
@@ -25,13 +25,15 @@ public class AudioSlider : MonoBehaviour
         _masterMixer.SetFloat("MasterVolume", Mathf.Log10(value / 100) * 20f);
     }
 
-    private void RefreshSlider(float value)
+    protected void RefreshSlider(float value)
     {
         _soundSlider.value = value;
     }
 
-    public void SetValueFromSlider()
+    public void SetValueFromSliderMaster()
     {
         SetVolume(_soundSlider.value);
     }
+
+
 }
