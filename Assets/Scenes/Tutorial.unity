@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 439429313}
   - component: {fileID: 439429312}
   m_Layer: 0
-  m_Name: TutorialSource
+  m_Name: BackGroundMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -482,7 +482,7 @@ AudioSource:
   m_GameObject: {fileID: 439429311}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 33b3592e9b5e41644a23154a34dae160, type: 2}
+  OutputAudioMixerGroup: {fileID: 9083438580696433237, guid: 33b3592e9b5e41644a23154a34dae160, type: 2}
   m_audioClip: {fileID: 8300000, guid: 848a6ecfe10c1b744b9e748b777235a6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.593
