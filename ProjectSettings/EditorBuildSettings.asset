@@ -9,30 +9,30 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 56a3e74264614a24e8b83e80c0857f44
   - enabled: 1
+    path: Assets/Scenes/Levels.unity
+    guid: fb5c2513ad3b47d4a97d4b73c422bab5
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/SecondLevel.unity
+    guid: 1707d00bf6f97c944a20d4d1d670f99e
+  - enabled: 1
+    path: Assets/Scenes/IceLevel.unity
+    guid: 11d87f34fe5fc494ba3cc1742aa5bc96
+  - enabled: 1
+    path: Assets/Scenes/GhostRace.unity
+    guid: e142d4493e488ad4e91ac3fd53048135
+  - enabled: 1
+    path: Assets/Scenes/BossBattle.unity
+    guid: 15833296f199de342ad47f7890fabdb7
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 312541c2375aec04d9d10253ccb799b8
+  - enabled: 1
     path: Assets/Scenes/OptionsMenu.unity
     guid: 10565d3b2f495384b93dd9062d1313bc
   - enabled: 1
     path: Assets/Scenes/PauseMenu.unity
     guid: ff68d8bcc36154340bc38fd6bb953019
-  - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/Levels.unity
-    guid: fb5c2513ad3b47d4a97d4b73c422bab5
-  - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: 312541c2375aec04d9d10253ccb799b8
-  - enabled: 1
-    path: Assets/Scenes/BossBattle.unity
-    guid: 15833296f199de342ad47f7890fabdb7
-  - enabled: 1
-    path: Assets/Scenes/SecondLevel.unity
-    guid: 1707d00bf6f97c944a20d4d1d670f99e
-  - enabled: 1
-    path: Assets/Scenes/GhostRace.unity
-    guid: e142d4493e488ad4e91ac3fd53048135
-  - enabled: 1
-    path: Assets/Scenes/IceLevel.unity
-    guid: 11d87f34fe5fc494ba3cc1742aa5bc96
   m_configObjects: {}
