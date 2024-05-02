@@ -30,7 +30,7 @@ public class AudioSlider : MonoBehaviour
         _soundSlider.value = value;
     }
 
-    public void SetValueFromSlider()
+    public void SetValueFromSliderMaster()
     {
         SetVolume(_soundSlider.value);
     }

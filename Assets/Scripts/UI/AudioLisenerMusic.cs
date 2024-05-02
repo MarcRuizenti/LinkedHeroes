@@ -17,4 +17,9 @@ public class AudioLisenerMusic : AudioSlider
         PlayerPrefs.SetFloat("musicVolume", value);
         _masterMixer.SetFloat("musica", Mathf.Log10(value / 100) * 20f);
     }
+
+    public void SetValueFromSliderMusic()
+    {
+        SetVolumeMusic(_soundSlider.value);
+    }
 }
