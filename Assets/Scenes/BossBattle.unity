@@ -2203,6 +2203,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 50320b354dd41e8428ef271f9d470945, type: 3}
   - {fileID: 8300000, guid: ddb15065c13e23b49af6056cc54d5b43, type: 3}
   shut: {fileID: 8300000, guid: e9f005e8fd283914eaf906bc65eab2d2, type: 3}
+  hitShild: {fileID: 8300000, guid: 35373057191a1b84cbfa7a5de13c3267, type: 3}
+  hit: {fileID: 8300000, guid: 589b83d8084435e4f9cc8833c006e5a2, type: 3}
+  spawnMiror: {fileID: 8300000, guid: d095050570beeaa49aff56c739999b76, type: 3}
 --- !u!82 &654062330
 AudioSource:
   m_ObjectHideFlags: 0

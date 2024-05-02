@@ -7,6 +7,9 @@ public class BossSounds : MonoBehaviour
 {
     [SerializeField] private AudioClip[] spawnBullet;
     [SerializeField] private AudioClip shut;
+    [SerializeField] private AudioClip hitShild;
+    [SerializeField] private AudioClip hit;
+    [SerializeField] private AudioClip spawnMiror;
     private BossController bossController;
     private AudioSource audioSource;
     private void Start()
@@ -34,5 +37,26 @@ public class BossSounds : MonoBehaviour
         {
             PlayShut(1, volume);
         }
+    }
+
+    public void SoundHitShild(float pitch, float volume)
+    {
+        audioSource.PlayOneShot(hitShild);
+        audioSource.pitch = pitch;
+        audioSource.volume = volume;
+    }
+
+    public void SoundHit(float pitch, float volume)
+    {
+        audioSource.PlayOneShot(hit);
+        audioSource.pitch = pitch;
+        audioSource.volume = volume;
+    }
+
+    public void SoundSpawnMiror(float pitch, float volume)
+    {
+        audioSource.PlayOneShot(spawnMiror);
+        audioSource.pitch = pitch;
+        audioSource.volume = volume;
     }
 }

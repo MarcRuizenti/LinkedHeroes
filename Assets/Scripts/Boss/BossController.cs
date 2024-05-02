@@ -212,6 +212,7 @@ public class BossController : Patroll
             _skull.SetActive(true);
             UpdateCharacter();
             health = maxHealth;
+            _sound.SoundSpawnMiror(1, 0.5f);
         }
     }
 
@@ -399,9 +400,11 @@ public class BossController : Patroll
             healthShield -= amount;
 
             animator.SetTrigger("ShieldDamage");
+            _sound.SoundHitShild(1, 0.5f);
         }
         else
         {
+            _sound.SoundHit(1, 0.2f);
             health--;
             healthShield = maxHealthShield;
             gameObject.GetComponent<BossController>().enabled = true;

@@ -21,7 +21,6 @@ public class ChangeMirror : MonoBehaviour
         if (personajeActual == GameManager.Character.KROKUR)
         {
             GetComponent<SpriteRenderer>().sprite = aike;
-
         }
     }
     
