@@ -80,6 +80,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _swordCooldown;
     [SerializeField] private float _maxSwordCooldown;
 
+    //Particulas
+    [SerializeField] private ParticleSystem particulasSalto;
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -281,7 +283,8 @@ public class PlayerController : MonoBehaviour
                 _animator.SetBool("walking", true);
             else
                 _animator.SetBool("walking", false);
-
+            if (_rb.velocity.x != 0)
+                particulasSalto.Play();
         }
 
         if (_horizontalInput == 0)
@@ -298,6 +301,7 @@ public class PlayerController : MonoBehaviour
     {
         SoundManager.Instance.EjecutarAudio(jump, 1, 0.2f);
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+        particulasSalto.Play();
     }
 
     public void DetectMatirial()
