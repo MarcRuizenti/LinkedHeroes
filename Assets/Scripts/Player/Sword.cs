@@ -1,17 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
 
     [SerializeField] private Vector2 _knockback;
-
+    private PlaySounds _playSounds;
     public Shaker _shaker;
+    public AudioClip audioClip;
+
 
     private void Start()
     {
+        _playSounds = GetComponent<PlaySounds>();
         _shaker = FindObjectOfType<Shaker>();
+    }
+
+    public void PlaySoundSword()
+    {
+        _playSounds.PlaySoundSoundManager(audioClip, 1.2f, 0.5f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

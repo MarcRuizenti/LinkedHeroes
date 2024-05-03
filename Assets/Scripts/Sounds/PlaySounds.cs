@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class PlaySounds : MonoBehaviour
 {
-    public AudioClip audioClip;
+    protected AudioSource audioSource;
 
-    public void PlaySound()
+    private void Start()
     {
-        SoundManager.Instance.EjecutarAudio(audioClip, 1.2f, 0.2f);
+        audioSource = GetComponent<AudioSource>();
+    }
+    public void PlaySoundSoundManager(AudioClip audioClip, float pitch, float volume)
+    {
+        SoundManager.Instance.EjecutarAudio(audioClip, pitch, volume);
+    }
+
+    public void PlaySoundLocalAudioSource(AudioClip audioClip, float pitch, float volume)
+    {
+        audioSource.PlayOneShot(audioClip);
+        audioSource.pitch = pitch;
+        audioSource.volume = volume;
     }
 }
