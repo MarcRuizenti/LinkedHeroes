@@ -9,7 +9,8 @@ public class Sword : MonoBehaviour
     [SerializeField] private Vector2 _knockback;
     private PlaySounds _playSounds;
     public Shaker _shaker;
-    public AudioClip audioClip;
+    public AudioClip swordSound;
+    public AudioClip parrySound;
 
 
     private void Start()
@@ -20,7 +21,7 @@ public class Sword : MonoBehaviour
 
     public void PlaySoundSword()
     {
-        _playSounds.PlaySoundSoundManager(audioClip, 1.2f, 0.5f);
+        _playSounds.PlaySoundSoundManager(swordSound, 1.2f, 0.5f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,7 +29,8 @@ public class Sword : MonoBehaviour
         {
             case "Parry":
                 _shaker.CamShake(0.02f, -0.01f, -0.01f);
-                
+
+                _playSounds.PlaySoundSoundManager(parrySound, 1.2f, 0.5f);
                 collision.gameObject.GetComponentInParent<Parriable>().Parry();
                 break;
             case "Enemy":

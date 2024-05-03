@@ -326,7 +326,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _knockback: {x: -2, y: 0}
   _shaker: {fileID: 0}
-  audioClip: {fileID: 8300000, guid: 549e507d4b0555841a22f76dc9697e10, type: 3}
+  swordSound: {fileID: 8300000, guid: 549e507d4b0555841a22f76dc9697e10, type: 3}
+  parrySound: {fileID: 8300000, guid: 3d1527b8ea424704db91dad23a6ad34b, type: 3}
 --- !u!114 &474596239305785169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,7 +628,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _knockback: {x: 0, y: 0}
   _shaker: {fileID: 0}
-  audioClip: {fileID: 8300000, guid: 549e507d4b0555841a22f76dc9697e10, type: 3}
+  swordSound: {fileID: 8300000, guid: 549e507d4b0555841a22f76dc9697e10, type: 3}
+  parrySound: {fileID: 8300000, guid: 3d1527b8ea424704db91dad23a6ad34b, type: 3}
 --- !u!114 &2440280513646312746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1305,7 +1307,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _knockback: {x: 0, y: 12}
   _shaker: {fileID: 0}
-  audioClip: {fileID: 8300000, guid: 549e507d4b0555841a22f76dc9697e10, type: 3}
+  swordSound: {fileID: 8300000, guid: 549e507d4b0555841a22f76dc9697e10, type: 3}
+  parrySound: {fileID: 8300000, guid: 3d1527b8ea424704db91dad23a6ad34b, type: 3}
 --- !u!114 &451602330020362819
 MonoBehaviour:
   m_ObjectHideFlags: 0
