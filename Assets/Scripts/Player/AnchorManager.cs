@@ -10,7 +10,21 @@ public class AnchorManager : MonoBehaviour
 
     private GameObject lastDraggeable;
     private GameObject lastHookpoint;
-    
+
+    public LineRenderer lineRenderer;
+
+    private void Start()
+    {
+        Vector3 startPos = lineRenderer.GetPosition(0);
+        Vector3 endPos = lineRenderer.GetPosition(lineRenderer.positionCount - 1);
+    }
+
+    private void Update()
+    {
+        
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Hookpoint")
