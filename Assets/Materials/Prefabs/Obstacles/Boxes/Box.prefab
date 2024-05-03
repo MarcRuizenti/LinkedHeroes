@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 823483906276937108}
   - component: {fileID: 6485961762126918026}
   - component: {fileID: 1152410117680195945}
+  - component: {fileID: 8429296951058937731}
   m_Layer: 11
   m_Name: Box
   m_TagString: DamageBoss
@@ -175,6 +176,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 823483906276937108}
   movingVelocity: 1
+--- !u!114 &8429296951058937731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2690871985206242174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe93878fcc49a74081ab1dfb2980f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boxTimer: 0
+  _boxTimerCount: 0
+  _spawnDelay: 0
+  _startingPosition: {x: 0, y: 0, z: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4262573832827540913
 GameObject:
   m_ObjectHideFlags: 0

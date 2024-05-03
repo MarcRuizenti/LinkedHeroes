@@ -73,4 +73,12 @@ public class BoxController : MonoBehaviour
     {
         timerStart = true;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Border")
+        {
+            gameObject.SetActive(false) ;
+        }
+    }
 }

@@ -21,7 +21,10 @@ public class AnchorManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if (transform.parent.GetComponent<PlayerController>().IsGrounded() && lastHookpoint != null)
+        {
+            lastHookpoint.transform.Find("Arrow").gameObject.SetActive(false);
+        }
     }
 
 

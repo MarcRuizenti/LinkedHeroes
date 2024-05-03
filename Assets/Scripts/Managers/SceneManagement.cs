@@ -25,6 +25,8 @@ public class SceneManagement : MonoBehaviour
 
     private void PauseGame()
     {
+        if(GameManager.Instance.PlayerDeath) { return; }
+        
         _pauseMenu.SetActive(true);
         Time.timeScale = 0;
         _isPaused = true;

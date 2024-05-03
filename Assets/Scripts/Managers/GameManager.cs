@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public int health;
 
+
     public enum Character
     {
         AIKE,
@@ -91,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdatePlayerState()
     {
-      PlayerDeath = true;
+        PlayerDeath = true;
     }
 
     private void Respawn()
