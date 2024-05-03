@@ -17,7 +17,14 @@ public class TrunkBullet : Parriable
         gameObject.tag = "DamageEnemy";
         _isBeingParried = true;
         _parryDirection = GetPlayerScale();
-        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        if (_player.transform.position.x >= transform.position.x) 
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
 
 
