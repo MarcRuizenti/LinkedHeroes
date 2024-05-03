@@ -21,6 +21,7 @@ public class LevelSelection : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R)) 
         {
+            LvlButtons[0].Select();
             PlayerPrefs.DeleteKey("levelAt");
             int levelAt = PlayerPrefs.GetInt("levelAt", 2);
             for (int i = 0; i < LvlButtons.Length; i++)
