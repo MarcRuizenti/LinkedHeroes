@@ -48,6 +48,8 @@ public class SceneSetter : MonoBehaviour
 
     public void ChangeCharacter()
     {
+        if(Time.deltaTime <= 0) { return; }
+
         audioSource.PlayOneShot(changeSound);
         audioSource.pitch = 1;
         audioSource.volume = 0.2f;
