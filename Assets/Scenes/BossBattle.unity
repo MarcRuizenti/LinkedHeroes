@@ -296,6 +296,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
+--- !u!1 &156268195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2331541050714427874, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
+  m_PrefabInstance: {fileID: 1956303538}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &163215712 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5760253151655278553, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
@@ -2131,7 +2136,7 @@ MonoBehaviour:
   _onBossDefeated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 156268195}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2155,10 +2160,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 765785742}
+        m_TargetAssemblyTypeName: Transition, Assembly-CSharp
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2166,6 +2171,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1986371326}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2145514357}
+        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
+        m_MethodName: BossDefeated
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   canChangePhase: 1
   _changePhasePosition: {fileID: 1166159080}
@@ -2392,6 +2421,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
+--- !u!114 &765785742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 355741613427410554, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
+  m_PrefabInstance: {fileID: 890525728}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339ed7aafb3b1fd4f8e6bfd8489e5840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &817340637
 GameObject:
   m_ObjectHideFlags: 0
@@ -8934,6 +8974,10 @@ PrefabInstance:
     - target: {fileID: 4117661342083557787, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
       propertyPath: m_Name
       value: GameOver_Win Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043417267123282321, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
+      propertyPath: m_text
+      value: BOSS DEFEATED
       objectReference: {fileID: 0}
     - target: {fileID: 8736523071650884971, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
       propertyPath: m_Pivot.x
