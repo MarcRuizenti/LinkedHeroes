@@ -7,7 +7,7 @@ public class Transition : MonoBehaviour
 {
     public Animator transition;
 
-    public float transitionTime = 2.5f;
+    public float transitionTime = 5f;
     public int nextSceneLoad;
 
     // Start is called before the first frame update
