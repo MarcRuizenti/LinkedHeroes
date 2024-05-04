@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
@@ -79,6 +82,7 @@ public class PlayerController : MonoBehaviour
     //sword cooldown
     [SerializeField] private float _swordCooldown;
     [SerializeField] private float _maxSwordCooldown;
+    [SerializeField] private Image _cooldownBar;
 
     //Particulas
     [SerializeField] private ParticleSystem particulasSalto;
@@ -144,6 +148,11 @@ public class PlayerController : MonoBehaviour
         if(_swordCooldown > 0) 
         {
             _swordCooldown -= Time.deltaTime;
+            Debug.Log(_swordCooldown / _maxSwordCooldown);
+            _cooldownBar.fillAmount = _swordCooldown / _maxSwordCooldown;
+        }
+        else {
+            _cooldownBar.enabled = false;
         }
 
 
@@ -402,6 +411,7 @@ public class PlayerController : MonoBehaviour
     private void Aike()
     {
         _swordCooldown = _maxSwordCooldown;
+        _cooldownBar.enabled = true;
         if(_verticalInput > 0)
         {
             StartCoroutine(AttackDuration(gameObject.transform.GetChild(1).gameObject));
