@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
     {
         _player = FindObjectOfType<PlayerController>().gameObject;
         health = 3;
+        PlayerDeath = false;
     }
 
     public void UpdatePlayerState()

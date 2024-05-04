@@ -8,7 +8,7 @@ public class SceneManagement : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject TextWin;
 
-    private bool _isPaused;
+    public bool _isPaused;
 
     public bool bossDefeated;
 
