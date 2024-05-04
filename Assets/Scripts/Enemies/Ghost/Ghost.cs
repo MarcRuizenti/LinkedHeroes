@@ -56,7 +56,7 @@ public class Ghost : MonoBehaviour
 
         if (transform.position == _goal.position)
         {
-            //_onGoalReached.Invoke();
+            _onGoalReached.Invoke();
             _speed = 0;
         }
 
