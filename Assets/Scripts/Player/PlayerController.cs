@@ -148,7 +148,6 @@ public class PlayerController : MonoBehaviour
         if(_swordCooldown > 0) 
         {
             _swordCooldown -= Time.deltaTime;
-            Debug.Log(_swordCooldown / _maxSwordCooldown);
             _cooldownBar.fillAmount = _swordCooldown / _maxSwordCooldown;
         }
         else {
