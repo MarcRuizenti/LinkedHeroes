@@ -18,8 +18,17 @@ public class BallMovement : Parriable
     public override void Parry()
     {
         _isBeingParried = true;
-        _parryDirection = GetPlayerScale();
+        //_parryDirection = GetPlayerScale();
         gameObject.tag = "DamageBoss";
+
+        if(_player.transform.position.x > transform.position.x)
+        {
+            _parryDirection = -1;
+        }
+        else
+        {
+            _parryDirection = 1;
+        }
     }
 
 

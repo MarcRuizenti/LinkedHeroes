@@ -16,6 +16,9 @@ public class BonfireController : MonoBehaviour
     //particles
     [SerializeField] private ParticleSystem _particles;
 
+    //X
+    [SerializeField] private GameObject _UI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +50,7 @@ public class BonfireController : MonoBehaviour
         if (collision.CompareTag("Player")) 
         {
             _playerInsideRadius = true;
+            _UI.SetActive(true);
         }
         
     }
@@ -57,6 +61,7 @@ public class BonfireController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             _playerInsideRadius = false;
+            _UI.SetActive(false);
         }
     }
 
