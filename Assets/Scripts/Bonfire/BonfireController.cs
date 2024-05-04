@@ -59,4 +59,15 @@ public class BonfireController : MonoBehaviour
             _playerInsideRadius = false;
         }
     }
+
+    public void DeactivateAfterParticles()
+    {
+        var main = _particles.main;
+        Invoke("Deactivate", main.duration);
+    }
+
+    private void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
 }
