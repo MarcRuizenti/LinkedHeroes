@@ -3693,7 +3693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6053003324546138829, guid: d2be5dcc8e63ce640bbadb9e97814f18, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6053003324546138829, guid: d2be5dcc8e63ce640bbadb9e97814f18, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3702,7 +3702,7 @@ PrefabInstance:
     - target: {fileID: 6053003324546138829, guid: d2be5dcc8e63ce640bbadb9e97814f18, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1667318178}
+      objectReference: {fileID: 1667318181}
     - target: {fileID: 6053003324546138829, guid: d2be5dcc8e63ce640bbadb9e97814f18, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -3713,7 +3713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6053003324546138829, guid: d2be5dcc8e63ce640bbadb9e97814f18, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
+      value: DeactivateAfterParticles
       objectReference: {fileID: 0}
     - target: {fileID: 6053003324546138829, guid: d2be5dcc8e63ce640bbadb9e97814f18, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -3721,7 +3721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6053003324546138829, guid: d2be5dcc8e63ce640bbadb9e97814f18, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: BonfireController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6053003324546138829, guid: d2be5dcc8e63ce640bbadb9e97814f18, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -8542,6 +8542,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4565742758570652550, guid: 55df8fb68a683e64bb7353614498fb85, type: 3}
   m_PrefabInstance: {fileID: 1546490403}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1667318181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6183680019704553800, guid: 55df8fb68a683e64bb7353614498fb85, type: 3}
+  m_PrefabInstance: {fileID: 1546490403}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667318178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6a0240f66eab6418c1597390e84e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1673855892
 GameObject:
   m_ObjectHideFlags: 0
