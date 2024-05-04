@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
 
     //Particulas
     [SerializeField] private ParticleSystem particulasSalto;
+    [SerializeField] private ParticleSystem particulasMovement;
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -279,6 +280,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!IsGrounded())
         {
+            if (particulasMovement.isPlaying)
+                particulasMovement.Stop();
+
             if (_rb.velocity.x < _maxVelocityFly && _rb.velocity.x > -_maxVelocityFly)
                 _rb.velocity += new Vector2(_horizontalInput, 0) * _speedFly * Time.deltaTime;
         }
@@ -291,12 +295,15 @@ public class PlayerController : MonoBehaviour
                 _animator.SetBool("walking", true);
             else
                 _animator.SetBool("walking", false);
-            if (_rb.velocity.x != 0)
-                particulasSalto.Play();
+            if (_rb.velocity.x != 0 && !particulasMovement.isPlaying)
+                particulasMovement.Play();
+
         }
 
         if (_horizontalInput == 0)
         {
+            particulasMovement.Stop();
+
             if (_rb.velocity.x > 0)
                 _rb.velocity = new Vector2(_rb.velocity.x - (Time.deltaTime * _timeSlay), _rb.velocity.y);
             if (_rb.velocity.x < 0)

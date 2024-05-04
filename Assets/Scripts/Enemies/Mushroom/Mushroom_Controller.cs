@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Mushroom_Controller : Patroll
 {
+
+    //Particulas
+    [SerializeField] private ParticleSystem particulasMovementMushroom;
+
     [SerializeField] private Animator _animator;
     public enum States
     {
@@ -58,6 +62,9 @@ public class Mushroom_Controller : Patroll
     
     protected override void PatrollMethod()
     {
+        if(!particulasMovementMushroom.isPlaying)
+            particulasMovementMushroom.Play();
+
         Vector3 scale = transform.localScale;
         if (transform.position.x < WayPoints[Index].position.x)
         {
@@ -76,6 +83,7 @@ public class Mushroom_Controller : Patroll
             if (Index >= WayPoints.Count) Index = 0;
             
             CurrentState = States.IDLE;
+            particulasMovementMushroom.Stop();
         }
 
         transform.position = Vector3.MoveTowards(transform.position, WayPoints[Index].position, Speed * Time.deltaTime);
