@@ -11,10 +11,12 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private UnityEvent _onDeath;
     [SerializeField] private Collider2D _damagebleCollider;
     [SerializeField] private Vector2 _knockback;
+    private bool CanBlinck;
 
     private void Start()
     {
         _health = _maxHealth;
+        CanBlinck = true;
     }
 
 
@@ -28,6 +30,7 @@ public class HealthBar : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
+        CanBlinck = false;
         _health -= damageAmount;
         if (gameObject.name == "Player")
         {
@@ -63,6 +66,7 @@ public class HealthBar : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         gameObject.GetComponent<SpriteRenderer>().color = originalColor;
         _damagebleCollider.enabled = true;
+        CanBlinck = true;
     }
 
     public void DieEnemy()
