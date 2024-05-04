@@ -10,6 +10,8 @@ public class SceneManagement : MonoBehaviour
 
     private bool _isPaused;
 
+    public bool bossDefeated;
+
     void Update()
     {
         //Fire2 = alt izquierdo
@@ -26,6 +28,8 @@ public class SceneManagement : MonoBehaviour
     private void PauseGame()
     {
         if(GameManager.Instance.PlayerDeath) { return; }
+
+        if(bossDefeated) { return; }
         
         _pauseMenu.SetActive(true);
         Time.timeScale = 0;
@@ -58,5 +62,10 @@ public class SceneManagement : MonoBehaviour
     public void NextLevel(string nextLevel)
     {
         SceneManager.LoadScene(nextLevel);
+    }
+
+    public void BossDefeated()
+    {
+        bossDefeated = true;
     }
 }
