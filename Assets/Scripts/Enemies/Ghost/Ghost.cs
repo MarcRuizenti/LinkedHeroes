@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Ghost : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class Ghost : MonoBehaviour
     
     void Update()
     {
+        Shadows.Instance.ShadowTrail();
+
         if (transform.position == _mirror.position)
         {
             _mirrorReached = true;

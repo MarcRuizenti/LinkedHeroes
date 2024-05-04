@@ -1206,6 +1206,7 @@ GameObject:
   - component: {fileID: 653747551}
   - component: {fileID: 653747550}
   - component: {fileID: 653747553}
+  - component: {fileID: 653747554}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -1300,7 +1301,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1075290825, guid: 346732772b0d4524c96249c3e26bfd81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1320,7 +1321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653747549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9524035, y: -1.0953197, z: 0.42381063}
+  m_LocalPosition: {x: -7.11, y: -1.0953197, z: 0.42381063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1348,6 +1349,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &653747554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653747549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f36300541ca9846a7b3cf187dd916e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shadow: {fileID: 9140872686105168677, guid: 0d3cfd4749036af45a898e9bf4a966bf, type: 3}
+  Pool: []
+  Speed: 10
+  Color: {r: 0.5518868, g: 1, b: 0.86568713, a: 0}
 --- !u!1001 &664693344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4001,7 +4018,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2257498709674162512, guid: 4de5b0617453321408f5d2e4a3bd3cdd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.5214844
+      value: 0.5215149
       objectReference: {fileID: 0}
     - target: {fileID: 2937577705294542514, guid: 4de5b0617453321408f5d2e4a3bd3cdd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4122,6 +4139,10 @@ PrefabInstance:
     - target: {fileID: 4951876923563317919, guid: 4de5b0617453321408f5d2e4a3bd3cdd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6239531660607497194, guid: 4de5b0617453321408f5d2e4a3bd3cdd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.9888306
       objectReference: {fileID: 0}
     - target: {fileID: 6239531660607497194, guid: 4de5b0617453321408f5d2e4a3bd3cdd, type: 3}
       propertyPath: m_AnchoredPosition.y
