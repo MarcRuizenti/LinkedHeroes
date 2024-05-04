@@ -13,6 +13,9 @@ public class BonfireController : MonoBehaviour
     [SerializeField]private UnityEvent _onBonfireEnter;
     [SerializeField] private UnityEvent _onBonfireExit;
 
+    //particles
+    [SerializeField] private ParticleSystem _particles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,7 @@ public class BonfireController : MonoBehaviour
         if (_playerInsideRadius && Input.GetKeyDown(KeyCode.X))
         {
             _onCharacterChange.Invoke();
+            _particles.Play();
         }   
     }
 
