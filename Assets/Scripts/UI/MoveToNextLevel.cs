@@ -13,19 +13,14 @@ public class MoveToNextLevel : MonoBehaviour
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+    public void LoadNextLevel()
     {
-        if(collision.tag == "Player")
+        if (SceneManager.GetActiveScene().name != "BossBattle")
         {
+            SceneManager.LoadScene(nextSceneLoad);
 
-            if(SceneManager.GetActiveScene().name != "BossBattle"){
-                SceneManager.LoadScene(nextSceneLoad);
-
-                if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
-                {
-                    PlayerPrefs.SetInt("levelAt", nextSceneLoad);
-                }
-            }
+            
         }
     }
 }
