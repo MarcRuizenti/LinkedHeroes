@@ -63,7 +63,7 @@ public class BonfireController : MonoBehaviour
     public void DeactivateAfterParticles()
     {
         var main = _particles.main;
-        Invoke("Deactivate", main.duration);
+        Invoke("Deactivate", main.duration - 0.4f);
     }
 
     private void Deactivate()
