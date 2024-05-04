@@ -7,13 +7,18 @@ public class FallingPlatform : MonoBehaviour
 
     [SerializeField] private float _fallDelay = 1f;
     [SerializeField] private float _destroyDelay = 8f;
+
     private Rigidbody2D _rb;
+    private Animator _animator;
+    private ParticleSystem _particle;
     private Vector3 _originalPositon;
     private float _respawnTime;
     
 
     private IEnumerator Fall()
     {
+        _animator.SetBool("Off", true);
+        _particle.Stop();
         yield return new WaitForSeconds(_fallDelay);
         _rb.bodyType = RigidbodyType2D.Dynamic;
         yield return new WaitForSeconds(_destroyDelay);
@@ -33,6 +38,8 @@ public class FallingPlatform : MonoBehaviour
     {
         _originalPositon = transform.position;
         _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _particle = GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnDisable()
@@ -45,6 +52,8 @@ public class FallingPlatform : MonoBehaviour
     {
         transform.position = _originalPositon;
         gameObject.SetActive(true);
+        _animator.SetBool("Off", false);
+        _particle.Play();
     }
 
     
