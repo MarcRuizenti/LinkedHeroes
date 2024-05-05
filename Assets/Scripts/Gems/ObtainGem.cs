@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class ObtainGem : MonoBehaviour
 {
-    private void OnTriggerEnter2D (Collider2D collision)
+    [SerializeField] private ParticleSystem _particleSystem;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        Instantiate(_particleSystem, transform.position, transform.rotation);
+
         this.gameObject.SetActive(false);
+
     }
 }
