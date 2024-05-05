@@ -24,6 +24,7 @@ TagManager:
   - Grass
   - Wood
   - Steel
+  - BossParent
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - Arma
   - GroundLayer
   - Box
-  - 
+  - CamBox
   - 
   - 
   - 
