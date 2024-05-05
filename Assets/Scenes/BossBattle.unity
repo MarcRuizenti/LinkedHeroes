@@ -281,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 163215714}
     - target: {fileID: 4697322663440836594, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
       propertyPath: _groundLayer.m_Bits
-      value: 1024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4697322663440836594, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
       propertyPath: _startingPosition.x
@@ -1473,7 +1473,7 @@ PrefabInstance:
       objectReference: {fileID: 1451314868}
     - target: {fileID: 4697322663440836594, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
       propertyPath: _groundLayer.m_Bits
-      value: 1024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4697322663440836594, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
       propertyPath: _startingPosition.x
@@ -2463,7 +2463,7 @@ PrefabInstance:
       objectReference: {fileID: 1044344500}
     - target: {fileID: 4697322663440836594, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
       propertyPath: _groundLayer.m_Bits
-      value: 1024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4697322663440836594, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
       propertyPath: _startingPosition.x
@@ -2837,7 +2837,7 @@ PrefabInstance:
       objectReference: {fileID: 1428683873}
     - target: {fileID: 4697322663440836594, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
       propertyPath: _groundLayer.m_Bits
-      value: 1024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4697322663440836594, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
       propertyPath: _startingPosition.x
@@ -3100,7 +3100,7 @@ PrefabInstance:
       objectReference: {fileID: 914924283}
     - target: {fileID: 4697322663440836594, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
       propertyPath: _groundLayer.m_Bits
-      value: 1024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4697322663440836594, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
       propertyPath: _startingPosition.x
@@ -6737,7 +6737,7 @@ PrefabInstance:
       objectReference: {fileID: 574981326}
     - target: {fileID: 4697322663440836594, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
       propertyPath: _groundLayer.m_Bits
-      value: 1024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4697322663440836594, guid: 1da549e059c5790438419cb8418b00c2, type: 3}
       propertyPath: _startingPosition.x
