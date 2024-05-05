@@ -437,10 +437,20 @@ public class BossController : Patroll
     {
         if (collision.CompareTag("DamageBoss"))
         {
-            Debug.Log("Au");
-            Destroy(collision.gameObject);
-            TakeDamage(1);
-
+            if (collision.name == "Box")
+            {
+                collision.gameObject.SetActive(false);
+                if (healthShield <= 0)
+                {
+                    TakeDamage(1);
+                }
+            }
+            else
+            {
+                Debug.Log("Au");
+                Destroy(collision.gameObject);
+                TakeDamage(1);
+            }
         }
     }
 }

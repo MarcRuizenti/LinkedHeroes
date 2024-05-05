@@ -6,18 +6,22 @@ public class TrunkBullet : Parriable
 {
     [SerializeField] private float speed;
     [SerializeField] private float lifeTime;
-    
+
     public override void Parry()
     {
         gameObject.tag = "DamageEnemy";
-        _isBeingParried = true;
-        if (GetComponent<SpriteRenderer>().flipX) 
+        if (!_isBeingParried)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
+            if (GetComponent<SpriteRenderer>().flipX)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            Debug.Log("!");
+            _isBeingParried = true;
         }
     }
 
