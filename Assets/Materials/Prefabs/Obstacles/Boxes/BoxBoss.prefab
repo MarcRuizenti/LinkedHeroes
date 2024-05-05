@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boxTimer: 6
+  _boxLife: 5
   _boxTimerCount: 0
   _spawnDelay: 0
   _startingPosition: {x: 0, y: 0, z: 0}

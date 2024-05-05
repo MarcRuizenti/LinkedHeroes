@@ -56,7 +56,12 @@ public class BallMovement : Parriable
     {
         if(collision.name == "Box")
         {
-            Destroy(gameObject);
+            BoxController box = collision.gameObject.GetComponent<BoxController>();
+            if (box)
+            {
+                box.TakeDamge();
+                Destroy(gameObject);
+            }
         }
     }
 }

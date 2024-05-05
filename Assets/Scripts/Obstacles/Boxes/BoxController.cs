@@ -8,6 +8,7 @@ public class BoxController : MonoBehaviour
 {
     private bool timerStart;
     [SerializeField] private float _boxTimer;
+    [SerializeField] private float _boxLife;
     [SerializeField] private float _boxTimerCount;
     [SerializeField] private float _spawnDelay;
     [SerializeField] private Vector3 _startingPosition;
@@ -56,6 +57,13 @@ public class BoxController : MonoBehaviour
                 timerStart = false;
             }
         }
+
+        if (_boxLife <= 0)
+        {
+            gameObject.SetActive(false);
+            enabled = false;
+            timerStart = false;
+        }
     }
 
     private void OnDisable()
@@ -66,6 +74,7 @@ public class BoxController : MonoBehaviour
      private void RespawnBox()
     {
         enabled = true;
+        _boxLife = 5;
         gameObject.SetActive(true);
     }
 
@@ -74,11 +83,16 @@ public class BoxController : MonoBehaviour
         timerStart = true;
     }
 
+    public void TakeDamge()
+    {
+        _boxLife--;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Border")
         {
-            gameObject.SetActive(false) ;
+            gameObject.SetActive(false);
         }
     }
 }
