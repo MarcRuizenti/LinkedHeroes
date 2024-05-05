@@ -31,7 +31,8 @@ public class Ghost : MonoBehaviour
     
     void Update()
     {
-        Shadows.Instance.ShadowTrail();
+        GameObject shadow = Shadows.Instance.ShadowTrail();
+
 
         if (transform.position == _mirror.position)
         {
@@ -66,10 +67,12 @@ public class Ghost : MonoBehaviour
         if (transform.position.x < points[_index].position.x)
         {
             _spriteRenderer.flipX = true;
+            if(shadow) shadow.GetComponent<SpriteRenderer>().flipX = true;
         }
         else
         {
             _spriteRenderer.flipX = false;
+            if (shadow) shadow.GetComponent<SpriteRenderer>().flipX = false;
         }
 
         if (transform.position == points[_index].position)

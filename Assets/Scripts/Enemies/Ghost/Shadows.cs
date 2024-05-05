@@ -39,13 +39,18 @@ public class Shadows : MonoBehaviour
         return obj;
     }
 
-    public void ShadowTrail()
+    public GameObject ShadowTrail()
     {
         _chronometer += Speed * Time.deltaTime;
         if(_chronometer > 2) 
         {
-            GetShadows();
+            GameObject shadow = GetShadows();
             _chronometer = 0;
+            return shadow;
+        }
+        else
+        {
+            return null;
         }
     }
 
