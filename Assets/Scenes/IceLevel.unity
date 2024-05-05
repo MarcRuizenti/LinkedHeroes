@@ -2441,7 +2441,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -20
   m_Sprite: {fileID: 21300000, guid: 9fbe099a05ba92447b3b3ac677195277, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3553,10 +3553,6 @@ PrefabInstance:
     - target: {fileID: 3220538910899187744, guid: a7d83b1457513b84eaaa6950a52cb803, type: 3}
       propertyPath: m_Name
       value: collAike
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981826528257665200, guid: a7d83b1457513b84eaaa6950a52cb803, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6984,7 +6980,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.5999756, y: 27.200012}
+  m_AnchoredPosition: {x: -0.5999756, y: 0}
   m_SizeDelta: {x: -372.7433, y: -209.6681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1966890705
@@ -7449,13 +7445,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5288712763965937767, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5650891326010821578, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
     - target: {fileID: 5650891326010821578, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
