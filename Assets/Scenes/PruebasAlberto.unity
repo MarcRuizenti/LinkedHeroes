@@ -131,10 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2190384643715018170, guid: caba589f7b5903b48a2b620ff506de7a, type: 3}
-      propertyPath: _particleSystem
-      value: 
-      objectReference: {fileID: 4310951291596242815, guid: 5118787e8b6bcd049ad7b89c19204531, type: 3}
     - target: {fileID: 3378497734392628255, guid: caba589f7b5903b48a2b620ff506de7a, type: 3}
       propertyPath: m_Name
       value: collKrokur
@@ -5464,10 +5460,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: collAike
       objectReference: {fileID: 0}
-    - target: {fileID: 6426274540878385600, guid: a7d83b1457513b84eaaa6950a52cb803, type: 3}
-      propertyPath: _particleSystem
-      value: 
-      objectReference: {fileID: 4310951291596242815, guid: 5118787e8b6bcd049ad7b89c19204531, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
