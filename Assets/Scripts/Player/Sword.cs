@@ -30,8 +30,10 @@ public class Sword : MonoBehaviour
             case "Parry":
                 _shaker.CamShake(0.02f, -0.01f, -0.01f);
 
-                _playSounds.PlaySoundSoundManager(parrySound, 1.2f, 0.5f);
                 collision.gameObject.GetComponentInParent<Parriable>().Parry();
+                if (collision.gameObject.GetComponentInParent<Parriable>()._isBeingParried)
+                    _playSounds.PlaySoundSoundManager(parrySound, 1.2f, 0.5f);
+
                 break;
             case "Enemy":
                 collision.gameObject.GetComponentInParent<HealthBar>().TakeDamage(1);

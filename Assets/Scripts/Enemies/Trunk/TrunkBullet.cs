@@ -9,21 +9,19 @@ public class TrunkBullet : Parriable
     
 
 
-    private bool _isBeingParried = false;
     private float _parryDirection;
 
     public override void Parry()
     {
         gameObject.tag = "DamageEnemy";
         _isBeingParried = true;
-        _parryDirection = GetPlayerScale();
-        if (_player.transform.position.x >= transform.position.x) 
+        if (GetComponent<SpriteRenderer>().flipX) 
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<SpriteRenderer>().flipX = false;
         }
         else
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 
@@ -32,7 +30,7 @@ public class TrunkBullet : Parriable
     {
         if (_isBeingParried)
         {
-            transform.position -= transform.right * speed * Time.deltaTime * -_parryDirection;
+            transform.position -= (transform.right * speed * Time.deltaTime * transform.localScale.x) * -1;
         }
         else
         {

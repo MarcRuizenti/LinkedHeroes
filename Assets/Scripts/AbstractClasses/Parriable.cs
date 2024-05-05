@@ -7,6 +7,9 @@ public class Parriable : MonoBehaviour
     [Header("Parry Settings")]
     [SerializeField] protected Vector2 _knockback;
     protected GameObject _player;
+    public bool _isBeingParried = false;
+
+
 
     protected float GetPlayerScale()
     {

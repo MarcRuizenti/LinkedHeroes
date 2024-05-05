@@ -10,25 +10,17 @@ public class BallMovement : Parriable
     public Vector3 direccion;
 
 
-    private bool _isBeingParried = false;
-    private float _parryDirection;
 
 
 
     public override void Parry()
     {
-        _isBeingParried = true;
+        if (!((direccion.x < 0 && GetPlayerScale() < 0) || (direccion.x > 0 && GetPlayerScale() > 0)))
+            _isBeingParried = true;
         //_parryDirection = GetPlayerScale();
         gameObject.tag = "DamageBoss";
 
-        if(_player.transform.position.x > transform.position.x)
-        {
-            _parryDirection = -1;
-        }
-        else
-        {
-            _parryDirection = 1;
-        }
+
     }
 
 
@@ -42,7 +34,7 @@ public class BallMovement : Parriable
 
         if (_isBeingParried) 
         { 
-            transform.position += direccion * speed * Time.deltaTime * _parryDirection;
+            transform.position += (direccion * speed * Time.deltaTime) * -1;
         }
         else
         {
