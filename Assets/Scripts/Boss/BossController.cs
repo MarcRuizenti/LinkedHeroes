@@ -336,13 +336,17 @@ public class BossController : Patroll
 
     protected override void PatrollMethod()
     {
+        GameObject shadow = Shadows.Instance.ShadowTrail();
+
         if (transform.position.x < WayPoints[Index].position.x)
         {
             transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            if (shadow) shadow.GetComponent<SpriteRenderer>().flipX = true;
         }
         else
         {
             transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            if (shadow) shadow.GetComponent<SpriteRenderer>().flipX = false;
         }
 
         bool PointReached = WayPoints[Index].position == transform.position;

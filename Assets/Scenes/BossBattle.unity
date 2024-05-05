@@ -1990,6 +1990,7 @@ GameObject:
   - component: {fileID: 654062328}
   - component: {fileID: 654062329}
   - component: {fileID: 654062330}
+  - component: {fileID: 654062331}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -2037,7 +2038,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1316477957, guid: 13d258ca79db1f94181901b27723d5d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2382,6 +2383,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &654062331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654062318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f36300541ca9846a7b3cf187dd916e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shadow: {fileID: 1742402176498787638, guid: 4d67ac56d07f3d84dac2a2246b51aba4, type: 3}
+  Pool: []
+  Speed: 15
+  Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &735105789 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3845884321363066339, guid: 66172e35b85be8544b89b465fa209885, type: 3}
@@ -2761,6 +2778,10 @@ PrefabInstance:
     - target: {fileID: 5650891326010821578, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
       propertyPath: m_Name
       value: LevelLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 5650891326010821578, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9870,6 +9891,10 @@ PrefabInstance:
     - target: {fileID: 2898089826980563660, guid: 66172e35b85be8544b89b465fa209885, type: 3}
       propertyPath: m_Name
       value: FinalTransition
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898089826980563660, guid: 66172e35b85be8544b89b465fa209885, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3845884321363066339, guid: 66172e35b85be8544b89b465fa209885, type: 3}
       propertyPath: transitionTime
