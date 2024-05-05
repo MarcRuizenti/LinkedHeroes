@@ -30,14 +30,17 @@ public class HealthBar : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        CanBlinck = false;
-        _health -= damageAmount;
-        if (gameObject.name == "Player")
+        if (CanBlinck)
         {
-            SoundManager.Instance.EjecutarAudio(hurt, 1, 0.2f);
-            GameManager.Instance.health -= damageAmount;
+            CanBlinck = false;
+            _health -= damageAmount;
+            if (gameObject.name == "Player")
+            {
+                SoundManager.Instance.EjecutarAudio(hurt, 1, 0.2f);
+                GameManager.Instance.health -= damageAmount;
+            }
+            StartCoroutine(InvincibleMode());
         }
-        StartCoroutine(InvincibleMode());
     }
 
     private void Die()
