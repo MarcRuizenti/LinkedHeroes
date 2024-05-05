@@ -7,10 +7,6 @@ public class TrunkBullet : Parriable
     [SerializeField] private float speed;
     [SerializeField] private float lifeTime;
     
-
-
-    private float _parryDirection;
-
     public override void Parry()
     {
         gameObject.tag = "DamageEnemy";
