@@ -236,6 +236,7 @@ MonoBehaviour:
   transition: {fileID: 5944765318243234026}
   transitionTime: 1
   nextSceneLoad: 0
+  blackTransition: {fileID: 0}
 --- !u!1 &7009426588707811093
 GameObject:
   m_ObjectHideFlags: 0
