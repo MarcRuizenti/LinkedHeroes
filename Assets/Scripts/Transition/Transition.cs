@@ -12,6 +12,8 @@ public class Transition : MonoBehaviour
 
     public Animator blackTransition;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,4 +47,7 @@ public class Transition : MonoBehaviour
 
         SceneManager.LoadScene(levelIndex);
     }
+
+    
 }
+

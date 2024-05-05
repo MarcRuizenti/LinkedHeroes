@@ -5075,7 +5075,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 4.5
 --- !u!114 &6333855101165502175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10812,7 +10812,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 55.14391
+  m_Distance: 26.711775
   m_MaxDistanceOnly: 0
 --- !u!114 &6354812937089402312
 MonoBehaviour:

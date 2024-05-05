@@ -25,6 +25,7 @@ TagManager:
   - Wood
   - Steel
   - BossParent
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

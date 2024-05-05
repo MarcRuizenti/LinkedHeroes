@@ -39,6 +39,12 @@ public class BossController : Patroll
     [SerializeField] private Transform _changePhasePosition;
     [SerializeField] private GameObject _skull;
 
+    [Header("RechargeTime")]
+    [SerializeField] private float _KrokurMovementDelay;
+    [SerializeField] private float _AikeMovementDelay;
+    [SerializeField] private float _maxSpeed;
+    private float _startCounter = 3f;
+
 
     public enum States
     {
@@ -66,6 +72,16 @@ public class BossController : Patroll
 
     private void Update()
     {
+        if(_startCounter > 0)
+        {
+            _startCounter -= Time.deltaTime;
+            Speed = 0;
+        }
+        else
+        {
+            Speed = _maxSpeed;
+        }
+
         switch (_currentState)
         {
             case States.IDLE:
@@ -92,7 +108,8 @@ public class BossController : Patroll
                 break;
             case States.ATTACK:
                 animator.SetBool("isAttacking", true);
-                MovementDelayCounter = MovementDelay;
+                if (_character == GameManager.Character.KROKUR) MovementDelayCounter = _KrokurMovementDelay;
+                else MovementDelayCounter = _AikeMovementDelay;
                 break;
             case States.RECHARGE:
                 if(_character == GameManager.Character.KROKUR)
@@ -230,6 +247,7 @@ public class BossController : Patroll
 
     private void Recharge()
     {
+       
         if (MovementDelayCounter > 0)
         {
             MovementDelayCounter -= Time.deltaTime;

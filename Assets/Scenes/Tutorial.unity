@@ -10010,7 +10010,8 @@ PrefabInstance:
       value: Skull
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6452123817088577491, guid: 55df8fb68a683e64bb7353614498fb85, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55df8fb68a683e64bb7353614498fb85, type: 3}

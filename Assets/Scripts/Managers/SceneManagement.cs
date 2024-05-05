@@ -14,6 +14,7 @@ public class SceneManagement : MonoBehaviour
 
     void Update()
     {
+
         //Fire2 = alt izquierdo
         if (Input.GetButtonDown("Fire2") && !_isPaused)
         {

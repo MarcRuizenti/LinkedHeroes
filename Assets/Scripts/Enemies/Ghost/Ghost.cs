@@ -10,6 +10,7 @@ public class Ghost : MonoBehaviour
     [SerializeField] private List<Transform> _wayPoints;
     [SerializeField] private List<Transform> _wayPointsAike;
     [SerializeField] private List<Transform> _wayPointsKrokur;
+    [SerializeField] private float _speedMax;
     [SerializeField] private float _speed;
     [SerializeField] private UnityEvent _onGoalReached;
     public Transform _goal;
@@ -19,6 +20,7 @@ public class Ghost : MonoBehaviour
     public List<Transform> points;
     private bool _mirrorReached;
     private bool _canChange;
+    private float _startCounter = 3f;
 
     void Start()
     {
@@ -33,6 +35,15 @@ public class Ghost : MonoBehaviour
     {
         GameObject shadow = Shadows.Instance.ShadowTrail();
 
+        if(_startCounter > 0)
+        {
+            _startCounter -= Time.deltaTime;
+            _speed = 0;
+        }
+        else
+        {
+            _speed = _speedMax;
+        }
 
         if (transform.position == _mirror.position)
         {

@@ -50,7 +50,7 @@ public class BonfireController : MonoBehaviour
         if (collision.CompareTag("Player")) 
         {
             _playerInsideRadius = true;
-            _UI.SetActive(true);
+            if(_UI) _UI.SetActive(true);
         }
         
     }
@@ -61,7 +61,7 @@ public class BonfireController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             _playerInsideRadius = false;
-            _UI.SetActive(false);
+            if (_UI) _UI.SetActive(false);
         }
     }
 
