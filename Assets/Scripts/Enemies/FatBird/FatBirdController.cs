@@ -13,6 +13,7 @@ public class FatBirdController : MonoBehaviour
     [SerializeField] private Vector3 _startingPosition;
     private bool _canFall = true;
     [SerializeField] private Collider2D _detectPlayer;
+    [SerializeField] private ParticleSystem _particleSystem;
 
 
     [Header("Raycast Settings")]
@@ -74,6 +75,11 @@ public class FatBirdController : MonoBehaviour
         }
 
 
+    }
+
+    public void EmitParticles()
+    {
+        _particleSystem.Play();
     }
 
     public void StartFalling()
