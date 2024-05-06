@@ -10525,7 +10525,7 @@ Transform:
   - {fileID: 4691783303050763136}
   - {fileID: 5646785622738613154}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &644123187566379312
 SpriteRenderer:
@@ -10636,6 +10636,7 @@ MonoBehaviour:
   _activeTimeJump: 0
   _timeJumpCurent: 0
   _timeSlay: 20
+  _timeSlayDefault: 50
   _speed: 50
   _speedFly: 13
   _maxVelocity: 4
@@ -10812,7 +10813,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 26.711775
+  m_Distance: 9.358985
   m_MaxDistanceOnly: 0
 --- !u!114 &6354812937089402312
 MonoBehaviour:

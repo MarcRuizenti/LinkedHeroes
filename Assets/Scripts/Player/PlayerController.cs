@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _activeTimeJump = false;
     [SerializeField] private float _timeJumpCurent;
     [SerializeField] private float _timeSlay;
+    [SerializeField] private float _timeSlayDefault;
 
     //movement variables
     [SerializeField] private float _speed;
@@ -261,17 +262,18 @@ public class PlayerController : MonoBehaviour
                 _hangedSpeed = 0;
             }
         }
-        if (_distanceJoint.enabled)
-        {
-            _rb.velocity += new Vector2(_horizontalInput, 0) * _hangedSpeed * Time.deltaTime;
 
-        }
         _horizontalInput = Input.GetAxis("Horizontal");
 
         _verticalInput = Input.GetAxis("Vertical");
 
         _inputAttack = Input.GetButtonDown("Attack");
 
+        if (_distanceJoint.enabled)
+        {
+            _rb.velocity += new Vector2(_horizontalInput, 0) * _hangedSpeed * Time.deltaTime;
+
+        }
     }
 
 
@@ -335,31 +337,31 @@ public class PlayerController : MonoBehaviour
                         material = Materials.ICE;
                         break;
                     case "Stone":
-                        _timeSlay = 20;
+                        _timeSlay = _timeSlayDefault;
                         _speed = 20;
                         _maxVelocity = 4;
                         material = Materials.STONE;
                         break;
                     case "Grass":
-                        _timeSlay = 20;
+                        _timeSlay = _timeSlayDefault;
                         _speed = 20;
                         _maxVelocity = 4;
                         material = Materials.GRASS;
                         break;
                     case "Wood":
-                        _timeSlay = 20;
+                        _timeSlay = _timeSlayDefault;
                         _speed = 20;
                         _maxVelocity = 4;
                         material = Materials.WOOD;
                         break;
                     case "Steel":
-                        _timeSlay = 20;
+                        _timeSlay = _timeSlayDefault;
                         _speed = 20;
                         _maxVelocity = 4;
                         material = Materials.STEEL;
                         break;
                     default:
-                        _timeSlay = 20;
+                        _timeSlay = _timeSlayDefault;
                         _speed = 20;
                         _maxVelocity = 4;
                         material = Materials.WOOD;
