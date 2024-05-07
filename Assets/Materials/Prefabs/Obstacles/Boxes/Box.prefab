@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6485961762126918026}
   - component: {fileID: 1152410117680195945}
   - component: {fileID: 8429296951058937731}
+  - component: {fileID: 5148098410391711712}
   m_Layer: 11
   m_Name: Box
   m_TagString: DamageBoss
@@ -196,6 +197,26 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &5148098410391711712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2690871985206242174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51c0c0021f08b4488519aaf090655eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyBoxSounds:
+  - {fileID: 8300000, guid: c14c7477cc02aee45a5d4c33c4e8c1b0, type: 3}
+  spawnBoxSounds:
+  - {fileID: 8300000, guid: e5cabdb6b022f5f40aa0180c9f8dc4f2, type: 3}
+  - {fileID: 8300000, guid: 26762b98ea59ac642bfd5c09a1b555b8, type: 3}
+  hitBoxSounds:
+  - {fileID: 8300000, guid: 7b697ee6527dae64c93ced1ec92d7985, type: 3}
+  - {fileID: 8300000, guid: 958b1772e4e15194f94eae5cab2d800c, type: 3}
 --- !u!1 &4262573832827540913
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,8 +16,10 @@ public class BoxController : MonoBehaviour
     private Collider2D _collider;
     [SerializeField] private LayerMask _groundLayer;
 
+    private BoxSounds _sound;
     private void Start()
     {
+        _sound = GetComponent<BoxSounds>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
     }
@@ -52,7 +54,7 @@ public class BoxController : MonoBehaviour
 
             if(_boxTimerCount < 0)
             {
-                gameObject.SetActive(false);
+                SetActiveFalse();
                 enabled = false;
                 timerStart = false;
             }
@@ -60,7 +62,7 @@ public class BoxController : MonoBehaviour
 
         if (_boxLife <= 0)
         {
-            gameObject.SetActive(false);
+            SetActiveFalse();
             enabled = false;
             timerStart = false;
         }
@@ -71,11 +73,11 @@ public class BoxController : MonoBehaviour
         Invoke("RespawnBox", _spawnDelay);
     }
 
-     private void RespawnBox()
+    private void RespawnBox()
     {
         enabled = true;
         _boxLife = 5;
-        gameObject.SetActive(true);
+        SetActiveTrue();
     }
 
     public void StartTimer()
@@ -86,13 +88,27 @@ public class BoxController : MonoBehaviour
     public void TakeDamge()
     {
         _boxLife--;
+        _sound.PlaySoundHitBox(1, 0.5f);
     }
+
+    public void SetActiveFalse()
+    {
+        gameObject.SetActive(false);
+        _sound.PlaySoundDestroyBox(1, 0.2f);
+    }
+
+    public void SetActiveTrue()
+    {
+        gameObject.SetActive(true);
+        _sound.PlaySoundSpawnBox(1, 0.5f);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Border")
         {
-            gameObject.SetActive(false);
+            SetActiveFalse();
         }
     }
 }
