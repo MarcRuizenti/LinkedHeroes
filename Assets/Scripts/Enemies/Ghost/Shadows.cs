@@ -36,6 +36,9 @@ public class Shadows : MonoBehaviour
         obj.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
         obj.GetComponent<Solid>()._color = Color;
         Pool.Add(obj);
+
+        Destroy(obj, 1);
+
         return obj;
     }
 

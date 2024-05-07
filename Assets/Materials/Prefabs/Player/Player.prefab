@@ -10636,7 +10636,7 @@ MonoBehaviour:
   _activeTimeJump: 0
   _timeJumpCurent: 0
   _timeSlay: 20
-  _timeSlayDefault: 50
+  _timeSlayDefault: 20
   _speed: 50
   _speedFly: 13
   _maxVelocity: 4

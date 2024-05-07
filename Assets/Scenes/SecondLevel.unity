@@ -12525,14 +12525,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformColliderWood (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 4825622884503570009, guid: 7302b14c570104948aa9eae314334ad3, type: 3}
-      propertyPath: m_Size.x
-      value: 3.0499153
-      objectReference: {fileID: 0}
-    - target: {fileID: 4825622884503570009, guid: 7302b14c570104948aa9eae314334ad3, type: 3}
-      propertyPath: m_Offset.x
-      value: 5.472582
-      objectReference: {fileID: 0}
     - target: {fileID: 7348864681144946474, guid: 7302b14c570104948aa9eae314334ad3, type: 3}
       propertyPath: m_RootOrder
       value: 69
@@ -12576,10 +12568,6 @@ PrefabInstance:
     - target: {fileID: 7348864681144946474, guid: 7302b14c570104948aa9eae314334ad3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495307210634545923, guid: 7302b14c570104948aa9eae314334ad3, type: 3}
-      propertyPath: m_SurfaceArc
-      value: 160
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

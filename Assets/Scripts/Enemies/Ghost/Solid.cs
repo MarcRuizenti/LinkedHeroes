@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Solid : MonoBehaviour
 {
@@ -30,5 +31,10 @@ public class Solid : MonoBehaviour
     void Update()
     {
         ColorSprite();
+    }
+
+    private void OnDestroy()
+    {
+        Shadows.Instance.Pool.Remove(gameObject);
     }
 }
