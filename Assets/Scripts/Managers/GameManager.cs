@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] public GameObject _player;
+    [SerializeField] private float transitionTime;
+    [SerializeField] private float transitionTimeCounter;
     public static GameManager Instance { get; private set; }
 
     public bool PlayerDeath;
@@ -29,8 +31,9 @@ public class GameManager : MonoBehaviour
 
         if(Instance == null)
         {
-            Instance =  this;
+            Instance = this;
             DontDestroyOnLoad(Instance);
+            transitionTimeCounter = transitionTime;
         }
         else
         {
@@ -43,7 +46,21 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _player.GetComponent<PlayerController>().UpdateAnimator();
+
+
         //SceneManager.sceneLoaded += GetReferences;
+    }
+
+    private void Update()
+    {
+        if (transitionTimeCounter <= 0)
+        {
+            _player.GetComponent<PlayerController>().enabled = true;
+        }
+        else
+        {
+            transitionTimeCounter -= Time.deltaTime;
+        }
     }
 
     //void GetReferences(Scene scene, LoadSceneMode mode)
@@ -60,7 +77,7 @@ public class GameManager : MonoBehaviour
     //        TextWin = canvas.transform.Find("GameWin").gameObject;
     //    }
     //}
-    
+
 
 
     private void OnEnable()
@@ -78,6 +95,11 @@ public class GameManager : MonoBehaviour
         _player = FindObjectOfType<PlayerController>().gameObject;
         health = 3;
         PlayerDeath = false;
+
+        if (_player)
+            _player.GetComponent<PlayerController>().enabled = false;
+
+        transitionTimeCounter = transitionTime;
     }
 
     public void UpdatePlayerState()

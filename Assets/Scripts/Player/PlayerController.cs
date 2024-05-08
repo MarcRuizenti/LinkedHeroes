@@ -310,6 +310,7 @@ public class PlayerController : MonoBehaviour
                 _rb.velocity = new Vector2(_rb.velocity.x - (Time.deltaTime * _timeSlay), _rb.velocity.y);
             if (_rb.velocity.x < 0)
                 _rb.velocity = new Vector2(_rb.velocity.x + (Time.deltaTime * _timeSlay), _rb.velocity.y);
+
         }
     }
 

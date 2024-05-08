@@ -8735,9 +8735,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3262837685563869002, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: _timeSlayFly
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7492382266772989734, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600257711849614654, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: m_Distance
+      value: 55.14391
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9069,6 +9077,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
+  transitionTime: 2.5
+  transitionTimeCounter: 0
   PlayerDeath: 0
   health: 0
   _currentCharacter: 0
