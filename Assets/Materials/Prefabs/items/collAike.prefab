@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8154192620999085904}
   - component: {fileID: 938970894442740029}
   - component: {fileID: 6426274540878385600}
+  - component: {fileID: 3178868408811229903}
   m_Layer: 0
   m_Name: collAike
   m_TagString: Untagged
@@ -194,3 +195,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 4310951291596242815, guid: 5118787e8b6bcd049ad7b89c19204531, type: 3}
+--- !u!114 &3178868408811229903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3220538910899187744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23647309e4125584588c5f051fcb5c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  krokurCollection: {fileID: 8300000, guid: 46c8bbad5e520304d93ffdfa23259459, type: 3}
+  aikeCollection: {fileID: 8300000, guid: 609fd6915cb8fc4408349dc7618afb4b, type: 3}
