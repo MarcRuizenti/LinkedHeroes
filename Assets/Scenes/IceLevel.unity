@@ -890,6 +890,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 959876898700659221, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2000012751}
+    - target: {fileID: 959876898700659221, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Retry
+      objectReference: {fileID: 0}
     - target: {fileID: 4117661342083557787, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
       propertyPath: m_Name
       value: GameOver_Win Canvas
@@ -2021,7 +2029,7 @@ PrefabInstance:
     - target: {fileID: 5349640998870571602, guid: 2745659efcb9c434092a23a5a36f579d, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1345550706}
+      objectReference: {fileID: 951241006}
     - target: {fileID: 5349640998870571602, guid: 2745659efcb9c434092a23a5a36f579d, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -2242,6 +2250,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &951241006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4117661342083557787, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
+  m_PrefabInstance: {fileID: 289881849}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &954123700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2940,11 +2953,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2513327306161108748, guid: e8b9975ad12550041a7fc6cdb242405c, type: 3}
   m_PrefabInstance: {fileID: 1419494628}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1345550706 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3223264369462744921, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
-  m_PrefabInstance: {fileID: 289881849}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1380132679
 GameObject:
   m_ObjectHideFlags: 0
@@ -3277,6 +3285,14 @@ PrefabInstance:
     - target: {fileID: 5684689607232200637, guid: e8b9975ad12550041a7fc6cdb242405c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303974788274362299, guid: e8b9975ad12550041a7fc6cdb242405c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2000012751}
+    - target: {fileID: 7303974788274362299, guid: e8b9975ad12550041a7fc6cdb242405c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Retry
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

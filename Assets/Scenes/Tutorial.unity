@@ -326,7 +326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6328555925634879318, guid: 4de5b0617453321408f5d2e4a3bd3cdd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7219228907783917737, guid: 4de5b0617453321408f5d2e4a3bd3cdd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8889,6 +8889,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1134966722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4117661342083557787, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
+  m_PrefabInstance: {fileID: 7349011464513853242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1142772176
 GameObject:
   m_ObjectHideFlags: 0
@@ -9117,7 +9122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 45.5, y: 22.3}
+  m_AnchoredPosition: {x: 46, y: 0}
   m_SizeDelta: {x: -372.7433, y: -209.6681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1410397956
@@ -9715,11 +9720,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1713497680 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3223264369462744921, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
-  m_PrefabInstance: {fileID: 7349011464513853242}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1790845455
 GameObject:
   m_ObjectHideFlags: 0
@@ -10369,7 +10369,7 @@ PrefabInstance:
     - target: {fileID: 5349640998870571602, guid: 2745659efcb9c434092a23a5a36f579d, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1713497680}
+      objectReference: {fileID: 1134966722}
     - target: {fileID: 5349640998870571602, guid: 2745659efcb9c434092a23a5a36f579d, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -10643,6 +10643,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 317793317150471942, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5288712763965937767, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5650891326010821578, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
@@ -10946,6 +10950,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 959876898700659221, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 703772918}
+    - target: {fileID: 959876898700659221, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Retry
+      objectReference: {fileID: 0}
     - target: {fileID: 4117661342083557787, guid: d923eaec17e84284e8fbc2309c06c40a, type: 3}
       propertyPath: m_Name
       value: GameOver/Win Canvas
@@ -11349,6 +11361,22 @@ PrefabInstance:
     - target: {fileID: 5684689607232200637, guid: e8b9975ad12550041a7fc6cdb242405c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303974788274362299, guid: e8b9975ad12550041a7fc6cdb242405c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303974788274362299, guid: e8b9975ad12550041a7fc6cdb242405c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 703772918}
+    - target: {fileID: 7303974788274362299, guid: e8b9975ad12550041a7fc6cdb242405c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Retry
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303974788274362299, guid: e8b9975ad12550041a7fc6cdb242405c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneManagement, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

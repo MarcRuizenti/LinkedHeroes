@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 43390f0b1674ec946865025adc084202
+guid: 679c1d8c4e9f24645b4faf41dcbe19a9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 23, y: 26, z: 39, w: 18}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: go_back_to_levels_seleccionado_0
+      name: retry_button_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 57
-        height: 14
+        x: 23
+        y: 26
+        width: 66
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82a3098d5f9361144bd8309ad9259e79
-      internalID: -1564160748
+      spriteID: 124c32d50f68ede44b5a1865d0a789be
+      internalID: 1262942244
       vertices: []
       indices: 
       edges: []
@@ -134,14 +134,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      go_back_to_levels_seleccionado_0: -1564160748
+      retry_button_0: 1262942244
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

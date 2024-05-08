@@ -24,6 +24,13 @@ public class SceneManagement : MonoBehaviour
         {
             ResumeGame();
         }
+
+        
+    }
+
+    public void Retry()
+    {
+        GameManager.Instance.Respawn();
     }
 
     private void PauseGame()

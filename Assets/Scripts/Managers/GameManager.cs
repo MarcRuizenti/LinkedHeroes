@@ -61,18 +61,7 @@ public class GameManager : MonoBehaviour
     //    }
     //}
     
-    // Update is called once per frame
-    void Update()
-    {
-        if(Time.timeScale == 0)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Respawn();
-            }
-        }
 
-    }
 
     private void OnEnable()
     {
@@ -96,7 +85,7 @@ public class GameManager : MonoBehaviour
         PlayerDeath = true;
     }
 
-    private void Respawn()
+    public void Respawn()
     {
         PlayerDeath = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
