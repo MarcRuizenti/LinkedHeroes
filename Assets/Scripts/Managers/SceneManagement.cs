@@ -16,11 +16,11 @@ public class SceneManagement : MonoBehaviour
     {
 
         //Fire2 = alt izquierdo
-        if (Input.GetButtonDown("Fire2") && !_isPaused)
+        if (Input.GetKeyDown(KeyCode.Escape) && !_isPaused)
         {
             PauseGame();
         }
-        else if(Input.GetButtonDown("Fire2") && _isPaused)
+        else if(Input.GetKeyDown(KeyCode.Escape) && _isPaused)
         {
             ResumeGame();
         }
