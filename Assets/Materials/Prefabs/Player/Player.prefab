@@ -4995,7 +4995,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0037717223}
+  m_Offset: {x: 0.018076897, y: 0.008592367}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5006,7 +5006,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7284374, y: 0.75861084}
+  m_Size: {x: 0.5332012, y: 0.74896955}
   m_EdgeRadius: 0
 --- !u!1 &5249790039897009583
 GameObject:
@@ -5412,7 +5412,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0036091805, y: 0.004961595}
+  m_Offset: {x: 0.01649189, y: -0.01089561}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5423,7 +5423,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9133831, y: 0.9005172}
+  m_Size: {x: 0.54668236, y: 0.5794065}
   m_EdgeRadius: 0
 --- !u!114 &1733254910392435735
 MonoBehaviour:
@@ -10525,7 +10525,7 @@ Transform:
   - {fileID: 4691783303050763136}
   - {fileID: 5646785622738613154}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &644123187566379312
 SpriteRenderer:
@@ -10813,7 +10813,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 9.358985
+  m_Distance: 26.711775
   m_MaxDistanceOnly: 0
 --- !u!114 &6354812937089402312
 MonoBehaviour:
