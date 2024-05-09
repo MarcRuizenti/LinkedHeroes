@@ -88,7 +88,7 @@ public class BossController : Patroll
                 gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                 Index = Random.Range(0, WayPoints.Count);
                 transform.GetChild(0).gameObject.SetActive(false);
-                transform.GetChild(1).GetComponent<CircleCollider2D>().radius = 0.94f;
+                transform.GetChild(1).GetComponent<CircleCollider2D>().radius = 1.15f;
                 transform.GetChild(2).GetComponent<CircleCollider2D>().radius = 1.35f;
                 _krokurRechargeTimeCounter = _krokurRechargeTime;
                 _isRegening = false;

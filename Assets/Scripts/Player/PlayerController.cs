@@ -375,8 +375,8 @@ public class PlayerController : MonoBehaviour
     {
         _origins.Clear();
         
-        _originLeft = _collider.bounds.center - new Vector3(-0.35f, 0.1f, 0);
-        _originRight = _collider.bounds.center - new Vector3(0.35f, 0.1f, 0);
+        _originLeft = _collider.bounds.center - new Vector3(-0.27f, 0.1f, 0);
+        _originRight = _collider.bounds.center - new Vector3(0.27f, 0.1f, 0);
         _origins.Add(_originLeft);
         _origins.Add(_originRight);
 
