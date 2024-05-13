@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public int health;
 
+    private bool firstTimeLoading = true;
+
 
     public enum Character
     {
@@ -53,9 +55,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (transitionTimeCounter <= 0)
+        if (transitionTimeCounter <= 0 && firstTimeLoading)
         {
             _player.GetComponent<PlayerController>().enabled = true;
+            firstTimeLoading = false;
         }
         else
         {
@@ -100,6 +103,7 @@ public class GameManager : MonoBehaviour
             _player.GetComponent<PlayerController>().enabled = false;
 
         transitionTimeCounter = transitionTime;
+        firstTimeLoading = true;
     }
 
     public void UpdatePlayerState()
@@ -129,6 +133,4 @@ public class GameManager : MonoBehaviour
 
         _player.GetComponent<PlayerController>().UpdateAnimator();
     }
-
-    
 }
