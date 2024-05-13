@@ -8735,17 +8735,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3262837685563869002, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
-      propertyPath: _timeSlayFly
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7492382266772989734, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8600257711849614654, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
-      propertyPath: m_Distance
-      value: 55.14391
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10289,7 +10281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 774142534427861058, guid: 67e9260d22e88b24dba5799a149f913c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.82
+      value: 11.5
       objectReference: {fileID: 0}
     - target: {fileID: 774142534427861058, guid: 67e9260d22e88b24dba5799a149f913c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10333,7 +10325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8429296951058937731, guid: 67e9260d22e88b24dba5799a149f913c, type: 3}
       propertyPath: _startingPosition.x
-      value: 12.82
+      value: 11.5
       objectReference: {fileID: 0}
     - target: {fileID: 8429296951058937731, guid: 67e9260d22e88b24dba5799a149f913c, type: 3}
       propertyPath: _startingPosition.y
@@ -10662,6 +10654,10 @@ PrefabInstance:
     - target: {fileID: 5650891326010821578, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
       propertyPath: m_Name
       value: LevelLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 5650891326010821578, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
