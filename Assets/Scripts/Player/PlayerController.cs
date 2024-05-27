@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _timeJump;
     [SerializeField] private bool _activeTimeJump = false;
     [SerializeField] private float _timeJumpCurent;
-    [SerializeField] private float _timeSlay;
+    private float _timeSlay;
     [SerializeField] private float _timeSlayDefault;
 
     //movement variables
@@ -263,9 +263,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        _horizontalInput = Input.GetAxis("Horizontal");
+        _horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        _verticalInput = Input.GetAxis("Vertical");
+        _verticalInput = Input.GetAxisRaw("Vertical");
 
         _inputAttack = Input.GetButtonDown("Attack");
 
@@ -305,12 +305,20 @@ public class PlayerController : MonoBehaviour
         if (_horizontalInput == 0)
         {
             particulasMovement.Stop();
-
-            if (_rb.velocity.x > 0)
-                _rb.velocity = new Vector2(_rb.velocity.x - (Time.deltaTime * _timeSlay), _rb.velocity.y);
-            if (_rb.velocity.x < 0)
-                _rb.velocity = new Vector2(_rb.velocity.x + (Time.deltaTime * _timeSlay), _rb.velocity.y);
-
+            if (IsGrounded())
+            {
+                if (_rb.velocity.x > 0)
+                    _rb.velocity = new Vector2(_rb.velocity.x - (Time.deltaTime * _timeSlay), _rb.velocity.y);
+                if (_rb.velocity.x < 0)
+                    _rb.velocity = new Vector2(_rb.velocity.x + (Time.deltaTime * _timeSlay), _rb.velocity.y);
+            }
+            else
+            {
+                if (_rb.velocity.x > 0)
+                    _rb.velocity = new Vector2(_rb.velocity.x - (Time.deltaTime * (_timeSlay / 2)), _rb.velocity.y);
+                if (_rb.velocity.x < 0) 
+                    _rb.velocity = new Vector2(_rb.velocity.x + (Time.deltaTime * (_timeSlay / 2)), _rb.velocity.y);
+            }
         }
     }
 
@@ -339,19 +347,19 @@ public class PlayerController : MonoBehaviour
                         break;
                     case "Stone":
                         _timeSlay = _timeSlayDefault;
-                        _speed = 20;
+                        _speed = 50;
                         _maxVelocity = 4;
                         material = Materials.STONE;
                         break;
                     case "Grass":
                         _timeSlay = _timeSlayDefault;
-                        _speed = 20;
+                        _speed = 50;
                         _maxVelocity = 4;
                         material = Materials.GRASS;
                         break;
                     case "Wood":
                         _timeSlay = _timeSlayDefault;
-                        _speed = 20;
+                        _speed = 50;
                         _maxVelocity = 4;
                         material = Materials.WOOD;
                         break;

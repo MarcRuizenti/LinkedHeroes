@@ -5467,6 +5467,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  timeRespawn: 1
 --- !u!1 &6867941978911889300
 GameObject:
   m_ObjectHideFlags: 0
@@ -10635,10 +10636,9 @@ MonoBehaviour:
   _timeJump: 0.5
   _activeTimeJump: 0
   _timeJumpCurent: 0
-  _timeSlay: 10
-  _timeSlayDefault: 10
+  _timeSlayDefault: 8
   _speed: 50
-  _speedFly: 13
+  _speedFly: 20
   _maxVelocity: 4
   _maxVelocityFly: 5
   _origins: []

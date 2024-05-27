@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject _player;
     [SerializeField] private float transitionTime;
     [SerializeField] private float transitionTimeCounter;
+    private Camera _camera;
     public static GameManager Instance { get; private set; }
 
     public bool PlayerDeath;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(Instance);
             transitionTimeCounter = transitionTime;
+            
         }
         else
         {
@@ -44,11 +46,11 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    
     // Start is called before the first frame update
     void Start()
     {
         _player.GetComponent<PlayerController>().UpdateAnimator();
-
 
         //SceneManager.sceneLoaded += GetReferences;
     }
@@ -104,6 +106,8 @@ public class GameManager : MonoBehaviour
 
         transitionTimeCounter = transitionTime;
         firstTimeLoading = true;
+        _camera = FindAnyObjectByType<Camera>();
+
     }
 
     public void UpdatePlayerState()
@@ -132,5 +136,10 @@ public class GameManager : MonoBehaviour
         }
 
         _player.GetComponent<PlayerController>().UpdateAnimator();
+    }
+
+    public void SetFollowCamera(bool f)
+    {
+        _camera.GetComponent<DetectBoxCamera>().SetFollow(f);
     }
 }

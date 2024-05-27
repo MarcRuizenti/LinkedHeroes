@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,7 @@ public class Damage : MonoBehaviour
 {
     [SerializeField] private UnityEvent _onDamageTaken;
     [SerializeField] private UnityEvent _onDeath;
+    [SerializeField] private float timeRespawn;
 
     private Shaker _shaker;
 
@@ -14,6 +16,7 @@ public class Damage : MonoBehaviour
     {
         _shaker = FindObjectOfType<Shaker>();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         string tag = collision.tag;
@@ -30,8 +33,14 @@ public class Damage : MonoBehaviour
                 Destroy(collision.gameObject.transform.parent.gameObject);
                 break;
             case "Border":
-                _onDeath?.Invoke();
+                Invoke("invokeDeath", timeRespawn);
+                GameManager.Instance.SetFollowCamera(false);
                 break;
         }
+    }
+
+    private void invokeDeath()
+    {
+        _onDeath?.Invoke();
     }
 }
