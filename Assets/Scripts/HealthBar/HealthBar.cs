@@ -5,18 +5,25 @@ using UnityEngine.Events;
 
 public class HealthBar : MonoBehaviour 
 {
+    
     [SerializeField] private int _maxHealth;
-    [SerializeField] private AudioClip hurt;
     [SerializeField] int _health;
     [SerializeField] private UnityEvent _onDeath;
     [SerializeField] private Collider2D _damagebleCollider;
     [SerializeField] private Vector2 _knockback;
     private bool CanBlinck;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioClip hurt;
+    [SerializeField, Range(0.0f, 1.0f)] private float picth;
+    [SerializeField, Range(0.0f, 1.0f)] private float volume;
+    private PlaySounds _sound;
+
     private void Start()
     {
         _health = _maxHealth;
         CanBlinck = true;
+        _sound = GetComponent<PlaySounds>();
     }
 
 
@@ -32,6 +39,7 @@ public class HealthBar : MonoBehaviour
     {
         if (CanBlinck)
         {
+            _sound.PlaySoundSoundManager(hurt, picth, volume);
             CanBlinck = false;
             _health -= damageAmount;
             if (gameObject.name == "Player")

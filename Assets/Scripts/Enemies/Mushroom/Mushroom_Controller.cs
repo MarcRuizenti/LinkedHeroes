@@ -6,9 +6,17 @@ public class Mushroom_Controller : Patroll
 {
 
     //Particulas
+    
     [SerializeField] private ParticleSystem particulasMovementMushroom;
 
     [SerializeField] private Animator _animator;
+
+    [Header("Sounds")]
+    [SerializeField] private AudioClip[] footsteps;
+    [SerializeField, Range(0, 1)] private float picht;
+    [SerializeField, Range(0, 1)] private float volume;
+    private PlaySounds _sound;
+
     public enum States
     {
         IDLE,
@@ -21,6 +29,7 @@ public class Mushroom_Controller : Patroll
     private void Start()
     {
         Index = 0;
+        _sound = GetComponent<PlaySounds>();
     }
 
     void Update()
@@ -87,5 +96,10 @@ public class Mushroom_Controller : Patroll
         }
 
         transform.position = Vector3.MoveTowards(transform.position, WayPoints[Index].position, Speed * Time.deltaTime);
+    }
+
+    public void PlayFootSteps()
+    {
+        _sound.PlaySoundLocalAudioSource(footsteps[Random.Range(0, footsteps.Length)], picht, volume);
     }
 }

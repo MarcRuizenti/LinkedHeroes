@@ -91,6 +91,8 @@ GameObject:
   - component: {fileID: 5429165591039262082}
   - component: {fileID: 7581633072520484003}
   - component: {fileID: 3494650633839789576}
+  - component: {fileID: 8660472644909897942}
+  - component: {fileID: -5946036374996629141}
   m_Layer: 0
   m_Name: Trunk
   m_TagString: Untagged
@@ -115,7 +117,7 @@ Transform:
   - {fileID: 6481828508659059639}
   - {fileID: 3810640161103276561}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6461846473246204633
 SpriteRenderer:
@@ -208,6 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 132b42a2b734fc74f9cf92fb13cdd71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSounds:
+  - {fileID: 8300000, guid: afc14ee26a700714b9ffd81d34e77b55, type: 3}
+  DamageSound: {fileID: 0}
   _bulletPrefab: {fileID: 1651744047035185580, guid: 578a3e9409bac4f4f892803c04183d96, type: 3}
   _parryBullet: {fileID: 5933910078649802676, guid: f0dc6609fa6fda44696259b0d6013ebe, type: 3}
   _animator: {fileID: 7581633072520484003}
@@ -248,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 2
+  hurt: {fileID: 0}
   _health: 0
   _onDeath:
     m_PersistentCalls:
@@ -266,6 +272,114 @@ MonoBehaviour:
         m_CallState: 2
   _damagebleCollider: {fileID: 1710737928571950285}
   _knockback: {x: 0, y: 0}
+--- !u!114 &8660472644909897942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2464723148567369835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f24c7c5cc800249b3d2354e6c74909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &-5946036374996629141
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2464723148567369835}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -1203433647491058924, guid: 33b3592e9b5e41644a23154a34dae160, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4883749874982897577
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,5 +653,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.64, y: 2.98}
+  m_Size: {x: 14.57, y: 2.98}
   m_EdgeRadius: 0

@@ -299,10 +299,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1503043435522080851, guid: 0d62256a043b3ae44a68b87c51cfb162, type: 3}
-      propertyPath: m_Size.x
-      value: 14.57
-      objectReference: {fileID: 0}
     - target: {fileID: 2464723148567369835, guid: 0d62256a043b3ae44a68b87c51cfb162, type: 3}
       propertyPath: m_Name
       value: Trunk
@@ -351,10 +347,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3494650633839789576, guid: 0d62256a043b3ae44a68b87c51cfb162, type: 3}
+      propertyPath: hurt
+      value: 
+      objectReference: {fileID: 8300000, guid: 203b22f8f0374da4689fb7a75df49c8c, type: 3}
     - target: {fileID: 5429165591039262082, guid: 0d62256a043b3ae44a68b87c51cfb162, type: 3}
-      propertyPath: _parryCadencia
-      value: 1
+      propertyPath: attackSounds.Array.size
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5429165591039262082, guid: 0d62256a043b3ae44a68b87c51cfb162, type: 3}
+      propertyPath: attackSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ee53ac9b851a5714987448193b29d19f, type: 3}
+    - target: {fileID: 5429165591039262082, guid: 0d62256a043b3ae44a68b87c51cfb162, type: 3}
+      propertyPath: attackSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5a43181934b1eca4eb3d3fc4029948af, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8814,10 +8822,6 @@ PrefabInstance:
       value: Mushroom
       objectReference: {fileID: 0}
     - target: {fileID: 8862997824423293565, guid: 54a875b76c525b444bdd898ea1aaf502, type: 3}
-      propertyPath: WayPoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8862997824423293565, guid: 54a875b76c525b444bdd898ea1aaf502, type: 3}
       propertyPath: WayPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1629900884}
@@ -10364,6 +10368,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8600257711849614654, guid: a171f9955e8a0fe40b3ec92f09abae2a, type: 3}
+      propertyPath: m_Distance
+      value: 26.711775
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11826,6 +11834,10 @@ PrefabInstance:
       propertyPath: PauseMnenu
       value: 
       objectReference: {fileID: 1652951725}
+    - target: {fileID: 5288712763965937767, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5650891326010821578, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
       propertyPath: m_Name
       value: LevelLoader
