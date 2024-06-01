@@ -28,6 +28,8 @@ public class SceneSetter : MonoBehaviour
 
         if (_player == null) return;
 
+        if (SceneManager.GetActiveScene().name == "Tutorial") GameManager.Instance._currentCharacter = GameManager.Character.AIKE;
+
         if (_player != null) _player.UpdateAnimator();
 
         if(_enemiesList.Any()) EnableEnemies();
