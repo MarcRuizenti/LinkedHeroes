@@ -212,7 +212,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSounds:
   - {fileID: 8300000, guid: afc14ee26a700714b9ffd81d34e77b55, type: 3}
-  DamageSound: {fileID: 0}
   _bulletPrefab: {fileID: 1651744047035185580, guid: 578a3e9409bac4f4f892803c04183d96, type: 3}
   _parryBullet: {fileID: 5933910078649802676, guid: f0dc6609fa6fda44696259b0d6013ebe, type: 3}
   _animator: {fileID: 7581633072520484003}
@@ -253,7 +252,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 2
-  hurt: {fileID: 0}
   _health: 0
   _onDeath:
     m_PersistentCalls:
@@ -272,6 +270,9 @@ MonoBehaviour:
         m_CallState: 2
   _damagebleCollider: {fileID: 1710737928571950285}
   _knockback: {x: 0, y: 0}
+  hurt: {fileID: 8300000, guid: 203b22f8f0374da4689fb7a75df49c8c, type: 3}
+  picth: 0
+  volume: 0
 --- !u!114 &8660472644909897942
 MonoBehaviour:
   m_ObjectHideFlags: 0
