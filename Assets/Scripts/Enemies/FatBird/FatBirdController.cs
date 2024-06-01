@@ -15,14 +15,24 @@ public class FatBirdController : MonoBehaviour
     [SerializeField] private Collider2D _detectPlayer;
     [SerializeField] private ParticleSystem _particleSystem;
 
-
     [Header("Raycast Settings")]
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Collider2D _collider;
     [SerializeField] private List<Vector2> _origins;
 
+    [Header("Sounds")]
+    private PlaySounds _sounds;
+    [SerializeField] private AudioClip alert;
+    [SerializeField, Range(0, 3)] private float pitchA;
+    [SerializeField, Range(0, 1)] private float volumeA;
+    [SerializeField] private AudioClip stamp;
+    [SerializeField, Range(0, 3)] private float pitchS;
+    [SerializeField, Range(0, 1)] private float volumeS;
+
+
     private void Start()
     {
+        _sounds = GetComponent<PlaySounds>();
         _startingPosition = transform.position;
     }
 
@@ -80,6 +90,7 @@ public class FatBirdController : MonoBehaviour
     public void EmitParticles()
     {
         _particleSystem.Play();
+        _sounds.PlaySoundLocalAudioSource(stamp, pitchS, volumeS);
     }
 
     public void StartFalling()
@@ -88,6 +99,7 @@ public class FatBirdController : MonoBehaviour
         {
             CurrentState = States.FALL;
             _rb.gravityScale = 1.0f;
+            _sounds.PlaySoundLocalAudioSource(alert, pitchA, volumeA);
         }
     }
 

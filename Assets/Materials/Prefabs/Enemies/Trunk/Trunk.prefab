@@ -271,8 +271,8 @@ MonoBehaviour:
   _damagebleCollider: {fileID: 1710737928571950285}
   _knockback: {x: 0, y: 0}
   hurt: {fileID: 8300000, guid: 203b22f8f0374da4689fb7a75df49c8c, type: 3}
-  picth: 0
-  volume: 0
+  picth: 1
+  volume: 0.51
 --- !u!114 &8660472644909897942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1203433647491058924, guid: 33b3592e9b5e41644a23154a34dae160, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
