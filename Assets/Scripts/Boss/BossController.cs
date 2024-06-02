@@ -442,6 +442,7 @@ public class BossController : Patroll
                 else
                 {
                     _onBossDefeated?.Invoke();
+                    PlayerPrefs.SetInt("BossDefeated", 1);
                 }
             }
             else

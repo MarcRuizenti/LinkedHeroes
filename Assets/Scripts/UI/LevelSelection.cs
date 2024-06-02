@@ -23,6 +23,7 @@ public class LevelSelection : MonoBehaviour
         {
             LvlButtons[0].Select();
             PlayerPrefs.DeleteKey("levelAt");
+            PlayerPrefs.SetInt("BossDefeated", 0);
             int levelAt = PlayerPrefs.GetInt("levelAt", 2);
             for (int i = 0; i < LvlButtons.Length; i++)
             {
@@ -33,10 +34,10 @@ public class LevelSelection : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             PlayerPrefs.SetInt("levelAt", 100);
+            PlayerPrefs.SetInt("BossDefeated", 1);
 
             int levelAt = PlayerPrefs.GetInt("levelAt");
 
-            Debug.Log(levelAt);
             for (int i = 0; i < LvlButtons.Length; i++)
             {
                 LvlButtons[i].interactable = true;
