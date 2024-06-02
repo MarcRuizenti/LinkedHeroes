@@ -22,8 +22,17 @@ public class Ghost : MonoBehaviour
     private bool _canChange;
     private float _startCounter = 3f;
 
+    [Header("Sounds")]
+    private PlaySounds _playSound;
+    [SerializeField] private AudioClip run;
+    [SerializeField, Range(0, 3)] private float picth;
+    [SerializeField, Range(0, 1)] private float volume;
+    private bool canPlay;
+
     void Start()
     {
+        canPlay = true;
+        _playSound = GetComponent<PlaySounds>();
         transform.position = _wayPoints[0].position;
         _index = 0;
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -43,6 +52,11 @@ public class Ghost : MonoBehaviour
         else
         {
             _speed = _speedMax;
+            if (canPlay)
+            {
+                _playSound.PlaySoundSoundManager(run, picth, volume);
+                canPlay = false;
+            }
         }
 
         if (transform.position == _mirror.position)
