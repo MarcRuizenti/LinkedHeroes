@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireContoller : MonoBehaviour
 {
+    [Header("Taimers")]
     private Animator _animator;
     public bool _canFire;
     [SerializeField] private float _timeToFireTotal;
@@ -11,8 +12,15 @@ public class FireContoller : MonoBehaviour
     [SerializeField] private float _fireTimeTotal;
     [SerializeField] private float _fireTime;
     private Collider2D _collider;
+
+    [Header("Sounds")]
+    private PlaySounds _playSounds;
+    [SerializeField] private AudioClip chispa;
+    [SerializeField, Range(0, 3)] private float picth;
+    [SerializeField, Range(0, 1)] private float volume;
     void Start()
     {
+        _playSounds = GetComponent<PlaySounds>();
         _animator = GetComponent<Animator>();
         _collider = GetComponent<Collider2D>();
         _timeToFire = _timeToFireTotal;
@@ -30,6 +38,7 @@ public class FireContoller : MonoBehaviour
         }
         else if(_timeToFire <= 0 && _canFire)
         {
+            _playSounds.PlaySoundLocalAudioSource(chispa, picth, volume);
             _animator.SetTrigger("Fire");
             _timeToFire = _timeToFireTotal;
             _canFire = false;
