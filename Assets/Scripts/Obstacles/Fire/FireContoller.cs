@@ -39,7 +39,7 @@ public class FireContoller : MonoBehaviour
         else if(_timeToFire <= 0 && _canFire)
         {
             _playSounds.PlaySoundLocalAudioSource(chispa, picth, volume);
-            _animator.SetTrigger("Fire");
+            _animator.SetTrigger("Fire"); 
             _timeToFire = _timeToFireTotal;
             _canFire = false;
         }
