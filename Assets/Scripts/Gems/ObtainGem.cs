@@ -13,6 +13,11 @@ public class ObtainGem : MonoBehaviour
     private void Start()
     {
         _sound = GetComponent<CollectionSound>();
+
+        if(PlayerPrefs.GetInt(_prefName) == 1)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
