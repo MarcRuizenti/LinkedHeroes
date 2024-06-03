@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5981826528257665200
 SpriteRenderer:
@@ -195,6 +195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 4310951291596242815, guid: 5118787e8b6bcd049ad7b89c19204531, type: 3}
+  _prefName: 
+  IsBlueGem: 1
 --- !u!114 &3178868408811229903
 MonoBehaviour:
   m_ObjectHideFlags: 0

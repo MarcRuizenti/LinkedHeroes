@@ -7,6 +7,9 @@ public class ObtainGem : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _particleSystem;
     private CollectionSound _sound;
+    [SerializeField] private string _prefName;
+    public bool IsBlueGem;
+
     private void Start()
     {
         _sound = GetComponent<CollectionSound>();
@@ -14,16 +17,30 @@ public class ObtainGem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(_particleSystem, transform.position, transform.rotation);
-
-        this.gameObject.SetActive(false);
-        if (gameObject.name == "collAike")
+        
+        if (IsBlueGem)
         {
-            _sound.PlayAikeCollection(1, 0.3f);
+            if(GameManager.Instance._currentCharacter == GameManager.Character.AIKE)
+            {
+                _sound.PlayAikeCollection(1, 0.3f);
+                PlayerPrefs.SetInt(_prefName, 1);
+                Instantiate(_particleSystem, transform.position, transform.rotation);
+
+                gameObject.SetActive(false);
+            }
+            
         }
         else
         {
-            _sound.PlayKrokurCollection(1, 0.3f);
+            if (GameManager.Instance._currentCharacter == GameManager.Character.KROKUR)
+            {
+                _sound.PlayKrokurCollection(1, 0.3f);
+                PlayerPrefs.SetInt(_prefName, 1);
+                Instantiate(_particleSystem, transform.position, transform.rotation);
+
+                gameObject.SetActive(false);
+            }
+            
         }
     }
 }

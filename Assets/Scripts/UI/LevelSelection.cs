@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LevelSelection : MonoBehaviour
 {
     public Button[] LvlButtons;
+    public GameObject[] LvlGems;
 
     void Start()
     {
@@ -29,6 +30,11 @@ public class LevelSelection : MonoBehaviour
             {
                 if (i + 2 > levelAt) LvlButtons[i].interactable = false;
             }
+
+            for (int i = 0; i < LvlGems.Length; i++)
+            {
+                LvlGems[i].GetComponent<LevelSelectionGems>().Lock(true);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.U))
@@ -41,6 +47,11 @@ public class LevelSelection : MonoBehaviour
             for (int i = 0; i < LvlButtons.Length; i++)
             {
                 LvlButtons[i].interactable = true;
+            }
+
+            for (int i = 0; i < LvlGems.Length; i++)
+            {
+                LvlGems[i].GetComponent<LevelSelectionGems>().Unlock(true);
             }
         }
     }

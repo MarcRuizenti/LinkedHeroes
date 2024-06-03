@@ -10479,6 +10479,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2190384643715018170, guid: caba589f7b5903b48a2b620ff506de7a, type: 3}
+      propertyPath: _prefName
+      value: GemKrokurOne
+      objectReference: {fileID: 0}
     - target: {fileID: 3378497734392628255, guid: caba589f7b5903b48a2b620ff506de7a, type: 3}
       propertyPath: m_Name
       value: collKrokur
@@ -10920,6 +10924,10 @@ PrefabInstance:
     - target: {fileID: 3308879503349281822, guid: a7d83b1457513b84eaaa6950a52cb803, type: 3}
       propertyPath: m_Offset.x
       value: -0.0043001175
+      objectReference: {fileID: 0}
+    - target: {fileID: 6426274540878385600, guid: a7d83b1457513b84eaaa6950a52cb803, type: 3}
+      propertyPath: _prefName
+      value: GemAikeOne
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11832,7 +11840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5650891326010821578, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7505867393955906461, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
       propertyPath: _pauseMenu

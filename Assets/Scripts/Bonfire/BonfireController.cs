@@ -52,6 +52,10 @@ public class BonfireController : MonoBehaviour
             _playerInsideRadius = true;
             if(_UI) _UI.SetActive(true);
         }
+        if (collision.CompareTag("DamageBoss"))
+        {
+            collision.gameObject.SetActive(false);
+        }
         
     }
 
