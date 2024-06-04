@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PauseMenu.unity
     guid: ff68d8bcc36154340bc38fd6bb953019
+  - enabled: 1
+    path: Assets/Scenes/Extras.unity
+    guid: 7b83db40b15ef19428ef7632e7b66b77
+  - enabled: 1
+    path: Assets/Scenes/ExtraAike.unity
+    guid: 18f761874b2e8ef40bbf9c7a5ff98867
   m_configObjects: {}
