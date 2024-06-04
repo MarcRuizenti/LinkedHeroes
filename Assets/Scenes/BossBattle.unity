@@ -3169,6 +3169,10 @@ PrefabInstance:
       propertyPath: blackTransition
       value: 
       objectReference: {fileID: 178514059}
+    - target: {fileID: 355741613427410554, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
+      propertyPath: useBlackTransition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 879550380711215751, guid: 8d856b315e2493a48983d87d313bc4af, type: 3}
       propertyPath: m_Name
       value: Background

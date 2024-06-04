@@ -12,6 +12,8 @@ public class Transition : MonoBehaviour
 
     public Animator blackTransition;
 
+    public bool useBlackTransition;
+
     
 
     // Start is called before the first frame update
@@ -32,9 +34,14 @@ public class Transition : MonoBehaviour
         
     }
 
+    public void LoadExtraLevels()
+    {
+        StartCoroutine(LoadLevel(10));
+    }
+
     IEnumerator LoadLevel(int levelIndex)
     {
-        if (SceneManager.GetActiveScene().name == "BossBattle")
+        if (useBlackTransition)
         {
             blackTransition.SetTrigger("Start");
         }
