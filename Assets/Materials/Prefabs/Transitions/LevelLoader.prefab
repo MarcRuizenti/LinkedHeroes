@@ -147,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -164, y: 100}
+  m_AnchoredPosition: {x: -164, y: 74}
   m_SizeDelta: {x: -372.7433, y: -209.6681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4736174979306837897
@@ -237,6 +237,7 @@ MonoBehaviour:
   transitionTime: 1
   nextSceneLoad: 0
   blackTransition: {fileID: 0}
+  useBlackTransition: 0
 --- !u!1 &7009426588707811093
 GameObject:
   m_ObjectHideFlags: 0
