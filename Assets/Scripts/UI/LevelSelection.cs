@@ -16,6 +16,8 @@ public class LevelSelection : MonoBehaviour
         {
             if (i + 2 > levelAt) LvlButtons[i].interactable = false;
         }
+
+        Time.timeScale = 1.0f;
     }
 
     private void Update()

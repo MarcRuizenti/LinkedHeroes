@@ -114,7 +114,7 @@ public class BossController : Patroll
             case States.RECHARGE:
                 if(_character == GameManager.Character.KROKUR)
                 {
-                    healthShield = 0;
+                    
                     RechargeKrokur();
                 }
                 else
@@ -151,6 +151,7 @@ public class BossController : Patroll
     {
         if (_krokurCycles <= 0)
         {
+            healthShield = 0;
             _canRechargekrokurAttack = true;
 
             if (transform.position != _changePhasePosition.position)
@@ -181,6 +182,7 @@ public class BossController : Patroll
         }
         else
         {
+            healthShield = 3;
             Recharge();
         }
 
@@ -283,10 +285,10 @@ public class BossController : Patroll
             tempO.GetComponent<BallMovement>().direccion = -direccion.normalized;
             tempO.GetComponent<BallMovement>()._bossPhase = _character;
             _canRechargekrokurAttack = false;
+            
         }
         else
         {
-
             _canRechargekrokurAttack = true;
         }
 
@@ -459,10 +461,15 @@ public class BossController : Patroll
             if (collision.name == "Box")
             {
                 collision.gameObject.SetActive(false);
-                if (healthShield <= 0)
+                if (_currentState == States.RECHARGE)
                 {
-                    TakeDamage(1);
+                    
+                    if (healthShield <= 0)
+                    {
+                        TakeDamage(1);
+                    }
                 }
+                
             }
             else
             {
